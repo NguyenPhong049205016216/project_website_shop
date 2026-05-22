@@ -24,5 +24,5 @@
 ├── cart.php
 ├── checkout.php
 └── orders.php
-![Uploading image.png…]()
+<img width="854" height="562" alt="image" src="https://github.com/user-attachments/assets/bcbd36c5-ac6d-4680-a967-51f0cf53bd27" />
 
