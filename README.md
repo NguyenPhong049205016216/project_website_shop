@@ -1,3 +1,4 @@
+
 # project_website_shop
 /project
 │
@@ -24,5 +25,5 @@
 ├── cart.php
 ├── checkout.php
 └── orders.php
-<img width="854" height="562" alt="image" src="https://github.com/user-attachments/assets/bcbd36c5-ac6d-4680-a967-51f0cf53bd27" />
+<img width="492" height="736" alt="structer_website_car_xe" src="https://github.com/user-attachments/assets/64376b1e-f97b-4821-b0cb-8d6f1c7dc8b8" />
 
