@@ -1,4 +1,3 @@
-
 # project_website_shop
 # 1.Quy tắc code nhóm
 Dùng chung common.css<br>
@@ -15,4 +14,4 @@ Backend:PHP<br>
 Database:MySQL,phpMyAdmin.<br>
 Deploy Online:InfinityFree hoặc Hostinger.<br>
 # 3.structor_project.  
-<img width="492" height="736" alt="structer_website_car_xe" src="https://github.com/user-attachments/assets/64376b1e-f97b-4821-b0cb-8d6f1c7dc8b8" />
+<img width="582" height="784" alt="structer_website_cars_shop" src="https://github.com/user-attachments/assets/d00a45cc-d918-4ceb-bba8-3ea4cd58bc46" />
