@@ -14,7 +14,7 @@ $title = "Car Shop";
     <div class="main">
         <header>
             <div class="logo">
-                <img src="../assets/images/cars/logo_cars_shop.png" alt="Logo">
+                <img src="../assets/images/cars/logo_cars_1.png" alt="Logo">
             </div>
             <div class="search">
                 <form>
@@ -22,21 +22,19 @@ $title = "Car Shop";
                 </form>
             </div>
             <div class="User">
-                <button>Đăng Ký</button>
-                <button>Đăng Nhập</button>
+                <button >Đăng Ký</button>
+                <button >Đăng Nhập</button>
             </div>
         </header>
 
         <nav>
-            <ul>
+            <ul class="menu">
                 <li><a href="../index.php">Trang Chủ</a></li>
                 <li><a href="../cars.php">Xe Hơi</a></li>
-                <li><a href="../about.php">Giới Thiệu</a></li>
-                <li><a href="../services.php">Dịch Vụ</a></li>
-                <li><a href="../contact.php">Liên Hệ</a></li>
+                <li><a href="../wishlist.php">Wishlist</a></li>
+                <li><a href="../cart.php">Giỏ Hàng</a></li>
             </ul>
-
-        </nav>>
+        </nav>
 
         </nav>
     </div>

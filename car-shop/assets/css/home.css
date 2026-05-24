@@ -1,36 +1,73 @@
 *{
+    margin: 0;
+    padding: 0;
+    /*dúp phần tử không tăng kích thước ngoài ý muốn */
+    box-sizing: border-box;
     font-family: arial, sans-serif;
     font-size: 20px;
 }
 
 /* biến  */
 :root{
-    --primary-color: #0d0505;
-    --secondary-color: #0d050583;
-    --text-color: #fff;
+    --primary-color:#fff;
+    --secondary-color: rgb(38, 166, 145);
+    --text-color: #090808;
 }
-
+body{
+    width: 100%;
+    height: 1200px;
+    margin: 0 auto;
+    background-color: var(--secondary-color);
+}
 .main{
     width: 100%;
-    height: 100px;
-    background-color: #0d050583;
-    
 }
 
 header{
-    width: 80%;
+    min-height: 80%;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--primary-color);
 }
-
 .logo{
-    width: 50px;
+    width: 100px;
 }
-
 .logo img{
     width: 100%;
+}
+
+#search{
+    width: 300px;
+    border-radius: 10px;
+}
+button{
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: black;
+    color: rgb(252, 250, 248);
+    padding: 10px 5px;
+}
+.menu{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    background: rgb(7, 7, 7);
+    align-items: center;
+}
+nav ul{
+    display: flex;
+    /* Khoảng cách giữa các mục menu */
+    gap: 80px;
+    /* Xóa dấu chấm */
+    list-style: none;
+}
+a{
+    /* Xóa dấu gạch chân */
+    text-decoration: none;
 }
 
 
