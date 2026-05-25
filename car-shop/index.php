@@ -22,26 +22,43 @@ $title = "Car Shop";
                 </form>
             </div>
             <div class="User">
-                <button> Logint</button>
+                <button>Login</button>
             </div>
         </header>
 
         <nav>
             <ul class="menu">
-                <li><a href="index.php">Trang Chủ</a></li>
-                <li><a href="cars.php">Xe Hơi</a></li>
-                <li><a href="wishlist.php">Wishlist</a></li>
-                <li><a href="cart.php">Giỏ Hàng</a></li>
+                <li><a href="index.php">Trang Chủ</a>
+                    <ul class="top_menu">
+                        <li><a href="#">Thông tin </a></li>
+                        <li><a href="#">Thông tin </a></li>
+                        <li><a href="#">Thông tin </a></li>
+                        <li><a href="#">Thông tin</a></li>
+                    </ul>
+                </li>
+                <li><a href="cars.php">Xe Hơi</a>
+                    <ul class="sub_menu">
+
+                    </ul>
+                </li>
+                <li><a href="wishlist.php">Wishlist</a>
+                    <ul class="">
+
+                    </ul>
+                </li>
+                <li><a href="cart.php">Giỏ Hàng</a>
+                    <ul>
+
+                    </ul>
+                </li>
             </ul>
         </nav>
 
         <section>
-            <div class="section">
-                <h1>
-                    xin chào bạn đến với cữa hàng bán xe! 
-                </h1>
-                <p> Future cars </p>
+            <div class="logo_banner">
+                <img class="banner" src="assets/images/cars/banner_senter.png" alt="logo_banner">
             </div>
+
         </section>
 
         </nav>
