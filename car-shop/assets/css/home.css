@@ -12,6 +12,7 @@
     --primary-color:#ffffffc4;
     --secondary-color:#111827;
     --text-color: #090808;
+    --menu-color:  #090808;
 }
 body{
     width: 100%;
@@ -85,10 +86,38 @@ button{
     left: 0;
     z-index: 20;
     list-style: none;
-    background-color: #090808;
+    background-color: var(--menu-color);
 }   
 
 .menu li:hover .top_menu{
+    display: block;
+}
+
+.sub_menu{
+    width: 100%;
+    list-style: none;
+    display:  none;
+    position: absolute;
+    z-index: 20;
+    top: 100%;
+    background-color: var(--menu-color);
+}
+
+.menu li:hover .sub_menu{
+    display: block;
+}
+
+.bex_menu{
+    width: 100%;
+    top: 100%;
+    position:  absolute;
+    list-style: none;
+    z-index: 20;
+    display: none;
+    background-color: var(--menu-color);
+}
+
+.menu li:hover .bex_menu{
     display: block;
 }
 
