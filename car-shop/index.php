@@ -6,6 +6,7 @@ $title = "Car Shop";
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="assets/css/home.css">
 </head>
@@ -62,13 +63,21 @@ $title = "Car Shop";
         </nav>
 
         <section>
+            <div class="content">
+                <h1 class="title_name">GR Supra</h1>
+                <h1>DRIVE YOUR DREAM CARS</h1><br>
+                <p>khám phá cửa hàng xe, từ hạng sang, thể thao, đến gia đình bạn khám phá ngay</p><br>
+                <button>Khám phá ngay</button>
+                <img class="logo_xe" src="assets/images/cars/logo_banner.png"></img>
+            </div>
+
+
             <div class="logo_banner">
-                <img class="banner" src="assets/images/cars/banner_senter_1.png" alt="logo_banner">
+                <img class="banner" src="assets/images/cars/backrout_banner.png" alt="logo_banner">
             </div>
 
         </section>
 
-        </nav>
     </div>
 </body>
 

@@ -140,6 +140,41 @@ section{
     width: 100%;
 }   
 
+.content{
+    width: 50%;
+    position: absolute;
+    color:#fff;
+    top:30%;
+    padding: 30px;
+    font-size: 20px;
+    /* màu trong suốt */
+    background-color: transparent;
+}
+.content button{
+    width: 200px;
+    padding: 10px;
+    position: absolute;
+    align-items: center;
+    top: 100%;
+    left: 20%;
+}
+
+.title_name{
+    width: 50%;
+    font-size: 60px;
+    position: absolute;
+    top: -110px;
+    left: 130%;
+}
+
+.logo_xe{
+    position: absolute;
+    top: 30%;
+    left: 700px;
+}
+
+
+
 
 
 
