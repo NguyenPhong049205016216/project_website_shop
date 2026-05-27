@@ -70,7 +70,7 @@ button{
 .menu li a{
     /* xóa dấu gạch dưới chử */
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 5px 15px;
     color: #fff;
     /* chỉnh khối thẻ a, chỉnh rộng cao  */
     display: block;
@@ -145,7 +145,7 @@ section{
     position: absolute;
     color:#fff;
     top:30%;
-    padding: 30px;
+    padding: 70px;
     font-size: 20px;
     /* màu trong suốt */
     background-color: transparent;
@@ -156,7 +156,9 @@ section{
     position: absolute;
     align-items: center;
     top: 100%;
-    left: 20%;
+    left: 20%;opacity: 0;
+    transform: translate(30px);
+    animation: moveup 1s linear forwards;
 }
 
 .title_name{
@@ -169,9 +171,26 @@ section{
 
 .logo_xe{
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 700px;
+    opacity: 0;
+    transform: translate(30px);
+    animation: moveup 1s linear forwards;
 }
+
+.title_anime{
+    opacity: 0;
+    transform: translate(30px);
+    animation: moveup 1s linear forwards;
+}
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+
 
 
 
