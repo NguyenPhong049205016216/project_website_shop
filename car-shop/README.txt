@@ -70,3 +70,42 @@ car-shop/<br>
 └── database/<br>
     └── car_shop.sql<br>
 <img width="492" height="736" alt="structer_website_car_xe" src="https://github.com/user-attachments/assets/64376b1e-f97b-4821-b0cb-8d6f1c7dc8b8" />
+
+* Thành viên 1 – Trang chủ & giao diện tổng thể
+Thiết kế giao diện trang chủ, navbar, banner, footer.
+Làm responsive cho giao diện chính trên điện thoại/tablet.
+Code phần hiển thị xe nổi bật, xe mới nhất, hãng xe nổi bật.
+Chịu trách nhiệm giao diện tổng thể để các trang còn lại dùng chung style.
+
+* Thành viên 2 – Trang danh sách xe & tìm kiếm/lọc
+Thiết kế giao diện trang danh sách xe.
+Code hiển thị danh sách xe từ database online.
+Làm chức năng tìm kiếm/lọc theo hãng xe, giá, loại xe, năm sản xuất.
+Làm phân trang sản phẩm nếu có nhiều xe.
+
+* Thành viên 3 – Trang chi tiết xe & wishlist
+Thiết kế giao diện trang chi tiết xe.
+Hiển thị hình ảnh, mô tả, thông số kỹ thuật, giá bán của xe.
+Code chức năng thêm/xóa xe yêu thích.
+Làm trang danh sách wishlist để người dùng xem lại xe đã lưu.
+
+* Thành viên 4 – Tài khoản người dùng & giỏ hàng
+Thiết kế giao diện đăng ký, đăng nhập, thông tin tài khoản.
+Code đăng ký, đăng nhập, đăng xuất bằng PHP session.
+Code giỏ hàng: thêm xe, xóa xe, cập nhật số lượng.
+Xử lý đặt hàng cơ bản từ giỏ hàng.
+
+* Thành viên 5 – Admin quản lý xe & database
+Thiết kế database MySQL online.
+Tạo các bảng: users, cars, brands, categories, orders, order_details, wishlist.
+Thiết kế giao diện admin quản lý xe.
+Code CRUD xe: thêm, sửa, xóa, xem danh sách xe.
+Xử lý upload ảnh xe lên server.
+
+* Thành viên 6 – Admin đơn hàng, người dùng & thống kê
+Thiết kế giao diện dashboard admin.
+Code quản lý đơn hàng: xem đơn, cập nhật trạng thái đơn hàng.
+Code quản lý người dùng: xem danh sách, phân quyền user/admin.
+Làm thống kê cơ bản: tổng số xe, tổng đơn hàng, doanh thu, số tài khoản.
+Kiểm thử tổng hợp, hỗ trợ ghép code và deploy website online.
+

@@ -16,7 +16,7 @@
 }
 body{
     width: 100%;
-    height: 1200px;
+    height: 9000px;
     margin: 0 auto;
     background-color: var(--secondary-color);
 }
@@ -86,20 +86,23 @@ button{
     left: 0;
     z-index: 20;
     list-style: none;
+    border-radius: 20px;
     background-color: var(--menu-color);
 }   
 
 .menu li:hover .top_menu{
     display: block;
 }
-
 .sub_menu{
-    width: 100%;
+    width: 170%;
     list-style: none;
     display:  none;
     position: absolute;
-    z-index: 20;
+    padding: 10px 15px;
+    left: -30%;
+    z-index: 10;
     top: 100%;
+    border-radius: 20px;
     background-color: var(--menu-color);
 }
 
@@ -108,12 +111,15 @@ button{
 }
 
 .bex_menu{
-    width: 100%;
+    width: 180%;
     top: 100%;
     position:  absolute;
     list-style: none;
     z-index: 20;
     display: none;
+    padding: 10px 15px;
+    left: -30%;
+    border-radius: 20px;
     background-color: var(--menu-color);
 }
 
@@ -138,13 +144,19 @@ section{
 
 .logo_banner{
     width: 100%;
-}   
+} 
 
+.herro_carstitle{
+    width: 100%;
+    min-height: 650px;
+    position: relative;
+    overflow: hidden;
+}
 .content{
     width: 50%;
     position: absolute;
     color:#fff;
-    top:30%;
+    top:25%;
     padding: 70px;
     font-size: 20px;
     /* màu trong suốt */
@@ -165,13 +177,13 @@ section{
     width: 50%;
     font-size: 60px;
     position: absolute;
-    top: -110px;
+    top: -70px;
     left: 130%;
 }
 
 .logo_xe{
     position: absolute;
-    top: 20%;
+    top: 35%;
     left: 700px;
     opacity: 0;
     transform: translate(30px);
@@ -189,6 +201,37 @@ section{
         transform: translate(0px);
     }
 }
+
+.herro_carsnew{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+}
+
+.cars_new{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+}
+.cars_new .cars_list{
+    width: 100%;
+}
+
+.cars_new .cars_list .car_card{
+    width: 50%;
+}
+
+.cars_new .cars_list .car_card .cars_img{
+    width: 50%;
+    position: absolute;
+}
+
+
+
+
+
+
+
 
 
 

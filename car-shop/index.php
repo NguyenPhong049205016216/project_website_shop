@@ -3,9 +3,10 @@ $title = "Car Shop";
 ?>
 
 <!DOCTYPE html>
-<html lang="end"> 
+<html lang="en">
 
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="assets/css/home.css">
@@ -31,7 +32,7 @@ $title = "Car Shop";
             <ul class="menu">
                 <li><a href="index.php">Trang Chủ</a>
                     <ul class="top_menu">
-                        <li><a href="#">introduce</a></li>
+                        <li><a href="index.php">introduce</a></li>
                         <li><a href="#">cars new</a></li>
                         <li><a href="#">best sell</a></li>
                         <li><a href="#">promotion</a></li>
@@ -62,7 +63,7 @@ $title = "Car Shop";
             </ul>
         </nav>
 
-        <section>
+        <section class="herro_carstitle">
             <div class="content">
                 <h1 class="title_name">GR Supra</h1>
                 <h1 class="title_anime">DRIVE YOUR DREAM CARS</h1><br>
@@ -70,10 +71,40 @@ $title = "Car Shop";
                 <button>Khám phá ngay</button>
                 <img class="logo_xe" src="assets/images/cars/logo_banner.png"></img>
             </div>
+
             <div class="logo_banner">
                 <img class="banner" src="assets/images/cars/backrout_banner.png" alt="logo_banner">
             </div>
+        </section>
 
+        <section class="hero_carsnew">
+            <div class="cars_new">
+                <h1> Cars New </h1><br>
+                <div class="car_list">
+                    <div class="car_card">
+                        <img class="cars_img" src="assets/images/cars/toyota_1.png">
+                        <h2> name xe </h2>
+                        <p> giá xe </p>
+                        <a href="cart_detail.php"> Xem chi tiết </a>
+                    </div>
+
+                    <div class="car_card">
+                        <img class="cars_img" src="assets/images/cars/toyota_2.png">
+                        <h2> name xe </h2>
+                        <p> giá xe </p>
+                        <a href="cart_detail.php"> Xem chi tiết </a>
+                    </div>
+
+                    <div class="car_card">
+                        <img class="cars_img" src="assets/images/cars/toyota_3.png">
+                        <h2> name xe </h2>
+                        <p> giá xe </p>
+                        <a href="cart_detail.php"> Xem chi tiết </a>
+                    </div>
+                    <div class="car_table"></div>
+
+                </div>
+                </dip>
         </section>
 
     </div>
