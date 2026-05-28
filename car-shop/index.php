@@ -6,7 +6,6 @@ $title = "Car Shop";
 <html lang="en">
 
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="assets/css/home.css">
@@ -101,6 +100,22 @@ $title = "Car Shop";
                         <p> giá xe </p>
                         <a href="cart_detail.php"> Xem chi tiết </a>
                     </div>
+
+                    <div class="car_card">
+                        <img class="cars_img" src="assets/images/cars/toyota_2.png">
+                        <h2> name xe </h2>
+                        <p> giá xe </p>
+                        <a href="cart_detail.php"> Xem chi tiết </a>
+                    </div>
+
+                    <div class="car_card">
+                        <img class="cars_img" src="assets/images/cars/toyota_3.png">
+                        <h2> name xe </h2>
+                        <p> giá xe </p>
+                        <a href="cart_detail.php"> Xem chi tiết </a>
+                    </div>
+
+
                     <div class="car_table"></div>
 
                 </div>
