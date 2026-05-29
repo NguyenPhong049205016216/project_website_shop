@@ -1,69 +1,79 @@
 *{
     margin: 0;
     padding: 0;
-    /*dúp phần tử không tăng kích thước ngoài ý muốn */
     box-sizing: border-box;
-    font-family: arial, sans-serif;
-    font-size: 20px;
+    font-family: Arial, sans-serif;
 }
 
-/* biến */
 :root{
-    --primary-color:#ffffffc4;
-    --secondary-color:#111827;
-    --text-color: #090808;
-    --menu-color:  #090808;
+    --primary-color: #ffffff;
+    --secondary-color: #111827;
+    --menu-color: #090808;
+    --accent-color: #050709;
+    --text-light: #ffffff;
 }
-/* body toàn bộ slide trang index */
+
+/* Toàn trang */
 body{
     width: 100%;
-    height: 9000px;
-    margin: 0 auto;
-    background-color: white;
+    background-color: #f4f6f8;
 }
+
 .main{
     width: 100%;
-}  
- /* header đầu trang  */
+    min-height: 100vh;
+}
+
+/* Header */
 header{
-    min-height: 60%;
-    height: 80px;
-    padding: 0 60px;
+    width: 100%;
+    min-height: 85px;
+    padding: 10px 30px;
     display: flex;
+    gap:20px;
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-color);
-}
-.logo{
-    width: 100px;
-}
-.logo img{
-    width: 210%;
-    height: 80px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-#search{
-    width: 300px;
-    border-radius: 20px;
-    border: 3px rgb(52, 140, 234) solid;
+.logo img{
+    width: 220px;
+    height: auto;
 }
+
+.search input{
+    width: 350px;
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 25px;
+    border: 2px solid var(--accent-color);
+    outline: none;
+}
+
 button{
-    border-radius: 10px;
+    padding: 11px 22px;
+    border-radius: 50px;
+    background-color: #111827;
+    color: white;
     font-size: 18px;
-    background-color: black;
-    color: rgb(252, 250, 248);
-    padding: 10px 5px;  
 }
-/* menu chứa phần gọi trang */
+/* Menu */
+nav{
+    width: 100%;
+    position: relative;
+    z-index: 99;
+}
+
 .menu{
     width: 100%;
-    height: 50px;
+    min-height: 55px;
     display: flex;
-    list-style: none;
     justify-content: center;
-    gap: 100px;
-    background: rgb(7, 7, 7);
     align-items: center;
+    gap: 100px;
+    list-style: none;
+    background-color: #090808;
 }
 
 .menu li{
@@ -71,210 +81,203 @@ button{
 }
 
 .menu li a{
-    /* xóa dấu gạch dưới chử */
+    /* nhóm thẻ a trong menu để dãng cách */
+    display: block;
+    padding: 15px 18px;
+    color: white;
+    /* bỏ đi dấu gạch chân */
     text-decoration: none;
-    padding: 5px 15px;
-    color: #fff;
-    /* chỉnh khối thẻ a, chỉnh rộng cao  */
-    display: block;
+    font-size: 17px;
 }
 
-.top_menu{
-    width: 100%;
-    position: absolute;
-    display: none;
-    /* đẩy phần tử con xuống dưới phần tử cha */
-    top: 100%;
-    padding: 10px 0px;
-    left: 0;
-    z-index: 20;
-    list-style: none;
+.menu li:hover{
+    background-color: rgba(68, 162, 112, 0.9);
     border-radius: 20px;
-    background-color: var(--menu-color);
-}   
-
-.menu li:hover .top_menu{
-    display: block;
-}
-.sub_menu{
-    width: 170%;
-    list-style: none;
-    display:  none;
-    position: absolute;
-    padding: 10px 15px;
-    left: -30%;
-    z-index: 10;
-    top: 100%;
-    border-radius: 20px;
-    background-color: var(--menu-color);
+    transition: 0.3s;
 }
 
-.menu li:hover .sub_menu{
-    display: block;
-}
-
+/* Menu con */
+.top_menu,
+.sub_menu,
 .bex_menu{
-    width: 180%;
-    top: 100%;
-    position:  absolute;
-    list-style: none;
-    z-index: 20;
     display: none;
-    padding: 10px 15px;
-    left: -30%;
-    border-radius: 20px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    padding: 10px 0;
+    list-style: none;
     background-color: var(--menu-color);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
+.top_menu li a,
+.sub_menu li a,
+.bex_menu li a{
+    padding: 12px 18px;
+    font-size: 15px;
+}
+
+.menu li:hover .top_menu,
+.menu li:hover .sub_menu,
 .menu li:hover .bex_menu{
     display: block;
 }
 
-/* bấm vào thẻ li chữ đỗi mầu */
-.menu li:hover{
-    background-color: rgba(68, 162, 112, 0.893);
-    transition-duration: 1s;
-    border-radius: 20px;
+/* Banner */
+section{
+    width: 100%;
 }
 
-/* herro_carstitle trang phần introduce */
-.herro_carstitle{
-    width: 100%;
-    min-height: 650px;
-    /* làm mốc / dịch nhẹ */
+section:first-of-type{
     position: relative;
-    /* cắt phần dư */
+    min-height: 650px;
     overflow: hidden;
+
+    background-image: url("../images/cars/backrout_banner.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.logo_banner .banner{
-    width: 100%;
-    height: 650px;
-}
-
-.banner{
-    /*ảnh phủ cả khung  */
-    object-fit: cover;
-}
-
-.logo_banner{
-    width: 100%;
-} 
 .content{
+    position: relative;
+    z-index: 2;
     width: 50%;
-    position: absolute;
-    color:#fff;
-    top:25%;
-    padding: 70px;
-    font-size: 20px;
-    /* màu trong suốt */
-    background-color: transparent;
-}
-.content button{
-    width: 200px;
-    padding: 10px;
-    position: absolute;
-    align-items: center;
-    top: 100%;
-    left: 20%;opacity: 0;
-    transform: translate(30px);
-    animation: moveup 1s linear forwards;
+    min-height: 650px;
+    padding: 130px 60px;
+    color: white;
 }
 
-.title_name{
-    width: 50%;
+.content h1:first-child{
     font-size: 60px;
-    position: absolute;
-    top: -70px;
-    left: 130%;
+    margin-bottom: 15px;
 }
 
+.content h1{
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.content p{
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Ảnh xe */
 .logo_xe{
     position: absolute;
-    top: 35%;
-    left: 700px;
-    opacity: 0;
-    transform: translate(30px);
-    animation: moveup 1s linear forwards;
+    right: -100%;
+    top: 75%;
+    bottom: 0;
+    max-width: 150%;
+    transform: translateY(-50%);
+    object-fit: contain;
+}
+
+.chapter{
+    font-size: 22px;
+    margin: 20px;
+    border-left: 4px solid #111827;
+    border-radius: 8px;
+    position: relative;
+}
+
+.cars_introduce{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.item{
+    width: calc(25% - 20px);
+    background-color: white;
+    border-radius: 60px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    /* chữ nằm dưới ảnh */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.item_img{
+    width: 50%;
+    height: auto;
+    border-radius: 40px;
     object-fit: cover;
 }
 
-.title_anime{
-    opacity: 0;
-    transform: translate(30px);
-    animation: moveup 1s linear forwards;
+/* Footer */
+footer{
+    padding: 30px;
+    text-align: center;
+    background-color: #111827;
+    color: white;
 }
-@keyframes moveup{
-    100%{
-        opacity: 1;
-        transform: translate(0px);
+
+
+
+/* Responsive điện thoại */
+@media (max-width: 768px){
+    header{
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .search input{
+        width: 280px;
+    }
+
+    .menu{
+        /* sắp xếp các mục trong menu theo cột dọc */
+        flex-direction: column;
+        /* sắp xếp các mục trong menu theo hàng ngang */
+        /* flex-direction: row; */
+        gap: 0;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .top_menu,
+    .sub_menu,
+    .bex_menu{
+        position: static;
+        min-width: 100%;
+        text-align: center;
+    }
+
+    section:first-of-type{
+        min-height: 700px;
+    }
+
+    .content{
+        width: 100%;
+        padding: 80px 25px;
+        text-align: center;
+    }
+
+    .content h1:first-child{
+        font-size: 42px;
+    }
+
+    .content h1{
+        font-size: 28px;
+    }
+
+    .logo_xe{
+        position: static;
+        width: 90%;
+        margin-top: 20px;
+        transform: none;
     }
 }
-/* herro_carstitle trang phần introduce */
-.hero_carsnew{
-    width: 100%;
-    height: 650px;
-    position: relative;
-    top:100%;
-}
-
-.cars_new{
-    width: 100%;
-    align-items: center;
-    background-color: var(--secondary-color);
-}
-
-.cars_new h1{
-    text-align: center;
-    color: #fff;
-    padding: 20px;
-    font-size: 22px;
-    background-color:black;
-
-}
-
-.car_list{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    text-align: center;
-    /* suống hàng khi màng hình nhỏ */
-    flex-wrap: wrap;
-
-}
-
-.car_card{  
-    position: relative;
-    border-radius: 40px;
-    overflow: hidden;
-    justify-content: center;
-    background-color: #111827;
-    text-align: center;
-}
-
-.cars_img{
-    width: 200px;
-    height: 200px;
-    background-color: rgb(231, 226, 217);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
