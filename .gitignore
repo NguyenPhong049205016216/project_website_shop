@@ -1,0 +1,28 @@
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Dependencies
+node_modules/
+vendor/
+
+# Upload files
+uploads/
+
+# Build
+dist/
+build/
+
+# Zip/Rar
+*.zip
+*.rar
