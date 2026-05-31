@@ -184,9 +184,10 @@ section:first-of-type{
 .chapter{
     font-size: 22px;
     margin: 20px;
-    border-left: 4px solid #111827;
+    border-left: 4px solid #0d408eb4;
     border-radius: 8px;
     position: relative;
+    padding-left: 5px;
 }
 
 .cars_introduce{
@@ -229,6 +230,7 @@ section:first-of-type{
     gap: 20px;
     flex-wrap: wrap;
     padding: 20px;
+
 }
 
 .item_brands{
@@ -251,11 +253,31 @@ section:first-of-type{
 
 /* Footer */
 footer{
-    padding: 30px;
-    text-align: center;
+    width: 100%;
+    padding-top: 10px;
     background-color: #111827;
-    color: white;
+    color: white; 
 }
+
+.chapter_footer{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.left_footer,
+.right_footer,
+.center_footer{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+
 
 /* Responsive điện thoại */
 @media (max-width: 768px){

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $title = "Trang Chủ";
 include "includes/header.php";
 ?>
@@ -52,6 +52,7 @@ include "includes/header.php";
                 </div>
             </div>
         </main>
+
         <!-- thương hiệu -->
         <h1 class="chapter" id="Brands">Card Brands</h1>
         <main class="cars_brands">
@@ -64,30 +65,13 @@ include "includes/header.php";
             <div class="item_brands">
                 <img class="img_brands" src="assets/images/cars/icon_vinfast.png" alt="trademark 1">
             </div>
-        </main>
-
-        <footer>
-            <h1 class="chapter" id="footer">Contact</h1>
-            <div class="left_footer">
-                <h2>Cart me</h2>
-                <p>chuyên cung cấp các loại xe hơi chất lượng cao, từ hạng sang đến thể thao, với dịch vụ khách hàng tận tâm và giá cả cạnh tranh.</p>
-            </div>
-            <div class="center_footer">
-                <h2>Connect faster</h2>
-                <a href="index.php">Trang chủ</a>
-                <a href="car-details.php">Chi tiết xe</a>
-                <a href="wishlist.php">Wishlist</a>
-                <a href="cart.php">Giỏ hàng</a>
-                <a href="cars.php">Xe hơi</a>
-            </div>
-            <div class="right_footer">
-                <h2>Contact Us</h2>
-                <p>https://www.cars.me.com</p>
-                <p>Email: phong@example.com</p>
-                <p>Phone: 123-456-7890</p>
-            </div>
-        </footer>
+        </main> 
     </div>
 </body>
+
+<!-- Footer -->
+<?php
+include "includes/footer.php";
+?>
 
 </html>

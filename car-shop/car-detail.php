@@ -1,5 +1,6 @@
 <?php
 $title = "Car Details";
+include "includes/header.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,5 +11,7 @@ $title = "Car Details";
     <link rel="stylesheet" href="assets/css/details.css">
 </head> 
 
-
+<?php
+include "includes/footer.php";
+?>
 </html>
