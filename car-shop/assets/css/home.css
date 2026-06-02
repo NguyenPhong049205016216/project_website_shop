@@ -144,6 +144,20 @@ section:first-of-type{
     background-position: center;
     background-repeat: no-repeat;
 }
+.title_name{
+    opacity: 0.9;
+    transform: translateY(30px);
+    animation: moveUp 2s linear forwards;   
+}
+
+@keyframes moveUp {
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
 
 .content{
     position: relative;
@@ -179,6 +193,7 @@ section:first-of-type{
     max-width: 150%;
     transform: translateY(-50%);
     object-fit: contain;
+    animation-delay: 0.5s;
 }
 
 .chapter{

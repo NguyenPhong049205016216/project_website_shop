@@ -1,6 +1,5 @@
 <?php 
 $title = "Trang Chủ";
-include "includes/header.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +11,7 @@ include "includes/header.php";
 </head>
 
 <body>
+    <?php include "includes/header.php"; ?>
     <div class="main">
         <!-- Cars New -->
         <h2 class="chapter" id="cars_new">Cars New</h2>
@@ -21,7 +21,7 @@ include "includes/header.php";
                 <div class="item_info">
                     <h3>Toyota Vios</h3>
                     <p>Giá: 545.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
                 </div>
             </div>
 
@@ -30,7 +30,7 @@ include "includes/header.php";
                 <div class="item_info">
                     <h3>Toyota Vios G  </h3>
                     <p>Giá: 650.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@ include "includes/header.php";
                 <div class="item_info">
                     <h3>Vios 1.5G - CVT</h3>
                     <p>Giá: 545.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
                 </div>
             </div>
 
@@ -48,7 +48,7 @@ include "includes/header.php";
                 <div class="item_info">
                     <h3>Vios 1.5G - CVT</h3>
                     <p>Giá: 550.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
                 </div>
             </div>
         </main>
@@ -66,6 +66,9 @@ include "includes/header.php";
                 <img class="img_brands" src="assets/images/cars/icon_vinfast.png" alt="trademark 1">
             </div>
         </main> 
+        <h1 class="chapter" id="best_sellers">Best Sellers</h1>
+        
+        <h1 class="chapter" id="promotion">Promotions</h1>
     </div>
 </body>
 
