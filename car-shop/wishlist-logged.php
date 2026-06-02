@@ -7,7 +7,7 @@ $title = "Car Shop";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="assets/css/wishlist.css">
+    <link rel="stylesheet" href="assets/css/wishlist1.css">
 </head>
 <body>
     <div class="main">
@@ -72,28 +72,43 @@ $title = "Car Shop";
             </div>
         </section>
 
-        <section class="middle-content">
-            <div class="content-layout">
-                <div class="wishlist-content">
-                    <h2>My wishlist</h2>
+        <main class="cars_introduce">
+            <div class="item">
+                <img class="item_img" src="assets/images/cars/toyota_1.png" alt="Car 1">
+                <div class="item_info">
+                    <h3>Toyota Vios</h3>
+                    <p>Giá: 545.000.000 VNĐ</p>
+                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
                 </div>
-                <div class="fuse-list">
-                    <ul>
-                        <li>Thêm các dòng xe yêu thích của bạn</li>
-                        <li>Nhận thông báo khi có khuyến mãi từ xe yêu thích</li>
-                        <li>Hãy đăng nhập để sử dụng các tính năng này</li>
-                    </ul>
-                </div>
-
-                <div class="button-action">
-                    <a class="login-btn" href="index.php">Cửa hàng</a>
-                    <a class="regis-btn" href="register.php">Đăng ký</a>
-                </div>
-                <p class="signin">
-                    Đã có tài khoản? <a href="login.php">Đăng nhập</a>
-                </p>
             </div>
-        </section>
+
+            <div class="item">
+                <img class="item_img" src="assets/images/cars/toyota_2.png" alt="Car 1">
+                <div class="item_info">
+                    <h3>Toyota Vios G  </h3>
+                    <p>Giá: 650.000.000 VNĐ</p>
+                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <img class="item_img" src="assets/images/cars/toyota_3.png" alt="Car 1">
+                <div class="item_info">
+                    <h3>Vios 1.5G - CVT</h3>
+                    <p>Giá: 545.000.000 VNĐ</p>
+                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <img class="item_img" src="assets/images/cars/toyota_3(vang).png" alt="Car 1">
+                <div class="item_info">
+                    <h3>Vios 1.5G - CVT</h3>
+                    <p>Giá: 550.000.000 VNĐ</p>
+                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                </div>
+            </div>
+        </main>
 
         <footer>
             <h1 class="chapter" id="footer">Contact</h1>

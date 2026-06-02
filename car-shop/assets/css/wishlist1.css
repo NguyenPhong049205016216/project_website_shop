@@ -158,72 +158,42 @@ nav{
     text-shadow: 0 4px 10px rgba(112, 179, 114, 0.744);
 }
 
-.middle-content{
+.cars_introduce{
     width: 100%;
-    padding: 50px 80px 80px;
-    background-color: #ffffff;
-}
-
-.middle-content .wishlist-content h2{
-    color: #1f2937;
-    font-size: 26px;
-    font-weight: 600;
-}
-
-.middle-content{
-    width: 100%;
-    background-color: #eff2f3;
-}
-
-.content-layout .wishlist-content h2{
-    color: #000000;
-    font-size: 45px;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-.content-layout ul {
-    padding-left: 25px;
-}
-
-.content-layout ul li::marker{
-    font-size: 25px;
-    color: #919395;
-}
-
-ul li{
-    margin-top: 25px;
-    letter-spacing: 0.5px;
-    font-size: 20px;
-    margin-bottom: 25px;
-}
-
-.button-action{
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    text-transform: uppercase;
+
 }
 
-.button-action a{
+.item{
+    width: 32%;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
+    /* chữ nằm dưới ảnh */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    width: 150px;
-    height: 60px;
-    text-decoration: none;
-    background-color: #ffffff;
-    border: 1px solid #111827;
-    border-radius: 40px;
-    color: #111827;
-    font-size: 20px;
-    font-weight: 500;
+    gap: 20px;
+    padding: 20px;
 }
 
-.signin{
-    margin-top: 15px;
-    letter-spacing: 0.5px;
-    font-size: 20px;
-    padding-left: 25px;
+.item_img{
+    width: 50%;
+    height: auto;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.img_brands{
+    width: 80%;
+    height: 100px;
+    border-radius: 60px;
+    object-fit: cover;
 }
 
 /* Footer */
