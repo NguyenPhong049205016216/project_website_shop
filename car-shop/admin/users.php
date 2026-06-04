@@ -38,17 +38,18 @@
                 <div class="statistics">
                     <div class="statistic-item">
                         <h3>Total Users</h3>
-                        <p>150</p>
+                        <p>0</p>
                     </div>
                     <div class="statistic-item">
                         <h3>Active Users</h3>
-                        <p>120</p>
+                        <p>0</p>
                     </div>
                     <div class="statistic-item">
                         <h3>Admins</h3>
-                        <p>5</p>
+                        <p>0</p>
                     </div>
                 </div>
+                
             </div>
 
             <h1 class="chapter">User</h1>
