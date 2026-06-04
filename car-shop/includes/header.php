@@ -44,7 +44,23 @@ if (!isset($title)) {
                 </li>
                 <li><a href="cars.php">Xe Hơi</a>
                     <ul class="sub_menu">
-                        <li><a href="cars.php#Hang_xe">Hảng xe</a></li>
+                        <li><a href="cars.php#Hang_xe">Hãng xe</a>
+                        <ul class="sub_menu_level3">
+                            <li><a href="cars.php?brand=vinfast">VINFAST</a></li>
+                            <li><a href="cars.php?brand=mercedes">MERCEDES-BENZ</a></li>
+                            <li><a href="cars.php?brand=bmw">BMW</a></li>
+                            <li><a href="cars.php?brand=volvo">VOLVO</a></li>
+                            <li><a href="cars.php?brand=hyundai">HYUNDAI</a></li>
+                            <li><a href="cars.php?brand=ford">FORD</a></li>
+                            <li><a href="cars.php?brand=honda">HONDA</a></li><li><a href="cars.php?brand=kia">KIA</a></li>
+                            <li><a href="cars.php?brand=toyota">TOYOTA</a></li>
+                            <li><a href="cars.php?brand=mazda">MAZDA</a></li>
+                            <li><a href="cars.php?brand=porsche">PORSCHE</a></li>
+                            <li><a href="cars.php?brand=lexus">LEXUS</a></li>
+                            <li><a href="cars.php?brand=suzuki">SUZUKI</a></li>
+                            <li><a href="cars.php?brand=other">KHÁC</a></li>
+                        </ul>
+                    </li>
                         <li><a href="cars.php#Loai_xe">Loại xe</a></li>
                         <li><a href="cars.php#Gia_xe">Giá xe</a></li>
                         <li><a href="cars.php#Tinh_trang">Tình trạng</a></li>
@@ -79,7 +95,9 @@ if (!isset($title)) {
             </section>
 
         </nav>
+        
     </div>
+    
 </body>
 
 </html>

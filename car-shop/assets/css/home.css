@@ -350,6 +350,38 @@ footer{
         transform: none;
     }
 }
+/* ====== FIX HÃNG XE HIỆN CỘT BÊN PHẢI ====== */
+
+/* submenu chỉ riêng hãng xe */
+.sub_menu_level3 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: #111827;
+    min-width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 999;
+}
+
+/* hover vào Hãng xe thì hiện cột hãng */
+.sub_menu li:hover > .sub_menu_level3 {
+    display: block;
+}
+
+/* item hãng xe */
+.sub_menu_level3 li a {
+    display: block;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.sub_menu_level3 li a:hover {
+    background: rgba(68, 162, 112, 0.9);
+}
 
 /* vidu{
     display: flex;
