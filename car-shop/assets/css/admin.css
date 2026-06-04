@@ -4,6 +4,7 @@
     --menu-color: #090808;
     --accent-color: #050709;
     --text-light: #ffffff;
+    --item-color: #1374d5b7;
 }
 
 *{
@@ -22,6 +23,11 @@ header{
     width: 100%;
     min-height: 85px;
     padding: 10px 20px;
+    /* cố định luôn header trên màn hình */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -37,7 +43,11 @@ header{
 }
 .sidebar{
     width: 100%;
-    background-color: var(--primary-color);
+    position: fixed;
+    top: 85px;
+    left: 0;
+    height: calc(100vh - 85px);
+    height: 100vh;
     padding: 40px;
     color: var(--secondary-color);
 }
@@ -50,7 +60,7 @@ header{
 }
 .btn{
     position: absolute;
-    bottom: 40px;
+    bottom: 100px;
     left: 40px;
     padding: 11px 10px;
     border-radius: 50px;
@@ -60,16 +70,43 @@ header{
 }
 
 .main-content{
-    width: 100%;
+    width: 500%;
+    min-height: 100vh;
+    margin-left: 250px;
+    padding-top: 105px;
+    padding-left: 30px;
+
 }
 .chapter{
     width: 100%;
-    min-height: 120px;
+    border-left: 5px solid #dc1b1b;
+    border-radius: 10px;
+    padding-left: 10px;
+    position: relative;
+    margin: 10px;
+
 }
 .dashboard{
     width: 100%;
-    min-height: auto;
+    min-height: 500px;
+    border-radius: 10px;
     padding: 40px;
+    background-color: var(--primary-color);
 }
+.statistic{
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    gap: 20px;
+}
+.statistic-item{
+    width: 50%;
+    min-height: 150px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--item-color);
+}
+
 
 
