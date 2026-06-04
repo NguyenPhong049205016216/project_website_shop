@@ -47,17 +47,8 @@ if (!isset($title)) {
                         <li><a href="cars.php#Hang_xe">Hãng xe</a>
                         <ul class="sub_menu_level3">
                             <li><a href="cars.php?brand=vinfast">VINFAST</a></li>
-                            <li><a href="cars.php?brand=mercedes">MERCEDES-BENZ</a></li>
-                            <li><a href="cars.php?brand=bmw">BMW</a></li>
-                            <li><a href="cars.php?brand=volvo">VOLVO</a></li>
-                            <li><a href="cars.php?brand=hyundai">HYUNDAI</a></li>
-                            <li><a href="cars.php?brand=ford">FORD</a></li>
-                            <li><a href="cars.php?brand=honda">HONDA</a></li><li><a href="cars.php?brand=kia">KIA</a></li>
+                            <li><a href="cars.php?brand=Audi">AUDI</a></li>
                             <li><a href="cars.php?brand=toyota">TOYOTA</a></li>
-                            <li><a href="cars.php?brand=mazda">MAZDA</a></li>
-                            <li><a href="cars.php?brand=porsche">PORSCHE</a></li>
-                            <li><a href="cars.php?brand=lexus">LEXUS</a></li>
-                            <li><a href="cars.php?brand=suzuki">SUZUKI</a></li>
                             <li><a href="cars.php?brand=other">KHÁC</a></li>
                         </ul>
                     </li>
@@ -83,19 +74,7 @@ if (!isset($title)) {
                     </ul>
                 </li>
             </ul>
-
-            <section>
-                <div class="content">
-                    <h1 class="title_name">GR Supra</h1>
-                    <h1 class="title_name">DRIVE YOUR DREAM CARS</h1><br>
-                    <p class="title_name">khám phá cửa hàng xe, từ hạng sang, thể thao, đến gia đình bạn khám phá ngay</p><br>
-                    <a href="#" class="title.btn">Xem ngay</a>
-                    <img class="logo_xe" src="/car-shop/assets/images/cars/logo_banner.png" alt="Banner"></img>
-                </div>
-            </section>
-
         </nav>
-        
     </div>
     
 </body>
