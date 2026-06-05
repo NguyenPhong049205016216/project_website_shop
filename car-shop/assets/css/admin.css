@@ -18,7 +18,7 @@ body{
     min-height: auto;
     background-color: #f4f6f8;
 }
-
+/* dùng chung all admin */
 header{
     width: 100%;
     min-height: 85px;
@@ -68,7 +68,7 @@ header{
     color: white;
     font-size: 18px;
 }
-
+/* dùng chung */
 .main-content{
     width: 500%;
     min-height: 100vh;
@@ -77,6 +77,7 @@ header{
     padding-left: 30px;
 
 }
+/* dùng chung */
 .chapter{
     width: 100%;
     border-left: 5px solid #dc1b1b;
@@ -86,6 +87,7 @@ header{
     margin: 10px;
 
 }
+/* dùng chung  */
 .dashboard{
     width: 100%;
     min-height: 500px;
@@ -103,18 +105,18 @@ header{
 .dashboard p{
     margin-bottom: 20px;
 }
+/* dùng chung */
 .search{
     margin-bottom: 20px;
 }
+/* dashboard admin */
 .statistics{
     width: 100%;
-    min-height: 150px;
     display: flex;
     gap: 20px;
 }
 .statistic-item{
-    width: 50%;
-    min-height: 100px;
+    width: 30%;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
@@ -127,12 +129,41 @@ header{
     font-size: 18px;
 }
 .statistic-item p{
+    width: 100%;
     align-items: center;
     display: flex;
     justify-content: center;
     font-size: 24px;
-    font-weight: bold;
+    background-color: aliceblue;
+    border-radius: 20%;
 }
+
+/* user admin */
+table{
+    width: 100%;
+    font-size: 22px;
+}
+table tr th{
+    height: 60px;
+}
+
+.item_head{
+    height: 50px;
+}
+
+/* cars admin */
+.item_tatol{
+    width: 20%;
+    color:#f4f6f8;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #111827;
+}
+
+
+
+
+
 
 
 

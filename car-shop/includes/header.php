@@ -1,4 +1,4 @@
-<?php
+    <?php
 // Kiểm tra nếu biến $title đã được đặt, nếu chưa thì gán giá trị mặc định
 if (!isset($title)) {
     $title = "Header";
