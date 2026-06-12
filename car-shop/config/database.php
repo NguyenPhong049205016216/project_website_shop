@@ -1,14 +1,18 @@
 <?php
-
 $host = "localhost";
-$user = "root";
+$username = "root";
 $password = "";
 $database = "car_shop";
 
-$conn = new mysqli($host, $user, $password, $database);
+$conn = mysqli_connect($host, $username, $password, $database);
 
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
+if($conn){
+
+    echo "Kết nối thành công";
+
+}else{
+
+    echo "Kết nối thất bại";
+    
 }
-
 ?>
