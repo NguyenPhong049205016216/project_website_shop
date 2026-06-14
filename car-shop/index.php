@@ -26,6 +26,7 @@ include "includes/header.php";
         <h2 class="chapter" id="cars_new">Cars New</h2>
         <main class="cars_introduce">
             <div class="item">
+                <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
                 <img class="item_img" src="assets/images/cars/toyota_1.png" alt="Car 1">
                 <div class="item_info">
                     <h3>Toyota Vios</h3>
@@ -35,6 +36,7 @@ include "includes/header.php";
             </div>
 
             <div class="item">
+                <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
                 <img class="item_img" src="assets/images/cars/toyota_2.png" alt="Car 1">
                 <div class="item_info">
                     <h3>Toyota Vios G </h3>
@@ -44,6 +46,7 @@ include "includes/header.php";
             </div>
 
             <div class="item">
+                <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
                 <img class="item_img" src="assets/images/cars/toyota_3.png" alt="Car 1">
                 <div class="item_info">
                     <h3>Vios 1.5G - CVT</h3>
@@ -53,6 +56,7 @@ include "includes/header.php";
             </div>
 
             <div class="item">
+                <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
                 <img class="item_img" src="assets/images/cars/toyota_3(vang).png" alt="Car 1">
                 <div class="item_info">
                     <h3>Vios 1.5G - CVT</h3>

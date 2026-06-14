@@ -16,7 +16,6 @@
 /* Toàn trang */
 body {
     width: 100%;
-    min-height: 1.6vh;
     background-color: #f4f6f8;
 }
 
@@ -28,14 +27,19 @@ body {
 /* Header */
 header {
     width: 100%;
-    min-height: 1.6vh;
-    padding: 10px 30px;
+    padding: 2px;
     display: flex;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+header .logo{
+    padding-left: 30px;
+}
+header .User{
+    padding-right: 30px;
 }
 
 #icon-index{
@@ -231,7 +235,7 @@ section:first-of-type {
 }
 
 .chapter {
-    font-size: 22px;
+    font-size: 30px;
     margin: 20px;
     border-left: 4px solid #0d408eb4;
     border-radius: 8px;
@@ -248,11 +252,11 @@ section:first-of-type {
     justify-content: flex-start;
     padding: 20px;
     text-transform: uppercase;
-
 }
 
 .item {
-    width: 32%;
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: 280px;
     background-color: white;
     border-radius: 40px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -262,7 +266,13 @@ section:first-of-type {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 20px;
+    padding: 20px;    
+}
+.cars_itdnew{
+    width: 60px;
+    position: relative;
+    height: 60px;
+    align-self: flex-end;
 }
 
 .item_img {
@@ -292,10 +302,30 @@ section:first-of-type {
     align-items: center;
     padding: 20px;
 }
-.item_info a{
-    text-decoration: none;
+.item_info{
+    width: 100%;
+    text-align: center;
 }
-
+.item_info a{
+    color: rgba(179, 6, 23, 0.925);
+    font-size: 23px;
+    gap:10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.item_info p{
+    padding: 3px;
+    font-size: 23px;
+    border-radius: 7px;
+    color: #f4f6f8;
+    white-space: nowrap;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+}
+.item_info h3{
+    font-size: 28px;
+    /* chữ không bị thu nhỏ */
+    white-space: nowrap;
+}
 .img_brands {
     width: 100%;
     height: auto;
@@ -357,10 +387,8 @@ footer {
         display: none;
         position: absolute;
         flex-direction: column;
-        z-index: 1000;
         top:100%;
         left: 0;
-
 
     }
     .menu.active{
@@ -383,7 +411,8 @@ footer {
     #icon-index{
         display: block;
         margin-left: 20px;
-        cursor: pointer;
+        
+        background-color: #090808;
     }
     /* section  index */
     .content {
@@ -408,8 +437,43 @@ footer {
     }
 
     /* main cars*/
-    .cars_introduce {
+     .cars_introduce{
         justify-content: center;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .item{
+        width: 45%;
+        min-height: 330px;
+        border-radius: 30px;
+        padding: 15px;
+    }
+
+    .item_img{
+        width: 80%;
+    }
+
+    .item_info h3{
+        font-size: 18px;
+        white-space: nowrap;
+    }
+
+    .item_info p{
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    .item_info a{
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .cars_itdnew{
+        left: 0;
+        width: 45px;
+        height: 45px;
+        align-self: flex-end;
     }
 }
 
