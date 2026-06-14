@@ -22,7 +22,8 @@ if (!isset($title)) {
                 <img src="/car-shop/assets/images/cars/logo_cars_2.png" alt="Logo">
             </div>
             <div class="search">
-                <form>
+                <form class="search-icon">
+                    <img class="icon_kl" src="/car-shop/assets/images/cars/kinh-lup.png" >
                     <input type="text" id="search" placeholder="Tìm kiếm xe bạn muốn">
                 </form>
             </div>
@@ -31,8 +32,10 @@ if (!isset($title)) {
             </div>
         </header>
         <nav>
+            <img src="/car-shop/assets/images/cars/icon_index_soc.png" id="icon-index">
             <ul class="menu">
-                <li><a href="index.php">Trang Chủ</a>
+                <li>
+                    <a href="index.php">Trang Chủ</a>
                     <ul class="top_menu">
                         <li><a href="index.php">introduce</a></li>
                         <li><a href="index.php#cars_new">cars new</a></li>
@@ -76,6 +79,7 @@ if (!isset($title)) {
             </ul>
         </nav>
     </div>
+    <script src="/car-shop/assets/js/menu.js" ></script>
     
 </body>
 

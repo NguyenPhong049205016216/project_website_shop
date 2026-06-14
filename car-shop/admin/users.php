@@ -11,6 +11,15 @@
 <body>
     <header>
         <h1>Admin</h1>
+        <div class="search">
+            <from>
+                <input type="text" id="search" placeholder="tìm kiếm chức năng">
+            </from>
+
+        </div>
+
+        </search>
+
     </header>
     <div div class="container">
 

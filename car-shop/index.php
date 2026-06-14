@@ -17,7 +17,7 @@ include "includes/header.php";
             <h1 class="title_name">GR Supra</h1>
             <h1 class="title_name">DRIVE YOUR DREAM CARS</h1><br>
             <p class="title_name">khám phá cửa hàng xe, từ hạng sang, thể thao, đến gia đình bạn khám phá ngay</p><br>
-            <a href="#" class="title.btn">Xem ngay</a>
+            <a href="#" class="title-btn">Xem ngay</a>
             <img class="logo_xe" src="/car-shop/assets/images/cars/logo_banner.png" alt="Banner"></img>
         </div>
     </section>
