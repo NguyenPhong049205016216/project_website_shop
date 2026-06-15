@@ -1,29 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Users</title>
-    <link rel="stylesheet" href="/car-shop/assets/css/admin.css">
-</head>
+<?php
+include "index.php";
+?>
 
 <body>
-    <header>
-        <h1>Admin</h1>
-
-    </header>
     <div div class="container">
-
-        <left class="sidebar">
-            <a href="/car-shop/admin/index.php">Dashboard</a>
-            <a href="/car-shop/admin/cars.php">Cars</a>
-            <a href="/car-shop/admin/users.php">Users</a>
-            <a href="/car-shop/admin/brands.php">Categories</a>
-            <a href="/car-shop/admin/orders.php">Orders</a>
-            <a class="btn" href="/car-shop/index.php">Logout</a>
-        </left>
-
         <main class="main-content">
             <h1 class="chapter">Dashboard</h1>
             <div class="dashboard">

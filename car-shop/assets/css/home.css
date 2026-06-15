@@ -286,8 +286,8 @@ section:first-of-type {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 100px;
+    
     padding: 20px;
 
 }
@@ -474,6 +474,21 @@ footer {
         width: 45px;
         height: 45px;
         align-self: flex-end;
+    }
+
+    /* Thương hiệu */
+    .cars_brands{
+        display: flex;
+        gap:80px;
+    }
+    .item_brands{
+        width: 20%;
+        border-radius: 20px;
+    }
+    .img_brands{
+        width: 110%;
+        border-radius: 30px;
+
     }
 }
 

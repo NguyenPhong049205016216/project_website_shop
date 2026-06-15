@@ -47,31 +47,35 @@ header{
     
 }
 .container{
-    height: 100vh;
     display: grid;
     justify-content: space-between;
     grid-template-columns: 250px 1fr;   
+    background-color: #1d1e1f;
 }
 .sidebar{
     width: 100%;
     position: fixed;
-    top: 85px;
+    top: 120px;
     left: 0;
     height: calc(100vh - 85px);
     height: 100vh;
-    padding: 40px;
+    padding: 50px;
     color: var(--secondary-color);
 }
 .sidebar a{
+    width: 10%;
     font-size: 20px;
     text-decoration: none;
     display: grid;
-    margin-bottom: 20px;
-    gap: 20px;
+    padding: 10px;
+    margin-bottom: 40px;
+    border-radius: 3px;
+    background-color: #1abca9;
+    gap: 40px;
 }
 .btn{
     position: absolute;
-    bottom: 100px;
+    bottom: 140px;
     left: 40px;
     padding: 11px 10px;
     border-radius: 50px;
@@ -92,6 +96,7 @@ header{
 .chapter{
     width: 100%;
     border-left: 5px solid #dc1b1b;
+    color: #f4f6f8;
     border-radius: 10px;
     padding-left: 10px;
     position: relative;
@@ -119,6 +124,9 @@ header{
 /* dùng chung */
 .search{
     margin-bottom: 20px;
+}
+#search{
+    padding: 12px;
 }
 /* dashboard admin */
 .statistics{
@@ -170,6 +178,9 @@ table tr th{
     height: 100px;
     border-radius: 10px;
     background-color: #111827;
+}
+@media (max-width: 768px){
+    header{}
 }
 
 

@@ -1,3 +1,6 @@
+<?php
+include "index.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,29 +12,7 @@
 </head>
 
 <body>
-    <header>
-        <h1>Admin</h1>
-        <div class="search">
-            <from>
-                <input type="text" id="search" placeholder="tìm kiếm chức năng">
-            </from>
-
-        </div>
-
-        </search>
-
-    </header>
     <div div class="container">
-
-        <left class="sidebar">
-            <a href="/car-shop/admin/dashboard.php">Dashboard</a>
-            <a href="/car-shop/admin/cars.php">Cars</a>
-            <a href="/car-shop/admin/users.php">Users</a>
-            <a href="/car-shop/admin/brands.php">Categories</a>
-            <a href="/car-shop/admin/orders.php">Orders</a>
-            <a class="btn" href="/car-shop/index.php">Logout</a>
-        </left>
-
         <main class="main-content">
             <h1 class="chapter">user</h1>
             <div class="dashboard">
@@ -43,8 +24,6 @@
                     </from>
                 </div>
                 <h2>Thống kê system</h2>
-
-
             </div>
 
             <h1 class="chapter">User list </h1>
