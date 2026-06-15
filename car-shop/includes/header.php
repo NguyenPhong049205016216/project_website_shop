@@ -12,14 +12,14 @@ if (!isset($title)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="/car-shop/assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 
 <body>
     <div class="main">
         <header>
             <div class="logo">
-                <img src="/car-shop/assets/images/cars/logo_cars_2.png" alt="Logo">
+                <img src="assets/images/cars/logo_cars_2.png" alt="Logo">
             </div>
             <div class="search">
                 <form class="search-icon">

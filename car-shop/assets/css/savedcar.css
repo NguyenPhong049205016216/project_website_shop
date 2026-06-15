@@ -13,10 +13,6 @@
     --text-light: #ffffff;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 /* Toàn trang */
 body{
     background-color: #f4f6f8;
@@ -196,6 +192,7 @@ header{
     color: rgb(0, 0, 0);
     font-size: 16px;
     text-decoration: none;
+    
 }
 
 .acc_img {
@@ -340,7 +337,7 @@ nav{
     justify-content: center;
 }
 
-.middle-title .wish-title h1{
+.middle-title .saved-title h1{
     color: #cfd45f;
     font-size: 80px;
     font-weight: 600;
@@ -396,12 +393,16 @@ nav{
     cursor: pointer;
 }
 
+
+
 ul li{
     margin-top: 25px;
     letter-spacing: 0.5px;
     font-size: 20px;
     margin-bottom: 25px;
 }
+
+
 /* Footer */
 footer{
     padding: 30px;
@@ -485,4 +486,3 @@ footer{
     cursor: pointer;
     z-index: 999;
 }
-

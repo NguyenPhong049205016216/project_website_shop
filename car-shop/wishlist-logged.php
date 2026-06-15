@@ -14,15 +14,85 @@ $title = "Car Shop";
         <div class="sticky_header">
             <header>
                 <div class="logo">
-                    <img src="assets/images/cars/logo_cars_2.png" alt="Logo">
+                    <img src="../assets/images/cars/logo_cars_2.png" alt="Logo">
                 </div>
                 <div class="search">
                     <form>
                         <input type="text" id="search" placeholder="Tìm kiếm xe bạn muốn">
                     </form>
                 </div>
-                <div class="User">
-                    <button>Login</button>
+                <div class="user">
+                    <span id="account_btn" onclick="toggleDropdown()">Account</span>
+
+                    <div class="acc_dropdown">
+                        <div class="acc_top">
+                            <div class="acc_title_box">
+                                    <div class="acc_title">
+                                        <div class="acc_title_1">
+                                            <h2>Khám phá cửa hàng xe ngay</h2>
+                                            <p>Đăng nhập cái đã!</p>
+                                        </div>
+                                        
+                                        <div class="acc_title_img">
+                                            <img class="title_icon" src="assets/images/cars/toyota_1.png" alt="user">
+                                        </div>
+                                    
+                                    </div>
+                            </div>
+                           
+
+                            <button class="login-btn">Đăng nhập</button>
+                            <button class="regis-btn">Đăng ký</button>
+                        </div>
+
+                        <div class="acc_mid">
+                            <span id="sub_title">Tiện ích</span>
+                            <div class="acc_menu1">
+                                <div class="acc_item1" onclick="navToPage('wishlist-logged.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/cars/wishlist.png" alt="wishlist" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="wishlist-logged.php">Wishlist</a>
+                                        <p>Danh sách xe yêu thích</p>
+                                    </div>
+                                </div>
+                                <div class="acc_item2" onclick="navToPage('savedcar.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/cars/archive.png" alt="archive" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="savedcar.php">Lưu trữ</a>
+                                        <p>Các xe đã lưu</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="acc_menu2">
+                                <div class="acc_item3" onclick="navToPage('recent.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/cars/recent.png" alt="recent" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="recent.php">Xem gần đây</a>
+                                        <p>Các xe bạn đã xem gần đây</p>
+                                    </div>
+        
+                                </div>
+                                <div class="acc_item4" onclick="navToPage('later.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/cars/xemsau.png" alt="xemsau" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="later.php">Xem sau</a>
+                                        <p>Các xe bạn muốn xem sau</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -67,48 +137,31 @@ $title = "Car Shop";
         </div>
 
         <section class="middle-title">
-            <div class="wishlist-title">
+            <div class="wish-title">
                 <h1>Wishlist</h1>
             </div>
         </section>
 
-        <main class="cars_introduce">
-            <div class="item">
-                <img class="item_img" src="assets/images/cars/toyota_1.png" alt="Car 1">
-                <div class="item_info">
-                    <h3>Toyota Vios</h3>
-                    <p>Giá: 545.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
-                </div>
-            </div>
+        <section class="middle-content">
+            <div class="content-layout">
+                <div class="content-box">
+                    <div class="box-header">
+                        <h2>Danh sách xe đã thích</h2>
+                    </div>
 
-            <div class="item">
-                <img class="item_img" src="assets/images/cars/toyota_2.png" alt="Car 1">
-                <div class="item_info">
-                    <h3>Toyota Vios G  </h3>
-                    <p>Giá: 650.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
-                </div>
-            </div>
+                    <div class="box-mid">
+                        <div class="box-img-content">
+                            <img src="assets/images/cars/document.png" alt="saved car" class="document-icon">
+                        </div>
+                        <h3>Chưa có xe nào được yêu thích</h3>
+                        <p>Khi bạn yêu thích xe, xe được yêu thích sẽ nằm ở đây.</p>
+                        <span onclick="navToPage('index.php')">Khám phá ngay</span>
+                    </div>
 
-            <div class="item">
-                <img class="item_img" src="assets/images/cars/toyota_3.png" alt="Car 1">
-                <div class="item_info">
-                    <h3>Vios 1.5G - CVT</h3>
-                    <p>Giá: 545.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
+                    <div class="box-footer"></div>
                 </div>
             </div>
-
-            <div class="item">
-                <img class="item_img" src="assets/images/cars/toyota_3(vang).png" alt="Car 1">
-                <div class="item_info">
-                    <h3>Vios 1.5G - CVT</h3>
-                    <p>Giá: 550.000.000 VNĐ</p>
-                    <a href="car_details.php?id=1" class="btn">Xem chi tiết</a>
-                </div>
-            </div>
-        </main>
+        </section>
 
         <footer>
             <h1 class="chapter" id="footer">Contact</h1>
@@ -130,8 +183,12 @@ $title = "Car Shop";
                 <p>Email: phong@example.com</p>
                 <p>Phone: 123-456-7890</p>
             </div>
+            <div class="">
+                <img src="assets/images/cars/arrow.png" alt="arrow" class="back_to_top" id="backToTop">
+            </div>
         </footer>
 
     </div>
+    <script src="assets/js/wishlist1.js"></script>
 </body>
 </html>
