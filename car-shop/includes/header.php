@@ -79,7 +79,7 @@ if (!isset($title)) {
             </ul>
         </nav>
     </div>
-    <script src="/car-shop/assets/js/menu.js" ></script>
+    <script src="/car-shop/assets/js/menu-user.js" ></script>
     
 </body>
 
