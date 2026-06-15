@@ -8,7 +8,7 @@ include "index.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Users</title>
-    <link rel="stylesheet" href="/car-shop/assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 
 <body>

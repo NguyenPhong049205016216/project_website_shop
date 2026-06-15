@@ -7,7 +7,7 @@ $title = "Car Shop";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="assets/css/wishlist.css">
+    <link rel="stylesheet" href="assets/css/recent.css">
 </head>
 <body>
     <div class="main">
@@ -48,43 +48,43 @@ $title = "Car Shop";
                         <div class="acc_mid">
                             <span id="sub_title">Tiện ích</span>
                             <div class="acc_menu1">
-                                <div class="acc_item1" onclick="navToPage('login.php')">
+                                <div class="acc_item1" onclick="navToPage('wishlist-logged.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/cars/wishlist.png" alt="wishlist" class="acc_icon">
                                     </div>
                                     <div class="item_content_text">
-                                        <a>Wishlist</a>
+                                        <a href="wishlist-logged.php">Wishlist</a>
                                         <p>Danh sách xe yêu thích</p>
                                     </div>
                                 </div>
-                                <div class="acc_item2" onclick="navToPage('login.php')">
+                                <div class="acc_item2" onclick="navToPage('savedcar.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/cars/archive.png" alt="archive" class="acc_icon">
                                     </div>
                                     <div class="item_content_text">
-                                        <a>Lưu trữ</a>
+                                        <a href="savedcar.php">Lưu trữ</a>
                                         <p>Các xe đã lưu</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="acc_menu2">
-                                <div class="acc_item3" onclick="navToPage('login.php')">
+                                <div class="acc_item3" onclick="navToPage('recent.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/cars/recent.png" alt="recent" class="acc_icon">
                                     </div>
                                     <div class="item_content_text">
-                                        <a>Xem gần đây</a>
+                                        <a href="recent.php">Xem gần đây</a>
                                         <p>Các xe bạn đã xem gần đây</p>
                                     </div>
         
                                 </div>
-                                <div class="acc_item4" onclick="navToPage('login.php')">
+                                <div class="acc_item4" onclick="navToPage('later.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/cars/xemsau.png" alt="xemsau" class="acc_icon">
                                     </div>
                                     <div class="item_content_text">
-                                        <a>Xem sau</a>
+                                        <a href="later.php">Xem sau</a>
                                         <p>Các xe bạn muốn xem sau</p>
                                     </div>
                                 </div>
@@ -137,31 +137,29 @@ $title = "Car Shop";
         </div>
 
         <section class="middle-title">
-            <div class="wishlist-title">
-                <h1>Wishlist</h1>
+            <div class="recent-title">
+                <h1>Recent Views</h1>
             </div>
         </section>
 
         <section class="middle-content">
             <div class="content-layout">
-                <div class="wishlist-content">
-                    <h2>My wishlist</h2>
-                </div>
-                <div class="fuse-list">
-                    <ul>
-                        <li>Thêm các dòng xe yêu thích của bạn</li>
-                        <li>Nhận thông báo khi có khuyến mãi từ xe yêu thích</li>
-                        <li>Hãy đăng nhập để sử dụng các tính năng này</li>
-                    </ul>
-                </div>
+                <div class="content-box">
+                    <div class="box-header">
+                        <h2>Danh sách xe đã xem gần đây</h2>
+                    </div>
 
-                <div class="button-action">
-                    <a class="login-btn" href="index.php">Cửa hàng</a>
-                    <a class="regis-btn" href="register.php">Đăng ký</a>
+                    <div class="box-mid">
+                        <div class="box-img-content">
+                            <img src="assets/images/cars/document.png" alt="saved car" class="document-icon">
+                        </div>
+                        <h3>Bạn chưa xem xe nào gần đây</h3>
+                        <p>Hãy khám phá các mẫu xe mới nhất!</p>
+                        <span onclick="navToPage('index.php')">Khám phá ngay</span>
+                    </div>
+
+                    <div class="box-footer"></div>
                 </div>
-                <p class="signin">
-                    Đã có tài khoản? <a href="login.php">Đăng nhập</a>
-                </p>
             </div>
         </section>
 
@@ -191,6 +189,6 @@ $title = "Car Shop";
         </footer>
 
     </div>
-    <script src="assets/js/wishlist.js"></script>
+    <script src="assets/js/recent.js"></script>
 </body>
 </html>
