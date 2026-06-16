@@ -22,6 +22,7 @@ body {
 .main {
     width: 100%;
     min-height: auto;
+    flex: 1;
 }
 
 /* Header */
@@ -335,28 +336,24 @@ section:first-of-type {
 
 /* Footer */
 footer {
-    width: 100%;
-    padding-top: 10px;
-    background-color: #111827;
-    color: white;
+    width:100%;
+    background:#111827;
+    color:white;
+    padding-bottom: 20px;
 }
 
 .chapter_footer {
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    position: relative;
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    align-items:flex-start;
+    gap:40px;
 }
 
 .left_footer,
 .right_footer,
 .center_footer {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
+    flex:1;
 }
 
 
@@ -490,6 +487,17 @@ footer {
         border-radius: 30px;
 
     }
+    /* footer */
+    .chapter_footer{
+        padding: 20px;
+    }
+
+    .left_footer,
+    .right_footer,
+    .center_footer{
+        width:100%;
+    }
+
 }
 
 /* ====== FIX HÃNG XE HIỆN CỘT BÊN PHẢI ====== */

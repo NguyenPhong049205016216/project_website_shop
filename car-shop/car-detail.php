@@ -1,90 +1,106 @@
-<?php
-$title = "Chi tiết xe";
-include "includes/header.php";
-?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="/car-shop/assets/css/detail.css">
+    <link rel="stylesheet" href="assets/css/detail.css">
 </head>
 
-<body class="body-car-detail">
-    <h1 class="chapter-cardetail">Cars details</h1>
-    <main class="detail-container">
+<?php
+include "includes/header.php";
+?>
 
-        <div class="detail-image-box">
-            <img src="/car-shop/assets/images/cars/toyota_1.png" alt="Toyota GR Supra">
+<body class="car-detail-page">
+    <div class="detail-wrapper">
+        <!-- CỘT TRÁI -->
+        <div class="gallery-section">
+            <div class="main-image">
+                <img src="/car-shop/assets/images/cars/toyota_1.png">
+            </div>
+            <div class="sub-images">
+                <img src="/car-shop/assets/images/cars/toyota_2.png">
+                <img src="/car-shop/assets/images/cars/toyota_3.png">
+                <img src="/car-shop/assets/images/cars/toyota_3(vang).png">
+                <img src="/car-shop/assets/images/cars/toyota_1.png">
+            </div>
         </div>
 
-        <div class="detail-content-box">
-
-            <span class="detail-status">CÒN HÀNG</span>
-
+        <!-- GIỮA -->
+        <div class="info-section">
+            <span class="car-brand">
+                TOYOTA
+            </span>
             <h1>Toyota GR Supra</h1>
-
-            <p class="detail-price">3.200.000.000 VNĐ</p>
-
-            <p class="detail-description">
-                Toyota GR Supra là mẫu xe thể thao có thiết kế mạnh mẽ,
-                động cơ Turbo hiện đại, phù hợp với khách hàng yêu thích tốc độ,
-                phong cách và trải nghiệm lái cao cấp.
+            <p class="description">
+                Toyota GR Supra là mẫu xe thể thao hiệu suất cao,
+                thiết kế hiện đại, động cơ Turbo mạnh mẽ cùng nhiều
+                công nghệ hỗ trợ lái tiên tiến.
             </p>
-
-            <div class="detail-specs">
-
-                <div class="spec-item">
-                    <span>Hãng xe</span>
-                    <strong>Toyota</strong>
+            <h2>Thông số kỹ thuật</h2>
+            <div class="spec-grid">
+                <div class="spec-box">
+                    <span>Công suất</span>
+                    <strong>382 HP</strong>
                 </div>
-
-                <div class="spec-item">
-                    <span>Loại xe</span>
-                    <strong>Sport Car</strong>
-                </div>
-
-                <div class="spec-item">
-                    <span>Năm sản xuất</span>
-                    <strong>2024</strong>
-                </div>
-
-                <div class="spec-item">
+                <div class="spec-box">
                     <span>Nhiên liệu</span>
                     <strong>Xăng</strong>
                 </div>
-
-                <div class="spec-item">
-                    <span>Hộp số</span>
-                    <strong>Tự động</strong>
+                <div class="spec-box">
+                    <span>Tốc độ</span>
+                    <strong>250 km/h</strong>
                 </div>
-
-                <div class="spec-item">
-                    <span>Màu sắc</span>
-                    <strong>Đỏ</strong>
+                <div class="spec-box">
+                    <span>Hộp số</span>
+                    <strong>AT 8 cấp</strong>
+                </div>
+                <div class="spec-box">
+                    <span>Năm SX</span>
+                    <strong>2024</strong>
+                </div>
+                <div class="spec-box">
+                    <span>Loại xe</span>
+                    <strong>Sport</strong>
                 </div>
 
             </div>
+            <h2>Tính năng nổi bật</h2>
+            <div class="feature-grid">
+                <div>✓ Cruise Control</div>
+                <div>✓ Camera 360</div>
+                <div>✓ Apple CarPlay</div>
+                <div>✓ Android Auto</div>
+                <div>✓ Cảm biến lùi</div>
+                <div>✓ Màn hình 12.3"</div>
 
-            <div class="detail-buttons">
-                <a href="cart.php" class="btn-cart">Thêm giỏ hàng</a>
-                <a href="wishlist.php" class="btn-wishlist">Thêm wishlist</a>
+            </div>
+        </div>
+
+        <!-- CỘT PHẢI -->
+        <div class="booking-section">
+            <div class="price-card">
+                <h2>Giá bán</h2>
+                <div class="price">
+                    3.200.000.000đ
+                </div>
+                <p>Còn hàng</p>
+                <a href="#" class="btn-cart">
+                    Thêm giỏ hàng
+                </a>
+                <a href="#" class="btn-wishlist">
+                    Thêm Wishlist
+                </a>
             </div>
 
         </div>
 
-</main>
-
-    <div class="detail-gallery">
-        <img src="/car-shop/assets/images/cars/toyota_1.png" alt="">
-        <img src="/car-shop/assets/images/cars/toyota_2.png" alt="">
-        <img src="/car-shop/assets/images/cars/toyota_3.png" alt="">
     </div>
 
-
-
 </body>
-
-<?php include "includes/footer.php"; ?>
+<?php 
+include "includes/footer.php";
+?>
 
 </html>
