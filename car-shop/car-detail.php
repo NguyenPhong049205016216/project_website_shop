@@ -18,10 +18,13 @@
             </div>
 
             <div class="main-image">
+                <!-- mũi tên qua trái -->
                 <button class="arrow arrow-left">
                     <img src="/car-shop/assets/images/icon/mui_ten-left.png" class="btn-fr">
                 </button>
+                <!-- ảnh xe -->
                 <img id="mainCarImage" src="/car-shop/assets/images/cars/toyota_1.png" alt="Car">
+                <!-- mũi tên qua phải -->
                 <button class="arrow arrow-right">
                     <img src="/car-shop/assets/images/icon/mui_ten.png">
                 </button>

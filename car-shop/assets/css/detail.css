@@ -84,7 +84,7 @@ body.car-detail-page{
     height:42px;
     border:none;
     border-radius:50%;
-    background:white;
+    background:rgba(255, 255, 255, 0.462);
     font-size:35px;
     cursor:pointer;
     display: flex;
