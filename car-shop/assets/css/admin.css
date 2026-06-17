@@ -47,9 +47,7 @@ header{
     
 }
 .container{
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: 250px 1fr;   
+    display: flex;
     background-color: #1d1e1f;
 }
 .sidebar{
@@ -85,11 +83,11 @@ header{
 }
 /* dùng chung */
 .main-content{
-    width: 500%;
     min-height: 100vh;
     margin-left: 250px;
     padding-top: 105px;
     padding-left: 30px;
+    padding-right: 30px;
 
 }
 /* dùng chung */
@@ -106,23 +104,23 @@ header{
 /* dùng chung  */
 .dashboard{
     width: 100%;
-    min-height: 500px;
-    border-radius: 10px;
+    min-height: auto;
     padding: 40px;
-    background-color: var(--primary-color);
+    border-radius: 10px;
+    background-color: white;
 }
 .dashboard h2{
-    width: 20%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    border-collapse: collapse;
+    display:inline-block;
+    padding:10px 15px;
+    border-radius:10px;
+    margin-bottom:20px;
 }
 .dashboard p{
     margin-bottom: 20px;
 }
 /* dùng chung */
 .search{
+    width: 10%;
     margin-bottom: 20px;
 }
 #search{
@@ -162,6 +160,20 @@ table{
     width: 100%;
     font-size: 22px;
 }
+.user_table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+.user_table th{
+    background:#111827;
+    color:white;
+    padding:12px;
+}
+
+.user_table td{
+    padding:12px;
+}
 
 table tr th{
     height: 60px;
@@ -173,9 +185,8 @@ table tr th{
 
 /* cars admin */
 .item_tatol{
-    width: 20%;
+    width: 100%;
     color:#f4f6f8;
-    height: 100px;
     border-radius: 10px;
     background-color: #111827;
 }

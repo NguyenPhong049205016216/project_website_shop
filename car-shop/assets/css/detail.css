@@ -1,141 +1,161 @@
-body{
+body {
     width: 100%;
-}
-.car-detail-page{
-    width: 100%;
-    background:#f4f6f8;
 }
 
-.detail-wrapper{
+.car-detail-page {
     width: 100%;
-    margin:auto;
-    display:grid;
+    background: #f4f6f8;
+}
+
+.detail-wrapper {
+    width: 100%;
+    margin: auto;
+    display: grid;
     padding-top: 10px;
     padding-bottom: 20px;
     grid-template-columns:
-    1.2fr 1fr 350px;
-    gap:25px;
+        1.2fr 1fr 350px;
+    gap: 25px;
 }
+
 .gallery-section,
 .info-section,
-.booking-section{
-    background:white;
-    border-radius:25px;
-    padding:25px;
+.booking-section {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
     box-shadow:
-    0 5px 20px rgba(0,0,0,.08);
+        0 5px 20px rgba(0, 0, 0, .08);
 }
-.main-image{
-    height:420px;
-    background:#f8fafc;
-    border-radius:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+.main-image {
+    height: 420px;
+    background: #f8fafc;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.main-image img{
-    width:90%;
-    max-height:350px;
-    object-fit:contain;
+
+.main-image img {
+    width: 90%;
+    max-height: 350px;
+    object-fit: contain;
 }
-.sub-images{
-    display:grid;
+
+.sub-images {
+    display: grid;
     grid-template-columns:
-    repeat(4,1fr);
-    gap:12px;
-    margin-top:15px;
+        repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 15px;
 }
-.sub-images img{
-    width:100%;
-    height:100px;
-    background:#f8fafc;
-    border-radius:15px;
-    padding:10px;
-    object-fit:contain;
-    cursor:pointer;
+
+.sub-images img {
+    width: 100%;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 15px;
+    padding: 10px;
+    object-fit: contain;
+    cursor: pointer;
 }
-.car-brand{
-    color:#2563eb;
-    font-weight:bold;
-    letter-spacing:2px;
+
+.car-brand {
+    color: #2563eb;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
-.info-section h1{
-    font-size:40px;
-    margin:15px 0;
+
+.info-section h1 {
+    font-size: 40px;
+    margin: 15px 0;
 }
-.spec-grid{
-    display:grid;
+
+.spec-grid {
+    display: grid;
     grid-template-columns:
-    repeat(3,1fr);
-    gap:15px;
-    margin-top:20px;
+        repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
 }
-.spec-box{
-    background:#f8fafc;
-    padding:20px;
-    border-radius:15px;
+
+.spec-box {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 15px;
 }
-.spec-box span{
-    display:block;
-    color:#777;
-    margin-bottom:8px;
+
+.spec-box span {
+    display: block;
+    color: #777;
+    margin-bottom: 8px;
 }
-.spec-box strong{
-    font-size:20px;
+
+.spec-box strong {
+    font-size: 20px;
 }
-.feature-grid{
-    margin-top:20px;
-    display:grid;
+
+.feature-grid {
+    margin-top: 20px;
+    display: grid;
     grid-template-columns:
-    repeat(2,1fr);
-    gap:15px;
+        repeat(2, 1fr);
+    gap: 15px;
 }
-.feature-grid div{
-    background:#f8fafc;
-    padding:15px;
-    border-radius:12px;
+
+.feature-grid div {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 12px;
 }
-.price-card{
-    border:2px solid #e5e7eb;
-    border-radius:20px;
-    padding:25px;
+
+.price-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 25px;
 }
-.price{
-    font-size:36px;
-    font-weight:bold;
-    color:#dc2626;
-    margin:20px 0;
+
+.price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #dc2626;
+    margin: 20px 0;
 }
+
 .btn-cart,
-.btn-wishlist{
-    display:block;
-    text-align:center;
-    padding:14px;
-    border-radius:12px;
-    text-decoration:none;
-    margin-top:15px;
-    font-weight:bold;
-}
-.btn-cart{
-    background:#111827;
-    color:white;
-}
-.btn-wishlist{
-    background:#2563eb;
-    color:white;
-}
-@media(max-width:768px){
-
-.detail-wrapper{
-    grid-template-columns:1fr;
+.btn-wishlist {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-.spec-grid{
-    grid-template-columns:1fr 1fr;
+.btn-cart {
+    background: #111827;
+    color: white;
 }
 
-.sub-images{
-    grid-template-columns:1fr 1fr;
+.btn-wishlist {
+    background: #2563eb;
+    color: white;
 }
+
+@media(max-width:768px) {
+
+    .detail-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sub-images {
+        grid-template-columns: 1fr 1fr;
+    }
 
 }

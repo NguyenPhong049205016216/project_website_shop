@@ -15,6 +15,7 @@ include "index.php";
     <div div class="container">
         <main class="main-content">
             <h1 class="chapter">user</h1>
+            <!-- user -->
             <div class="dashboard">
                 <h2>Users Management</h2>
                 <p>Here you can manage users, view their details, and perform actions such as edit or delete.</p>
@@ -29,7 +30,7 @@ include "index.php";
             <h1 class="chapter">User list </h1>
             <div class="dashboard">
                 <div class="view_dashboard">
-                    <table border="2" cellspacing= "0">
+                    <table  class="user_table" border="1" cellspacing="0">
                         <tr class="item_head">
                             <th>ID</th>
                             <th>Name</th>

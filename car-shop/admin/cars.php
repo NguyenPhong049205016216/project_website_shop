@@ -5,6 +5,7 @@ include "index.php";
 <body>
     <div div class="container">
         <main class="main-content">
+            <!-- Cars -->
             <h1 class="chapter">Cars</h1>
             <div class="dashboard">
                 <h2>Cars Management</h2>
