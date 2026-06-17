@@ -195,6 +195,13 @@ body.car-detail-page{
     color:#111827;
 }
 
+.info-section img{
+    width: 30px;
+    height: 30px;
+    background-color: #e4e5e7;
+    border-radius: 10px;
+}
+
 .verify{
     color:#2563eb;
     font-size:18px;
@@ -345,6 +352,10 @@ body.car-detail-page{
 .benefit-card p{
     color:#475569;
     line-height:1.5;
+}
+.bnf-icon{
+    width: 30px;
+    height: 30px;
 }
 /* chế độ điện thoại */
 @media(max-width:1100px){

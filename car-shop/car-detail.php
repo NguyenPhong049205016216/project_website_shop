@@ -19,11 +19,11 @@
 
             <div class="main-image">
                 <button class="arrow arrow-left">
-                    <img src="/car-shop/assets/images/cars/mui_ten-left.png" class="btn-fr">
+                    <img src="/car-shop/assets/images/icon/mui_ten-left.png" class="btn-fr">
                 </button>
                 <img id="mainCarImage" src="/car-shop/assets/images/cars/toyota_1.png" alt="Car">
                 <button class="arrow arrow-right">
-                    <img src="/car-shop/assets/images/cars/mui_ten.png">
+                    <img src="/car-shop/assets/images/icon/mui_ten.png">
                 </button>
                 <span class="image-count">1/4</span>
             </div>
@@ -36,13 +36,13 @@
             </div>
 
             <div class="service-row">
-                <div >
+                <div>
                     <span class="svc-icon">
                     </span>
                     <p>Bảo hành</p>
                     <strong>3 năm</strong>
                 </div>
-                <div >
+                <div>
                     <span class="svc-icon">
                     </span>
                     <p>Bảo dưỡng</p><strong>Miễn phí</strong>
@@ -77,7 +77,7 @@
             <h2>
                 <span class="section-icon">
                     <!-- icon thông số -->
-                    <img src="#">
+                    <img src="/car-shop/assets/images/icon/thong-so-ky-thuat.png">
                 </span>
                 Thông số kỹ thuật
             </h2>
@@ -85,7 +85,7 @@
                 <div class="spec-box">
                     <span class="icon">
                         <!-- icon công suất -->
-                        <img src="#">
+                        <img src="/car-shop/assets/images/icon/cong-xuat.png">
                     </span>
                     <p>Công suất</p>
                     <strong>382 HP</strong>
@@ -93,7 +93,7 @@
                 <div class="spec-box">
                     <span class="icon">
                         <!-- icon Nhiên liệu -->
-                        <img src="#">
+                        <img src="/car-shop/assets/images/icon/nhien-lieu.png">
                     </span>
                     <p>Nhiên liệu</p>
                     <strong>Xăng</strong>
@@ -101,7 +101,7 @@
                 <div class="spec-box">
                     <span class="icon">
                         <!-- icon tốc độ tối đa -->
-                        <img src="#">
+                        <img src="/car-shop/assets/images/icon/toc-do.png">
                     </span>
                     <p>Tốc độ tối đa</p>
                     <strong>250 km/h</strong>
@@ -109,7 +109,7 @@
                 <div class="spec-box">
                     <span class="icon">
                         <!-- icon hộp số -->
-                        <img src="#">
+                        <img src="/car-shop/assets/images/icon/hop-so.png">
                     </span>
                     <p>Hộp số</p>
                     <strong>AT 8 cấp</strong>
@@ -117,13 +117,13 @@
                 <div class="spec-box">
                     <span class="icon">
                         <!-- icon năm sản xuất -->
-                        <img src="#">
+                        <img src="/car-shop/assets/images/icon/nam-sx.png">
                     </span>
                     <p>Năm sản xuất</p><strong>2024</strong>
                 </div>
                 <div class="spec-box">
                     <span class="icon">
-                        <img src="#">
+                        <img src="/car-shop/assets/images/icon/loai-xe.png">
                         <!-- icon loại xe -->
                     </span>
                     <p>Loại xe</p>
@@ -134,7 +134,7 @@
             <h2>
                 <span class="section-icon">
                     <!-- icon tính năng nỗi bật -->
-                    <img src="#">
+                    <img src="/car-shop/assets/images/icon/tinh-nb.png">
                 </span> Tính năng nổi bật
             </h2>
 
@@ -164,7 +164,7 @@
                 <a href="#" class="btn-cart">
                     <span class="icon">
                         <!-- icon Giỏ hàng -->
-                        <img src="#">
+                        <img class="heart-img" src="/car-shop/assets/images/icon/gio-hang.png">
                     </span>
                     Thêm giỏ hàng
                 </a>
@@ -179,17 +179,33 @@
             </div>
 
             <div class="benefit-card">
-                <div><span class="icon"></span>
-                    <p><strong>Cam kết chính hãng</strong><br>100% chính hãng Toyota</p>
+                <div>
+                    <span class="icon">
+                        <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
+                    </span>
+                    <p><strong>Cam kết chính hãng</strong>
+                    <br>100% chính hãng Toyota</p>
                 </div>
-                <div><span class="icon"></span>
-                    <p><strong>Ưu đãi hấp dẫn</strong><br>Hỗ trợ trả góp đến 80%</p>
+                <div>
+                    <span class="icon">
+                        <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
+                    </span>
+                    <p><strong>Ưu đãi hấp dẫn</strong>
+                    <br>Hỗ trợ trả góp đến 80%</p>
                 </div>
-                <div><span class="icon"></span>
-                    <p><strong>Đổi trả dễ dàng</strong><br>Đổi xe trong 7 ngày</p>
+                <div>
+                    <span class="icon">
+                        <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
+                    </span>
+                    <p><strong>Đổi trả dễ dàng</strong>
+                    <br>Đổi xe trong 7 ngày</p>
                 </div>
-                <div><span class="icon"></span>
-                    <p><strong>Giao xe tận nơi</strong><br>Miễn phí trong bán kính 50km</p>
+                <div>
+                    <span class="icon">
+                        <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
+                    </span>
+                    <p><strong>Giao xe tận nơi</strong>
+                    <br>Miễn phí trong bán kính 50km</p>
                 </div>
             </div>
         </aside>
