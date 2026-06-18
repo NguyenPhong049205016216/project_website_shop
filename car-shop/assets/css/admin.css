@@ -5,7 +5,13 @@
     --accent-color: #050709;
     --text-light: #ffffff;
     --item-color: #1374d5b7;
+    --chu--font:  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.blue{ background:#a6bcd8; }
+.green{ background:#acdac4; }
+.yellow{ background:#e7dfbf; }
+.purple{ background:#faf5ff; }
 
 *{
     margin: 0;
@@ -51,7 +57,6 @@ header{
     background-color: #1d1e1f;
 }
 .sidebar{
-    width: 100%;
     position: fixed;
     top: 120px;
     left: 0;
@@ -61,10 +66,10 @@ header{
     color: var(--secondary-color);
 }
 .sidebar a{
-    width: 10%;
+    width: 100%;
     font-size: 20px;
     text-decoration: none;
-    display: grid;
+    display: block;
     padding: 10px;
     margin-bottom: 40px;
     border-radius: 3px;
@@ -88,6 +93,7 @@ header{
     padding-top: 105px;
     padding-left: 30px;
     padding-right: 30px;
+    width: calc(100% - 250px);
 
 }
 /* dùng chung */
@@ -103,11 +109,12 @@ header{
 }
 /* dùng chung  */
 .dashboard{
-    width: 100%;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 28px;
     min-height: auto;
-    padding: 40px;
-    border-radius: 10px;
-    background-color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 .dashboard h2{
     display:inline-block;
@@ -118,9 +125,17 @@ header{
 .dashboard p{
     margin-bottom: 20px;
 }
+.dashboard img{
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+    margin: 20px auto 0;
+
+}
 /* dùng chung */
 .search{
-    width: 10%;
+    width: 250px;
     margin-bottom: 20px;
 }
 #search{
@@ -158,21 +173,113 @@ header{
 /* user admin */
 table{
     width: 100%;
-    font-size: 22px;
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.dhb-head, 
+.toolbar,
+.table-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dhb-head{
+    margin-bottom: 20px;
+}
+
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 22px 0;
+}
+.toolbar input{
+    width: 330px;
+}
+
+.toolbar input,
+.toolbar select{
+    padding: 13px 16px;
+    border: 1px solid #dbe3ef;
+    border-radius: 12px;
+    outline: none;
+}
+
+.dhb-toof{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 18px;
+}
+
+.stats{
+    display: block;
+}
+
+.icon-stats{
+    width: 80px;
+    height: 80px;
+}
+
+.stat-box{
+    width: 100%;
+    min-height: 120px;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.stat-box span{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-box h3{
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f5f7f8;
+}
+
+.table-box{
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.add-btn{
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .user_table{
-    width:100%;
+    width: 100%;
     border-collapse: collapse;
+    border-spacing: 0;
+    background: white;
 }
 
 .user_table th{
-    background:#111827;
-    color:white;
-    padding:12px;
+    background: #1d4caf;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 0;
+    text-align: left;
 }
 
 .user_table td{
-    padding:12px;
+    padding: 15px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 15px;
 }
 
 table tr th{
@@ -183,6 +290,77 @@ table tr th{
     height: 50px;
 }
 
+.user-table tr:hover{
+    background: #e2e6ea;
+}
+
+.user-name{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name img{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.role,
+.status{
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.role.user{
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.role.admin{
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.status.active{
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status.inactive{
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.crud-icon{
+    gap:8px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-imgcru{
+    width: 40px;
+    height: 40px;
+}
+
+.edit-btn,
+.delete-btn{
+    margin: 0;
+    font-size: 14px;
+    background: white;
+}
+
+.edit-btn,
+.delete-btn{
+    font-size: 20px;
+}
+
+.view_dashboard{
+    overflow-x: auto;
+}
+
 /* cars admin */
 .item_tatol{
     width: 100%;
@@ -190,8 +368,133 @@ table tr th{
     border-radius: 10px;
     background-color: #111827;
 }
+
 @media (max-width: 768px){
-    header{}
+
+    header{
+        position: fixed;
+        min-height: 60px;
+        padding: 10px 15px;
+    }
+
+    header h1{
+        font-size: 24px;
+    }
+
+    header .search{
+        width: 180px;
+        margin-bottom: 0;
+        padding-top: 0;
+    }
+
+    header .search input{
+        width: 100%;
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .container{
+        display: block;
+        background-color: #1d1e1f;
+    }
+
+    .sidebar{
+        width: 70px;
+        padding: 15px 8px;
+        top: 60px;
+        left: 0;
+        height: calc(100vh - 60px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .sidebar a{
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+        padding: 0;
+        border-radius: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* ẨN CHỮ */
+        font-size: 0; 
+        overflow: hidden;
+    }
+
+    .sidebar a img{
+        width: 26px;
+        height: 26px;
+        object-fit: contain;
+        display: block;
+    }
+
+    .btn{
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        border-radius: 14px;
+        /* ẨN CHỮ LOGOUT */
+        font-size: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn img{
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .main-content{
+        width: calc(100% - 70px);
+        margin-left: 70px;
+        padding: 80px 12px 20px;
+    }
+
+    .chapter{
+        font-size: 26px;
+        margin: 10px 0;
+    }
+
+    .dashboard{
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .dhb-head,
+    .toolbar{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .toolbar input,
+    .toolbar select{
+        width: 100%;
+    }
+
+    .dhb-toof{
+        grid-template-columns: 1fr;
+    }
+
+    .stat-box{
+        min-height: auto;
+    }
+
+    .view_dashboard{
+        overflow-x: auto;
+    }
+
+    .user_table{
+        min-width: 850px;
+    }
 }
 
 

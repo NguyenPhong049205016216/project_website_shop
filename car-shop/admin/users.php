@@ -12,72 +12,152 @@ include "index.php";
 </head>
 
 <body>
-    <div div class="container">
-        <main class="main-content">
-            <h1 class="chapter">user</h1>
-            <!-- user -->
-            <div class="dashboard">
-                <h2>Users Management</h2>
-                <p>Here you can manage users, view their details, and perform actions such as edit or delete.</p>
-                <div class="search">
-                    <from>
-                        <input type="text" id="search" placeholder="Search users...">
-                    </from>
-                </div>
-                <h2>Thống kê system</h2>
+    <div class="container">
+        <div class="main-content">
+            <div>
+                <h1 class="chapter">user</h1>
+                <!-- user -->
+                <section class="dashboard">
+                    <div class="dhb-head">
+                        <h2>Users Management</h2>
+                        <a href="#" class="add-btn">add new user</a>
+                    </div>
+                    <div class="toolbar">
+                        <input type="text" placeholder="Search user...">
+                        <select>
+                            <option>Role: all</option>
+                            <option>User: all</option>
+                            <option>Admin: all</option>
+                        </select>
+                    </div>
+
+                    <div class="dhb-toof">
+                        <div class="stats">
+                            <div class="stat-box green">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
+                                </span>
+                                <div>
+                                    <p>total user</p>
+                                    <h3>0</h3>
+                                    <small>đã tham gia</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats">
+                            <div class="stat-box blue">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/thung-rac.png" class="icon-stats">
+                                </span>
+                                <div>
+                                    <p>User delete</p>
+                                    <h3>0</h3>
+                                    <small>total delete</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats">
+                            <div class="stat-box yellow">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/edit-but.png" class="icon-stats">
+                                </span>
+                                <div>
+                                    <p>User edit</p>
+                                    <h3>0</h3>
+                                    <small>total edit</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <h1 class="chapter">User list </h1>
-            <div class="dashboard">
+            <section class="dashboard">
+                <div class="table-title">
+                </div>
                 <div class="view_dashboard">
-                    <table  class="user_table" border="1" cellspacing="0">
-                        <tr class="item_head">
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>phone</th>
-                            <th>address</th>
-                            <th>Role</th>
-                            <th>acvated_at</th>
-                        </tr>
-                        <!-- Example user data -->
-                        <tr class="item_head">
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>john.doe@example.com</td>
-                            <td>034567203</td>
-                            <td>Tp. Hồ Chí Minh</td>
-                            <td>User</td>
-                            <td>
-                                <a href="/car-shop/admin/edit-user.php?id=1">Edit</a>
-                                <a href="/car-shop/admin/delete-user.php?id=1" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
-                            </td>
-                        </tr>
+                    <table class="user_table" border="2" cellspacing="8">
+                        <thead>
+                            <tr class="item_head">
+                                <th><input type="checkbox"></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>phone</th>
+                                <th>address</th>
+                                <th>Role</th>
+                                <th>acvated_at</th>
+                                <th>CRUD</th>
+                            </tr>
+                        </thead>
 
-                        
-                        <tr class="item_head">
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="/car-shop/admin/edit-user.php?id=1">Edit</a>
-                                <a href="/car-shop/admin/delete-user.php?id=1" 
-                                onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
-                            </td>
-                        </tr>
-                        
+                        <tbody>
+                            <!-- Example user data -->
+                            <tr class="item_head">
+                                <td><input type="checkbox"></th>
+                                <td>1</td>
+                                <td>
+                                    <div class="user-name">
+                                        <img src="../assets/images/users/user1.png" alt="">
+                                        Nguyen Phong
+                                    </div>
+                                </td>
+                                <td>Nguyen Phong.doe@example.com</td>
+                                <td>034567203</td>
+                                <td> Hồ Chí Minh</td>
+                                <td>
+                                    <span class="role user">
+                                        Admin
+                                    </span>
+                                </td>
+                                <td> </td>
+                                <td>
+                                    <div class="crud-icon">
+                                        <a href="edit-user.php?id=1" class="edit-btn">
+                                            <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                        </a>
+                                        <a href="delete-user.php?id=1" class="delete-btn">
+                                            <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="item_head">
+                                <td><input type="checkbox"></td>
+                                <td>2</td>
+                                <td>
+                                    <div class="user-name">
+                                        <img src="../assets/images/users/user2.png" alt="">
+                                        jony Nguyen
+                                    </div>
+                                </td>
+                                <td>john.doe@example.com</td>
+                                <td>034567203</td>
+                                <td>Tp. Hồ Chí Minh</td>
+                                <td><span class="role user">User</span></td>
+                                <td>12/05/2025</td>
+                                <td>
+                                    <div class="crud-icon">
+                                        <a href="edit-user.php?id=1" class="edit-btn">
+                                            <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                        </a>
+                                        <a href="delete-user.php?id=1" class="delete-btn">
+                                            <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+
                     </table>
                 </div>
-            </div>
-        </main>
-
+            </section>
+        </div>
     </div>
-
-
-
 
 </body>
 

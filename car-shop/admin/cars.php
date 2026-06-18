@@ -1,13 +1,22 @@
 <?php
 include "index.php";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Users</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
 
 <body>
-    <div div class="container">
+    <div class="container">
         <main class="main-content">
             <!-- Cars -->
             <h1 class="chapter">Cars</h1>
-            <div class="dashboard">
+            <section class="dashboard">
                 <h2>Cars Management</h2>
                 <p>Here you can manage cars, view their details, and perform actions such as edit or delete.</p>
                 <div class="search">
@@ -18,7 +27,8 @@ include "index.php";
                         <img src="/car-shop/assets/images/cars/toyota_3.png" alt="">
                     </div>
                 </div>
-            </div>
+            </section>
+            
             <h1 class="chapter">Cars list </h1>
             <div class="dashboard">
                 <div class="view_dashboard">
