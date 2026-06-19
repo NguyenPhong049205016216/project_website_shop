@@ -12,11 +12,11 @@ if (!isset($title)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="/car-shop/assets/css/home.css">
 </head>
 
 <body>
-    <div class="main">
+    <div class="main-header">
         <header>
             <div class="logo">
                 <img src="assets/images/cars/logo_cars_2.png" alt="Logo">
@@ -27,9 +27,116 @@ if (!isset($title)) {
                     <input type="text" id="search" placeholder="Tìm kiếm xe bạn muốn">
                 </form>
             </div>
-            <div class="User">
-                <button>Login</button>
-            </div>
+            <div class="user">
+                    <div class="right_header" style="display:flex; flex-direction: row; gap: 10px; align-items: center;">
+                        <div class="cart_btn" style="padding: 5px;" >
+                            <img class="icon cart" src="/car-shop/assets/images/icon/gio-hang.png" alt="Cart" style="width: 45px; height: 45px; cursor: pointer; margin-top: 5px;" onclick="navToPage('cart.php')">
+                        </div>
+                        <div id="account_btn">
+                            <img class="icon_user" src="/car-shop/assets/images/icon/user1.png" alt="User">
+                            <img class="icon_dropdown" src="/car-shop/assets/images/icon/dropdown.png" alt="User">
+                        </div>
+                    </div>
+                    
+
+                    <div class="acc_dropdown">
+                        <div class="acc_top">
+                            <div class="avatar_box">
+                                <div class="avatar_frame">
+                                    <div class="border_avatar">
+                                        <img class="avatar_user" src="/car-shop/assets/images/icon/user1.png" alt="avatar">
+                                    </div>
+                                    <img class="avatar_edit" src="/car-shop/assets/images/icon/edit1.png" alt="edit">
+                                </div>
+                                <span>user_name</span>
+                            </div>
+                            <div class="acc_title_box">
+                                    <div class="acc_title">
+                                        <!-- <div class="acc_title_1">
+                                            <h2>Khám phá cửa hàng xe ngay</h2>
+                                            <p>Đăng nhập cái đã!</p>
+                                        </div>
+                                        
+                                        <div class="acc_title_img">
+                                            <img class="title_icon" src="assets/images/cars/toyota_1.png" alt="user">
+                                        </div> -->
+                                        
+                                        <div class="acc_detail_1">
+                                            <span>TK ID:</span>
+                                            <span>A111110001</span>
+                                        </div>
+                                        <div class="acc_detail_2">
+                                            <span>gmail:</span>
+                                            <span>user@gmail.com</span>
+                                        </div>
+                                    </div>
+                            </div>
+                           
+<!-- 
+                            <button class="login-btn">Đăng nhập</button>
+                            <button class="regis-btn">Đăng ký</button> -->
+                        </div>
+
+                        <div class="acc_mid">
+                            <span id="sub_title">Tiện ích</span>
+                            <div class="acc_menu1">
+                                <div class="acc_item1" onclick="navToPage('wishlist-logged.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/cars/wishlist.png" alt="wishlist" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="wishlist-logged.php">Wishlist</a>
+                                        <p>Danh sách xe yêu thích</p>
+                                    </div>
+                                </div>
+                                <div class="acc_item2" onclick="navToPage('savedcar.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/cars/archive.png" alt="archive" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="cart.php">Giỏ hàng</a>
+                                        <p>Xem giỏ hàng</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="acc_menu2">
+                                <div class="acc_item3" onclick="navToPage('recent.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/cars/recent.png" alt="recent" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="recent.php">Lịch sử thanh toán</a>
+                                        <p>Thanh toán gần đây</p>
+                                    </div>
+        
+                                </div>
+                                <div class="acc_item4" onclick="navToPage('later.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/icon/setting.png" alt="cài đặt" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="later.php">Cài đặt</a>
+                                        <p>Cài đặt tài khoản</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="acc_menu3">
+                                <div class="acc_item5" onclick="navToPage('login.php')">
+                                    <div class="acc_img">
+                                        <img src="assets/images/icon/logout.png" alt="đăng xuất" class="acc_icon">
+                                    </div>
+                                    <div class="item_content_text">
+                                        <a href="login.php">Đăng xuất</a>
+                                        <p>Đăng xuất khỏi tài khoản</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
         </header>
         <nav>
             <img src="/car-shop/assets/images/cars/icon_index_soc.png" id="icon-index">
@@ -78,9 +185,7 @@ if (!isset($title)) {
                 </li>
             </ul>
         </nav>
-    </div>
-    <script src="/car-shop/assets/js/menu-user.js" ></script>
-    
+    </div>    
 </body>
 
 </html>

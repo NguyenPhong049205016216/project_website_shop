@@ -31,6 +31,11 @@ if (!isset($title)) {
                 <p>Email: phong@example.com</p>
                 <p>Phone: 123-456-7890</p>
             </div>
+            <div class="">
+                <img src="assets/images/cars/arrow.png" alt="arrow" class="back_to_top" id="backToTop">
+            </div>
         </div>
+
     </footer>
+    <script src="/car-shop/assets/js/menu-user.js"></script>
 </html>

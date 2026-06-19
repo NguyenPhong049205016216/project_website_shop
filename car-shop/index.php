@@ -2,9 +2,21 @@
 $title = "Trang Chủ";
 include "includes/header.php";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car-shop</title>
+    <link rel="stylesheet" href="/car-shop/assets/css/home.css">
+</head>
+<body>
+    
+</body>
+</html>
 
 <body>
-    <section>
+    <section class="index-section">
         <div class="content">
             <h1 class="title_name">GR Supra</h1>
             <h1 class="title_name">DRIVE YOUR DREAM CARS</h1><br>
