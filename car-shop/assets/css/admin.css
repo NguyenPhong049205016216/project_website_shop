@@ -11,7 +11,7 @@
 .blue{ background:#a6bcd8; }
 .green{ background:#acdac4; }
 .yellow{ background:#e7dfbf; }
-.purple{ background:#faf5ff; }
+.purple{ background:#b4e2b6; }
 
 *{
     margin: 0;
@@ -368,7 +368,16 @@ table tr th{
     border-radius: 10px;
     background-color: #111827;
 }
+#stitle-cars{
+    text-align: center;
+}
+.stt-cars{
+    background: #a4ebbe;
+    border-radius: 10px;
+}
 
+
+/* chế độ phone */
 @media (max-width: 768px){
 
     header{

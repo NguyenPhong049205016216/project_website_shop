@@ -46,7 +46,6 @@ include "index.php";
                             </td>
                         </tr>
 
-                        
                         <tr class="item_head">
                             <td>2</td>
                             <td></td>
