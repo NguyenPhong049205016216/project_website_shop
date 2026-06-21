@@ -6,9 +6,9 @@ include "index.php";
     <div div class="container">
         <main class="main-content">
 
-            <h1 class="chapter">user</h1>
-            <!-- user -->
-            <div class="dashboard">
+            <h1 class="chapter">brands</h1>
+            <!-- dasboard -->
+            <section class="dashboard">
                 <h2>Users Management</h2>
                 <p>Here you can manage users, view their details, and perform actions such as edit or delete.</p>
                 <div class="search">
@@ -17,7 +17,7 @@ include "index.php";
                     </from>
                 </div>
                 <h2>Thống kê system</h2>
-            </div>
+            </section>
 
             <h1 class="chapter">User list </h1>
             <div class="dashboard">

@@ -151,7 +151,11 @@ include "index.php";
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td>
+                                <span class="stt-cars">
+                                    active
+                                </span></td>
+                            </td>
                             <td>
                                 <div class="crud-icon">
                                     <a href="edit-user.php?id=1" class="edit-btn">
