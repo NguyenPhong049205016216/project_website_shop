@@ -102,7 +102,7 @@ include "index.php";
                                 <td>1</td>
                                 <td>
                                     <div class="user-name">
-                                        <img src="../assets/images/users/user1.png" alt="">
+                                        <img src="/car-shop/assets/images/users/user1.png" alt="">
                                         Nguyen Phong
                                     </div>
                                 </td>
@@ -117,10 +117,10 @@ include "index.php";
                                 <td> </td>
                                 <td>
                                     <div class="crud-icon">
-                                        <a href="edit-user.php?id=1" class="edit-btn">
+                                        <a href="/car-shop/admin/edit-user.php?id=1" class="edit-btn">
                                             <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                         </a>
-                                        <a href="delete-user.php?id=1" class="delete-btn">
+                                        <a href="/car-shop/admin/delete-user.php?id=1" class="delete-btn">
                                             <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
                                         </a>
                                     </div>
@@ -132,7 +132,7 @@ include "index.php";
                                 <td>2</td>
                                 <td>
                                     <div class="user-name">
-                                        <img src="../assets/images/users/user2.png" alt="">
+                                        <img src="/car-shop/assets/images/users/user2.png" alt="">
                                         jony Nguyen
                                     </div>
                                 </td>
@@ -143,10 +143,10 @@ include "index.php";
                                 <td>12/05/2025</td>
                                 <td>
                                     <div class="crud-icon">
-                                        <a href="edit-user.php?id=1" class="edit-btn">
+                                        <a href="/car-shop/admin/edit-user.php?id=1" class="edit-btn">
                                             <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                         </a>
-                                        <a href="delete-user.php?id=1" class="delete-btn">
+                                        <a href="/car-shop/admin/delete-user.php?id=1" class="delete-btn">
                                             <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
                                         </a>
                                     </div>
