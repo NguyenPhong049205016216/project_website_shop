@@ -35,7 +35,7 @@ include 'includes/header.php';
     <div class="pill" onclick="setType(event, 'Pickup')">Pickup</div>
     <div class="pill" onclick="setType(event, 'Hatchback')">Hatchback</div>
     <div class="pill" onclick="setType(event, 'MPV')">MPV</div>
-    <div class="pill" onclick="setFuel('Điện')">⚡ Xe điện</div>
+    <div class="pill" onclick="setFuel('Điện')">⚡27092 Xe điện</div>
     <div class="pill" onclick="setFuel('Hybrid')">🌿 Hybrid</div>
   </div>
 </div>
@@ -52,18 +52,22 @@ include 'includes/header.php';
         <span class="filter-reset" onclick="clearFilter('brand')">Xóa</span>
       </div>
       <div class="filter-body">
+
         <?php
           $brands = array_unique(array_column($cars, 'brand'));
           foreach($brands as $b):
             $cnt = count(array_filter($cars, fn($c)=>$c['brand']==$b));
         ?>
+
         <label class="filter-option">
           <input type="checkbox" name="brand" value="<?= $b ?>" onchange="filterCars()">
           <span class="checkbox-box"></span>
           <?= $b ?>
           <span class="filter-count"><?= $cnt ?></span>
         </label>
+
         <?php endforeach; ?>
+
       </div>
     </div>
 
@@ -85,13 +89,17 @@ include 'includes/header.php';
     <div class="filter-card">
       <div class="filter-header">Nhiên liệu</div>
       <div class="filter-body">
+
         <?php foreach(['Xăng','Dầu','Điện','Hybrid'] as $f): ?>
+
         <label class="filter-option">
           <input type="checkbox" name="fuel" value="<?= $f ?>" onchange="filterCars()">
           <span class="checkbox-box"></span>
           <?= $f ?>
         </label>
+
         <?php endforeach; ?>
+
       </div>
     </div>
 
@@ -99,13 +107,17 @@ include 'includes/header.php';
     <div class="filter-card">
       <div class="filter-header">Số chỗ ngồi</div>
       <div class="filter-body">
+
         <?php foreach([5,7] as $s): ?>
+
         <label class="filter-option">
           <input type="checkbox" name="seats" value="<?= $s ?>" onchange="filterCars()">
           <span class="checkbox-box"></span>
           <?= $s ?> chỗ
         </label>
+
         <?php endforeach; ?>
+
       </div>
     </div>
 
@@ -140,6 +152,7 @@ include 'includes/header.php';
     </div>
 
     <div class="car-grid" id="carGrid">
+
       <?php foreach($cars as $car): ?>
       <div class="car-card"
            data-brand="<?= $car['brand'] ?>"
@@ -179,6 +192,7 @@ include 'includes/header.php';
           </div>
         </div>
       </div>
+      
       <?php endforeach; ?>
     </div>
   </div>
