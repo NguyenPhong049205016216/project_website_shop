@@ -1,15 +1,21 @@
 <?php
+
+include_once "../config/database.php";
+$sql = "SELECT cars.*, brands.name AS brand_name
+        FROM cars
+        JOIN brands ON cars.brand_id = brands.id
+        ORDER BY cars.id DESC";
+
+// $result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
+
+$totalCars = mysqli_num_rows($result);
+// $totalCars = mysqli_num_rows($result);
+?>
+
+<?php
 include "index.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Users</title>
-    <link rel="stylesheet" href="/car-shop/assets/css/admin.css">
-</head>
 
 <body>
     <div class="container">

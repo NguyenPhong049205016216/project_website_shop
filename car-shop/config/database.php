@@ -1,18 +1,16 @@
 <?php
+
 $host = "localhost";
 $username = "root";
 $password = "";
 $database = "car_shop";
+$port = 8088;
 
-$conn = mysqli_connect($host, $username, $password, $database);
+$conn = mysqli_connect($host, $username, $password, $database,$port);
 
-if($conn){
-
-    echo "Kết nối thành công";
-
-}else{
-
-    echo "Kết nối thất bại";
-    
+if (!$conn) {
+    die("Kết nối thất bại: " . mysqli_connect_error());
 }
+
+mysqli_set_charset($conn, "utf8");
 ?>

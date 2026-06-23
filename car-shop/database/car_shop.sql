@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 12, 2026 lúc 09:22 PM
+-- Thời gian đã tạo: Th6 22, 2026 lúc 10:44 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -32,6 +32,15 @@ CREATE TABLE `brands` (
   `brand_name` varchar(50) NOT NULL,
   `logo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `brands`
+--
+
+INSERT INTO `brands` (`id`, `brand_name`, `logo`) VALUES
+(1, 'Toyota', 'assets/images/cars/icon_trademark_toyota.png'),
+(2, 'Audi', 'assets/images/cars/icon_Audi.png'),
+(3, 'Vinfast', 'assets/images/cars/icon_vinfast.png');
 
 -- --------------------------------------------------------
 
@@ -81,6 +90,19 @@ CREATE TABLE `cartegories` (
   `id` int(11) NOT NULL,
   `cartegory_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cartegories`
+--
+
+INSERT INTO `cartegories` (`id`, `cartegory_name`) VALUES
+(1, 'SUV '),
+(2, 'Sedan'),
+(3, 'Sport'),
+(4, 'Electric SUV'),
+(5, 'Truck'),
+(6, 'Luxury'),
+(7, 'Convertible');
 
 -- --------------------------------------------------------
 
@@ -156,6 +178,13 @@ CREATE TABLE `user` (
   `role` enum('user','admin') NOT NULL DEFAULT 'user',
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `phone`, `address`, `role`, `created_at`) VALUES
+(1, 'Nguyễn Phông', 'Phong@gmail.com', 'abc123456', '0293452349', 'Hồ Chí Minh', 'admin', '2026-06-21 14:25:23');
 
 -- --------------------------------------------------------
 
@@ -253,7 +282,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `cars`
@@ -271,7 +300,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT cho bảng `cartegories`
 --
 ALTER TABLE `cartegories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `car_details`
@@ -301,7 +330,7 @@ ALTER TABLE `promotions`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `wishlist`
