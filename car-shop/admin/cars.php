@@ -32,7 +32,7 @@ include "index.php";
                     <div class="dhb-dead">
                         <h2>Cars Management</h2>
                         <p>Here you can manage cars, view their details, and perform actions such as edit or delete.</p>
-                        <a href="#" class="add-btn">add new user</a>
+                        <a href="admin-cars/add-cars.php" class="add-btn">add new user</a>
                     </div>
 
                     <div class="toolbar">
