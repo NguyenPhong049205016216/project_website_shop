@@ -1,18 +1,23 @@
 <?php
+$databasePath = __DIR__ . "/../config/database.php";
+if (!file_exists($databasePath)) {
+    die("Database configuration file not found: " . htmlspecialchars($databasePath));
+}
+require_once $databasePath;
 
-include_once "../config/database.php";
-$sql = "SELECT cars.*, brands.name AS brand_name
+if (!isset($conn)) {
+    die("Database connection not initialized.");
+}
+
+$sql = "SELECT cars.*, brands.brand_name AS brand_name
         FROM cars
         JOIN brands ON cars.brand_id = brands.id
         ORDER BY cars.id DESC";
 
-// $result = mysqli_query($conn, $sql);
 $result = mysqli_query($conn, $sql);
-
 $totalCars = mysqli_num_rows($result);
-// $totalCars = mysqli_num_rows($result);
-?>
 
+?>
 <?php
 include "index.php";
 ?>
@@ -55,7 +60,11 @@ include "index.php";
                                 </span>
                                 <div>
                                     <p>tổng xe</p>
-                                    <h3>0</h3>
+                                    <h3>
+                                        <?php
+                                        echo $totalCars;
+                                        ?>
+                                    </h3>
                                     <small>tất cả xe trong hệ thống</small>
                                 </div>
                             </div>
@@ -115,65 +124,54 @@ include "index.php";
                             <tr>
                                 <th><input type="checkbox"></th>
                                 <th>ID</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>price</th>
-                                <th>brands</th>
-                                <th>quanity</th>
-                                <th>status</th>
+                                <th>ảnh xe</th>
+                                <th>name</th>
+                                <th>giá</th>
+                                <th>hản xe</th>
+                                <th>loại xe</th>
+                                <th>số lượng</th>
+                                <th>nhiên liệu</th>
+                                <th>số sàng</th>
+                                <th>động cơ</th>
+
+                                <th>trạng thái</th>
                                 <th>CRUD</th>
                             </tr>
                         </thead>
                         <!-- Example user data -->
-                        <tr class="item_head" id="stitle-cars">
-                            <td><input type="checkbox"></td>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <span class="stt-cars">
-                                    active
-                                </span></td>
-                            <td>
-                                <div class="crud-icon">
-                                    <a href="edit-user.php?id=1" class="edit-btn">
-                                        <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
-                                    </a>
-                                    <a href="delete-user.php?id=1" class="delete-btn">
-                                        <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                        <tbody>
+                            <?php while ($car = mysqli_fetch_assoc($result)) { ?>
+                            <tr class="item_head" id="stitle-cars">
+                                <td><input type="checkbox"></td>
 
-                        <tr class="item_head" id="stitle-cars">
-                            <td><input type="checkbox"></th>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <span class="stt-cars">
-                                    active
-                                </span></td>
-                            </td>
-                            <td>
-                                <div class="crud-icon">
-                                    <a href="edit-user.php?id=1" class="edit-btn">
-                                        <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
-                                    </a>
-                                    <a href="delete-user.php?id=1" class="delete-btn">
-                                        <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-
+                                <td><?php echo $car['id']; ?></td>
+                                <td><img src="/car-shop/assets/images/img-cars/<?php echo $car['main_image']; ?>" width="90"></td>
+                                <td><?php echo $car['cars_name']; ?></td>
+                                <td><?php echo number_format($car['price'],0,',',','); ?> VNĐ</td>
+                                <td><?php echo $car['brand_name']; ?></td>
+                                <td><?php echo $car['categories_id']; ?></td>
+                                <td><?php echo $car['quantity']; ?></td>
+                                <td><?php echo $car['fuel_type']; ?></td>
+                                <td><?php echo $car['transmission']; ?></td>
+                                <td><?php echo $car['engine']; ?></td>
+                                <td>
+                                    <span class="stt-cars">
+                                         <?php echo $car['status']; ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="crud-icon">
+                                        <a href="edit-user.php?id=<?php echo $car['id']; ?>" class="edit-btn">
+                                            <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                        </a>
+                                        <a href="delete-user.php?id=<?php echo $car['id']; ?>" class="delete-btn">
+                                            <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
                     </table>
                 </div>
             </div>

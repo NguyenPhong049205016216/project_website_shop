@@ -1,16 +1,22 @@
 <?php
-include "index.php";
+$databasePath = __DIR__ . "/../config/database.php";
+if (!file_exists($databasePath)) {
+    die("Database configuration file not found: " . htmlspecialchars($databasePath));
+}
+require_once $databasePath;
 
+if (!isset($conn)) {
+    die("Database connection not initialized.");
+}
+/* lấy tất cả user */
+
+$sql = "SELECT * FROM user ORDER BY id DESC";
+$result = mysqli_query($conn, $sql);
+$totalUsers = mysqli_num_rows($result);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Cars</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
+<?php
+include "index.php";
+?>
 
 <body>
     <div class="container">
@@ -21,7 +27,9 @@ include "index.php";
                 <section class="dashboard">
                     <div class="dhb-head">
                         <h2>Users Management</h2>
-                        <a href="#" class="add-btn">add new user</a>
+                        <a href="admin-user/add-user.php" class="add-btn">
+                            add new user
+                        </a>
                     </div>
                     <div class="toolbar">
                         <input type="text" placeholder="Search user...">
@@ -40,7 +48,9 @@ include "index.php";
                                 </span>
                                 <div>
                                     <p>total user</p>
-                                    <h3>0</h3>
+                                    <h3>
+                                        <?php echo $totalUsers; ?>
+                                    </h3>
                                     <small>đã tham gia</small>
                                 </div>
                             </div>
@@ -89,71 +99,47 @@ include "index.php";
                                 <th>Email</th>
                                 <th>phone</th>
                                 <th>address</th>
+                                <th>mật khẩu</th>
                                 <th>Role</th>
-                                <th>acvated_at</th>
+                                <th>created at</th>
                                 <th>CRUD</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <!-- Example user data -->
-                            <tr class="item_head">
-                                <td><input type="checkbox"></th>
-                                <td>1</td>
-                                <td>
-                                    <div class="user-name">
-                                        <img src="/car-shop/assets/images/users/user1.png" alt="">
-                                        Nguyen Phong
-                                    </div>
-                                </td>
-                                <td>Nguyen Phong.doe@example.com</td>
-                                <td>034567203</td>
-                                <td> Hồ Chí Minh</td>
-                                <td>
-                                    <span class="role user">
-                                        Admin
-                                    </span>
-                                </td>
-                                <td> </td>
-                                <td>
-                                    <div class="crud-icon">
-                                        <a href="/car-shop/admin/edit-user.php?id=1" class="edit-btn">
-                                            <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
-                                        </a>
-                                        <a href="/car-shop/admin/delete-user.php?id=1" class="delete-btn">
-                                            <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="item_head">
-                                <td><input type="checkbox"></td>
-                                <td>2</td>
-                                <td>
-                                    <div class="user-name">
-                                        <img src="/car-shop/assets/images/users/user2.png" alt="">
-                                        jony Nguyen
-                                    </div>
-                                </td>
-                                <td>john.doe@example.com</td>
-                                <td>034567203</td>
-                                <td>Tp. Hồ Chí Minh</td>
-                                <td><span class="role user">User</span></td>
-                                <td>12/05/2025</td>
-                                <td>
-                                    <div class="crud-icon">
-                                        <a href="/car-shop/admin/edit-user.php?id=1" class="edit-btn">
-                                            <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
-                                        </a>
-                                        <a href="/car-shop/admin/delete-user.php?id=1" class="delete-btn">
-                                            <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php while ($user = mysqli_fetch_assoc($result)): ?>
+                                <tr class="item_head">
+                                    <td><input type="checkbox"></td>
+                                    <td><?php echo $user['id']; ?></td>
+                                    <td>
+                                        <div class="user-name">
+                                            <img src="/car-shop/assets/images/users/user1.png" alt="">
+                                            <?php echo $user['name']; ?>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $user['email']; ?></td>
+                                    <td><?php echo $user['phone']; ?></td>
+                                    <td><?php echo $user['address']; ?></td>
+                                    <td><?php echo $user['password']?></td>
+                                    <td>
+                                        <span class="role <?php echo htmlspecialchars(strtolower($user['role'] ?? 'user')); ?>">
+                                            <?php echo $user['role']; ?>
+                                        </span>
+                                    </td>
+                                    <td><?php echo $user['created_at']; ?></td>
+                                    <td>
+                                        <div class="crud-icon">
+                                            <a href="/car-shop/admin/edit-user.php?id=<?php echo urlencode($user['id']); ?>" class="edit-btn">
+                                                <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                            <a href="/car-shop/admin/delete-user.php?id=<?php echo urlencode($user['id']); ?>" class="delete-btn">
+                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
                         </tbody>
-
                     </table>
                 </div>
             </section>

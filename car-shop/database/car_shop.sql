@@ -53,7 +53,7 @@ CREATE TABLE `cars` (
   `brand_id` int(11) NOT NULL,
   `categories_id` int(11) NOT NULL,
   `cars_name` varchar(50) NOT NULL,
-  `price` double(10,5) NOT NULL,
+  `price` DECIMAL(15,0) NOT NULL,
   `fuel_type` varchar(50) NOT NULL,
   `transmission` varchar(50) NOT NULL,
   `engine` varchar(50) NOT NULL,
