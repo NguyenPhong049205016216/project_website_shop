@@ -3,55 +3,25 @@ require __DIR__ . "/../../config/database.php";
 
 if (isset($_POST['submit'])) {
 
-    $brand_id = $_POST['brand_id'];
-    $categories_id = $_POST['categories_id'];
-    $cars_name = $_POST['cars_name'];
-    $price = $_POST['price'];
-    $fuel_type = $_POST['fuel_type'];
-    $transmission = $_POST['transmission'];
-    $engine = $_POST['engine'];
-    $color = $_POST['color'];
-    $quantity = $_POST['quantity'];
-    $description = $_POST['description'];
-    $main_image = $_POST['main_image'];
-    $status = $_POST['status'];
-    $year = $_POST['year'];
+    //upload ảnh
+    $file_name= $_FILES['main_image']['name'];
+    //biến chứa ảnh tạm thời
+    $tmpName= $_FILES['main_image']['tmp_name'];
+    //chỉ định thư mục lưu ảnh
+    $uploadFolder= __DIR__."/../../assets/images/img-cars/";
+    //di chuyển file ảnh từ bộ nhớ tạp về project
+    move_uploaded_file($tmpName, $uploadFolder.$file_name); 
 
-    $sql = "INSERT INTO cars
-            (brand_id, categories_id, cars_name, price, fuel_type, transmission, engine, color, quantity, description, main_image, status, year)
-            VALUES
-            ('$brand_id', '$categories_id', '$cars_name', '$price', '$fuel_type', '$transmission', '$engine', '$color', '$quantity', '$description', '$main_image', '$status', '$year')";
+    $_POST['main_image'] = "assets/images/img-cars/".$file_name;
+    
+    $car = new Cars($conn);
 
-    if (mysqli_query($conn, $sql)) {
+    if ($car->create($_POST)) {
         header("Location: ../cars.php");
         exit;
     } else {
         echo mysqli_error($conn);
     }
-
-    //upload ảnh
-    $file_name= $_FILES['main_image']['name'];
-    //biến chứa ảnh tạm thời
-    $tmpName= $_FILES['main-image']['tmp_name'];
-    //chỉ định thư mục lưu ảnh
-    $uploadFolder= "../../assets/images/img-cars/";
-    //di chuyển file ảnh từ bộ nhớ tạp về project
-    move_uploaded_file($tmpName, $uploadFolder.$file_name); 
-
-    $main_image = $file_name;
-
-    $sql = "INSERT INTO cars
-    (brand_id, categories_id, cars_name, price, fuel_type,
-    transmission, engine, color, quantity, description,
-    main_image, status, year)
-    VALUES
-    ('$brand_id','$categories_id','$cars_name','$price',
-    '$fuel_type','$transmission','$engine','$color',
-    '$quantity','$description','$main_image','$status','$year')";
-    mysqli_query($conn,$sql);
-
-    header("Location: ../cars.php");
-
 }
 ?>
 <?php include "../index.php" ?>

@@ -9,7 +9,6 @@ if (!isset($conn)) {
     die("Database connection not initialized.");
 }
 /* lấy tất cả user */
-
 $sql = "SELECT * FROM user ORDER BY id DESC";
 $result = mysqli_query($conn, $sql);
 $totalUsers = mysqli_num_rows($result);

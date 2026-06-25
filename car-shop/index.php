@@ -10,10 +10,6 @@ include "includes/header.php";
     <title>Car-shop</title>
     <link rel="stylesheet" href="/car-shop/assets/css/home.css">
 </head>
-<body>
-    
-</body>
-</html>
 
 <body>
     <section class="index-section">

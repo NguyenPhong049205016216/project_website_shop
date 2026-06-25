@@ -1,19 +1,15 @@
 <?php
 class User{
     private $conn;
-
     public function __construct($conn)
     {
         $this -> conn = $conn;
     }
-
     public function __getAll($conn)
     {
-
         $sql = "SELECT * FROM user ORDER BY id DESC";
         return mysqli_query($this -> conn, $sql);
     }
-
     public function create($data){
         $sql = "INSERT INTO user
         (name,email,password,phone,address,role)

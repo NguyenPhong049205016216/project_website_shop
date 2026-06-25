@@ -1,5 +1,6 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
+
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
@@ -8,6 +9,28 @@ require_once $databasePath;
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
+
+//đếm tổng số xe còn hàng trong kho 
+//cộng tất cả cột slx quantity
+$sqlHetHang = "SELECT COUNT(*) 
+                --    đổi kết quả cộng thành
+                   AS total_out_stosk FROM cars 
+                --    chỉ lấy xe có trạng thái stats (avalible, sodl)
+                   WHERE status = 'sold' OR quantity = 0";
+//chậy câu lệnh trên
+$reusultHetHang = mysqli_query($conn, $sqlHetHang);
+//lấy dữ liệu kết quả trả về
+$rowHetHang= mysqli_fetch_assoc($reusultHetHang);
+//gán vào biến để dùng
+$totalHetHang = $rowHetHang['total_out_stosk'] ?? 0;
+
+//Hàng có sẳn
+$sqlTongxe = "SELECT SUM(quantity) 
+            AS tong_so_xe FROM cars
+            WHERE status IN ('available', 'hidden')";
+$reusultTongxe = mysqli_query($conn, $sqlTongxe);
+$rowTongxe = mysqli_fetch_assoc($reusultTongxe);
+$totalxekho = $rowTongxe['tong_so_xe'] ?? 0;
 
 $sql = "SELECT cars.*, brands.brand_name AS brand_name
         FROM cars
@@ -59,7 +82,7 @@ include "index.php";
                                     <img src="/car-shop/assets/images/icon/loai-xe.png" class="icon-stats">
                                 </span>
                                 <div>
-                                    <p>tổng xe</p>
+                                    <p>tổng loại xe</p>
                                     <h3>
                                         <?php
                                         echo $totalCars;
@@ -77,7 +100,7 @@ include "index.php";
                                 </span>
                                 <div>
                                     <p>xe có sẳn</p>
-                                    <h3>0</h3>
+                                    <h3><?php echo $totalxekho; ?></h3>
                                     <small>có sẳn để bán</small>
                                 </div>
                             </div>
@@ -90,7 +113,7 @@ include "index.php";
                                 </span>
                                 <div>
                                     <p>hết hàng</p>
-                                    <h3>0</h3>
+                                    <h3><?php echo $totalHetHang; ?> </h3>
                                     <small>không còn sẳn</small>
                                 </div>
                             </div>
@@ -143,9 +166,8 @@ include "index.php";
                             <?php while ($car = mysqli_fetch_assoc($result)) { ?>
                             <tr class="item_head" id="stitle-cars">
                                 <td><input type="checkbox"></td>
-
                                 <td><?php echo $car['id']; ?></td>
-                                <td><img src="/car-shop/assets/images/img-cars/<?php echo $car['main_image']; ?>" width="90"></td>
+                                <td><img src="/car-shop/<?php echo $car['main_image']; ?>" width="90"></td>
                                 <td><?php echo $car['cars_name']; ?></td>
                                 <td><?php echo number_format($car['price'],0,',',','); ?> VNĐ</td>
                                 <td><?php echo $car['brand_name']; ?></td>

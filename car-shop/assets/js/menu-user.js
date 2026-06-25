@@ -7,7 +7,6 @@ icon.addEventListener("click", function(){
 })
 
 //header
-
 const accountBtn = document.getElementById('account_btn');
 const dropdown = document.querySelector('.acc_dropdown');
 
@@ -24,7 +23,6 @@ document.addEventListener('click', (event) => {
 
 
 // footer
-
 const backTop = document.getElementById('backToTop');
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY

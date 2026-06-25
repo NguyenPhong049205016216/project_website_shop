@@ -7,10 +7,11 @@ class Cars{
         $this -> conn = $conn;
         
     }
-    public function __getAll(){
+    public function getAll(){
         $sql = "SELECT cars.*, brands.brand_name
         FROM cars
-        JOIN brands ON cars.brand_id = brands.id";
+        JOIN brands ON cars.brand_id = brands.id
+        ORDER BY cars.id DESC";
         return mysqli_query($this -> conn, $sql);
     }
 
@@ -19,10 +20,10 @@ class Cars{
         (brand_id,categories_id,cars_name,price,fuel_type,transmission,engine,color,quantity,description,main_image,status,year)
         VALUES
         ('{$data['brand_id']}',
-         '{$data['cata']}',
+         '{$data['categories']}',
          '{$data['cars_name']}',
          '{$data['price']}',
-         '{$data['puel_type']}',
+         '{$data['fuel_type']}',
          '{$data['transmission']}',
          '{$data['engine']}',
          '{$data['color']}',
@@ -30,11 +31,12 @@ class Cars{
          '{$data['description']}',
          '{$data['main_image']}',
          '{$data['status']}',
-         '{$data['year']}')";
-         return mysqli_query($this->conn, $sql);
+         '{$data['year']}'
+        )";
+        return mysqli_query($this->conn, $sql);
     }
     public function delete($id){
-        $sql = "DELETE * FROM WHERE id=$id";
+        $sql = "DELETE FROM cars WHERE id=$id";
         return mysqli_query($this -> conn, $sql);
     }
 

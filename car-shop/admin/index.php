@@ -25,7 +25,7 @@
             <a href="/car-shop/admin/dashboard.php">Dashboard</a>
             <a href="/car-shop/admin/cars.php">Cars</a>
             <a href="/car-shop/admin/users.php">Users</a>
-            <a href="/car-shop/admin/brands.php">Categories</a>
+            <a href="/car-shop/admin/brands.php">brands</a>
             <a href="/car-shop/admin/orders.php">Orders</a>
             <button class="btn" href="/car-shop/index.php">Logout</button> 
         </left>
