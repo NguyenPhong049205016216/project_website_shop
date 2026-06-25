@@ -1,40 +1,66 @@
-<?php 
-require __DIR__. "/../../config/database.php";
+<?php
+require __DIR__ . "/../../config/database.php";
+require __DIR__ . "/../../app/models/User.php";
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
-    $password = $_POST['password'];
-    $role = $_POST['role'];
-
-    $sql = "INSERT INTO user 
-            (name, email, password, phone, address, role)
-            VALUES
-            ('$name', '$email', '$password', '$phone', '$address', '$role')";
-            
-    if (mysqli_query($conn, $sql)) {
-        // cho nó quay về file user hiện thông tin.
-        header("Location: ../users.php");
-        exit;
-    } else {
-        echo mysqli_error($conn);
-    }
+    $user = new User($conn);
+    $user -> create($_POST);
+    header("Location: ../users.php");
+    exit;
 }
 ?>
+<?php include "../index.php" ?>
 
-<form  method="POST">
-    <input type="text" name="name" placeholder="nhập tên người dùng">
-    <input type="email" name="email"  placeholder="nhập email">
-    <input type="text" name="phone" placeholder="nhập số điện thoại">
-    <input type="text" name="address" placeholder="nhập địa chỉ">
-    <input type="text" name="password" placeholder="nhập mật khẩu">
-    <select name="role">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select>
-    <button type="submit" name="submit">Thêm user</button>
-    
+<head>
+    <link rel="stylesheet" href="/car-shop/assets/css/admin.css">
+</head>
 
-</form>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div>
+                <h1 class="chapter">add user</h1>
+                <div class="form-card">
+                    <form method="POST" class="user-form">
+                        <div class="form-group">
+                            <label>Full name</label>
+                            <input type="text" name="name" placeholder="nhập tên người dùng">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="nhập email">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" name="phone" placeholder="nhập số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" placeholder="nhập địa chỉ">
+                        </div>
+                        <div class="form-group">
+                            <label>Passworđ</label>
+                            <input type="text" name="password" placeholder="nhập mật khẩu">
+                        </div>
+                        <div class="form-group">
+                            <label>Role</label>
+                            <select name="role">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="form-action">
+                            <a href="/car-shop/admin/users.php" class="btn-cancel">Cancel</a>
+                            <button class="btn-submit" type="submit" name="submit">Thêm user</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="from-card">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>

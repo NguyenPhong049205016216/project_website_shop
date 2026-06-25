@@ -360,6 +360,77 @@ table tr th{
 .view_dashboard{
     overflow-x: auto;
 }
+/* add-user */
+.form-card{
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+    width: min(1200px, 90%);
+    margin: 40px 20px;
+    overflow: hidden;
+}
+
+.user-form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label{
+    font-weight: 700;
+    color: #111827;
+}
+
+.form-group input,
+.form-group select{
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+}
+
+.form-action{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-submit,
+.btn-cancel{
+    padding: 13px 26px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-submit{
+    background: #2563eb;
+    color: white;
+}
+
+.btn-cancel{
+    background: #e5e7eb;
+    color: #111827;
+}
+
 
 /* cars admin */
 .item_tatol{
@@ -375,7 +446,62 @@ table tr th{
     background: #a4ebbe;
     border-radius: 10px;
 }
+/* add-cars */
+.car-frcars{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 34px;
+}
+.form-grcars{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.form-grcars label{
+    font-weight: 700;
+    color: #111827;
+}
+.form-grcars input,
+.form-grcars select,
+.form-grcars textarea{
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+.form-grcars.full{
+    grid-column: 1 / -1;
+}
 
+.form-grcars textarea{
+    min-height: 130px;
+    resize: vertical;
+}
+ 
+
+@media(max-width: 1100px){
+    /* add-user */
+    .form-card{
+        width: 75%;
+        padding: 35px;
+        margin: 30px auto;
+    }
+
+    .user-form{
+        grid-template-columns: 1fr;
+    }
+
+    .form-action{
+        justify-content: flex-start;
+    }
+    /* add-car */
+    .car-frcars{
+        grid-template-columns: 1fr;
+    }
+}
 
 /* chế độ phone */
 @media (max-width: 768px){
@@ -504,6 +630,12 @@ table tr th{
     .user_table{
         min-width: 850px;
     }
+
+    /* add-user */
+    .user-form{
+        grid-template-columns: 2fr;
+    }
+
 }
 
 
