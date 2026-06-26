@@ -1,5 +1,5 @@
 <?php
-$databasePath = __DIR__ . "../config/database.php";
+$databasePath = __DIR__ . "/../config/database.php";
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
@@ -8,15 +8,18 @@ require_once $databasePath;
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
+$sql = "SELECT * FROM brands ORDER BY id DESC";
+$result = mysqli_query($conn, $sql);
+$totalUsers = mysqli_num_rows($result);
+
 
 ?>
 
-<?php include "index.php";?>
+<?php include "index.php"; ?>
 
 <body>
     <div div class="container">
         <main class="main-content">
-
             <h1 class="chapter">brands</h1>
             <!-- dasboard -->
             <section class="dashboard brand-dashboard">
@@ -34,6 +37,7 @@ if (!isset($conn)) {
                 </div>
                 <h2>Thống kê system</h2>
             </section>
+
             <!-- add brand -->
             <div class="brand-modal" id="brandModal">
                 <div class="brand-modal-box">
@@ -59,43 +63,45 @@ if (!isset($conn)) {
                     </form>
                 </div>
             </div>
+            <!-- list brand -->
             <h1 class="chapter">Brands list </h1>
             <div class="dashboard">
                 <div class="view_dashboard">
                     <table class="user_table" border="1" cellspacing="0">
-                        <tr class="item_head">
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Logo</th>
-                            <th>CRUD</th>
-                        </tr>
+                        <thead class="item_head">
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Logo</th>
+                                <th>CRUD</th>
+                            </tr>
+                        </thead>
                         <!-- Example user data -->
-                        <tr class="item_head">
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>john.doe@example.com</td>
-                            <td>
-                                <a href="/car-shop/admin/edit-user.php?id=1">Edit</a>
-                                <a href="/car-shop/admin/delete-user.php?id=1" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr class="item_head">
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="/car-shop/admin/edit-user.php?id=1">Edit</a>
-                                <a href="/car-shop/admin/delete-user.php?id=1"
-                                    onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
-                            </td>
-                        </tr>
-
+                        <tbody>
+                            <?php while ($brand = mysqli_fetch_assoc($result)) { ?>
+                                <tr class="item_head">
+                                    <td><input type="checkbox"></td>
+                                    <td><?php echo $brand['id']; ?></td>
+                                    <td><?php echo $brand['brand_name']; ?></td>
+                                    <td><img src="/car-shop/<?php echo $brand['logo']; ?>" width="90"></td>
+                                    <td>
+                                        <div class="crud-icon">
+                                            <a href="/car-shop/admin/edit-user.php?id=" class="edit-btn">
+                                                <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                            <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">
+                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </main>
-
     </div>
     <script src="/car-shop/assets/js/admin.js"></script>
 </body>

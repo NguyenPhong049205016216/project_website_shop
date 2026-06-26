@@ -143,7 +143,7 @@ include "index.php";
                 </div>
                 <div class="view_dashboard">
                     <table class="user_table" border="2" cellspacing="8">
-                        <thead>
+                        <thead class="item_head">
                             <tr>
                                 <th><input type="checkbox"></th>
                                 <th>ID</th>
