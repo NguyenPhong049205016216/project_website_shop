@@ -12,6 +12,24 @@ if (!isset($conn)) {
 $sql = "SELECT * FROM user ORDER BY id DESC";
 $result = mysqli_query($conn, $sql);
 $totalUsers = mysqli_num_rows($result);
+
+//vô hiệu hóa người dùng
+$sqlDisable = "SELECT COUNT(*) AS total_disable FROM `user` WHERE status = 'blocket'";
+$resultDisable = mysqli_query($conn, $sqlDisable);
+$rowDisable = mysqli_fetch_assoc($resultDisable);
+$totalDisable = $rowDisable['total_disable'];
+
+// user edit count placeholder
+$sqlEdit = "SELECT COUNT(*) AS total_edit 
+            FROM user 
+            WHERE updated_at IS NOT NULL";
+
+$resultEdit = mysqli_query($conn, $sqlEdit);
+
+$rowEdit = mysqli_fetch_assoc($resultEdit);
+
+$totalEdit = $rowEdit['total_edit'];
+
 ?>
 <?php
 include "index.php";
@@ -58,12 +76,12 @@ include "index.php";
                         <div class="stats">
                             <div class="stat-box blue">
                                 <span>
-                                    <img src="/car-shop/assets/images/icon/thung-rac.png" class="icon-stats">
+                                    <img src="/car-shop/assets/images/icon/vohieuhoa.png" class="icon-stats">
                                 </span>
                                 <div>
-                                    <p>User delete</p>
-                                    <h3>0</h3>
-                                    <small>total delete</small>
+                                    <p>User disable</p>
+                                    <h3><?php echo $totalDisable; ?></h3>
+                                    <small>total disable</small>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +93,7 @@ include "index.php";
                                 </span>
                                 <div>
                                     <p>User edit</p>
-                                    <h3>0</h3>
+                                    <h3><?php echo $totalEdit; ?></h3>
                                     <small>total edit</small>
                                 </div>
                             </div>
@@ -99,6 +117,7 @@ include "index.php";
                                 <th>phone</th>
                                 <th>address</th>
                                 <th>mật khẩu</th>
+                                <th>trạng thái</th>
                                 <th>Role</th>
                                 <th>created at</th>
                                 <th>CRUD</th>
@@ -119,7 +138,14 @@ include "index.php";
                                     <td><?php echo $user['email']; ?></td>
                                     <td><?php echo $user['phone']; ?></td>
                                     <td><?php echo $user['address']; ?></td>
-                                    <td><?php echo $user['password']?></td>
+                                    <td><?php echo $user['password'] ?></td>
+                                    <td>
+                                        <?php if ($user['status'] == 'active'): ?>
+                                            <span class="status active">Active</span>
+                                        <?php else: ?>
+                                            <span class="status inactive">blocket</span>
+                                        <?php endif; ?>
+                                    </td>
                                     <td>
                                         <span class="role <?php echo htmlspecialchars(strtolower($user['role'] ?? 'user')); ?>">
                                             <?php echo $user['role']; ?>
@@ -129,10 +155,12 @@ include "index.php";
                                     <td>
                                         <div class="crud-icon">
                                             <a href="/car-shop/admin/edit-user.php?id=<?php echo urlencode($user['id']); ?>" class="edit-btn">
-                                                <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                                <img src="/car-shop/assets/images/icon/edit-but.png" class="btn-imgcru">
                                             </a>
-                                            <a href="/car-shop/admin/delete-user.php?id=<?php echo urlencode($user['id']); ?>" class="delete-btn">
-                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+
+                                            <a href="/car-shop/admin/disable-user.php?id=<?php echo urlencode($user['id']); ?>" class="delete-btn"
+                                                onclick="return confirm('Bạn có chắc muốn vô hiệu hóa user này không?')">
+                                                <img src="/car-shop/assets/images/icon/vohieuhoa.png" class="btn-imgcru">
                                             </a>
                                         </div>
                                     </td>

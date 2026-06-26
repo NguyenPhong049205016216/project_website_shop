@@ -176,7 +176,9 @@ CREATE TABLE `user` (
   `phone` varchar(12) NOT NULL,
   `address` varchar(100) NOT NULL,
   `role` enum('user','admin') NOT NULL DEFAULT 'user',
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` ENUM('active','inactive') DEFAULT 'active',
+  `updated_at` DATETIME NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --

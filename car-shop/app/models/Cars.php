@@ -1,11 +1,9 @@
 <?php
 class Cars{
-
     private $conn;
     public function __construct($conn)
     {
         $this -> conn = $conn;
-        
     }
     public function getAll(){
         $sql = "SELECT cars.*, brands.brand_name
@@ -14,9 +12,8 @@ class Cars{
         ORDER BY cars.id DESC";
         return mysqli_query($this -> conn, $sql);
     }
-
     public function create($data) {
-        $sql = "INSERT INTO cars
+        $sql ="INSERT INTO cars
         (brand_id,categories_id,cars_name,price,fuel_type,transmission,engine,color,quantity,description,main_image,status,year)
         VALUES
         ('{$data['brand_id']}',
@@ -31,14 +28,12 @@ class Cars{
          '{$data['description']}',
          '{$data['main_image']}',
          '{$data['status']}',
-         '{$data['year']}'
-        )";
+         '{$data['year']}')";
         return mysqli_query($this->conn, $sql);
     }
     public function delete($id){
         $sql = "DELETE FROM cars WHERE id=$id";
         return mysqli_query($this -> conn, $sql);
     }
-
 }
 ?>

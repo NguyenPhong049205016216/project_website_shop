@@ -2,7 +2,6 @@
 require __DIR__ . "/../../config/database.php";
 
 if (isset($_POST['submit'])) {
-
     //upload ảnh
     $file_name= $_FILES['main_image']['name'];
     //biến chứa ảnh tạm thời
@@ -11,12 +10,9 @@ if (isset($_POST['submit'])) {
     $uploadFolder= __DIR__."/../../assets/images/img-cars/";
     //di chuyển file ảnh từ bộ nhớ tạp về project
     move_uploaded_file($tmpName, $uploadFolder.$file_name); 
-
     $_POST['main_image'] = "assets/images/img-cars/".$file_name;
-    
     $car = new Cars($conn);
-
-    if ($car->create($_POST)) {
+    if($car -> create($_POST)){
         header("Location: ../cars.php");
         exit;
     } else {
@@ -97,7 +93,6 @@ if (isset($_POST['submit'])) {
                             <label>Ảnh xe</label>
                             <input type="file" name="main_image" placeholder="assets/images/img-cars/toyota.png">
                         </div>
-
                         <div class="form-grcars">
                             <label>Trạng thái</label>
                             <select name="status">
@@ -106,7 +101,6 @@ if (isset($_POST['submit'])) {
                                 <option value="hidden">Hidden</option>
                             </select>
                         </div>
-
                         <div class="form-action">
                             <a href="../cars.php" class="btn-cancel">Cancel</a>
                             <button type="submit" name="submit" class="btn-submit">Add Car</button>
