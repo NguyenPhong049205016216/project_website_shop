@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . "/../../config/database.php";
+require __DIR__ . "/../../app/models/Cars.php";
+
 
 if (isset($_POST['submit'])) {
     //upload ảnh

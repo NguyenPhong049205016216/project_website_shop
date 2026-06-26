@@ -17,7 +17,7 @@ class Cars{
         (brand_id,categories_id,cars_name,price,fuel_type,transmission,engine,color,quantity,description,main_image,status,year)
         VALUES
         ('{$data['brand_id']}',
-         '{$data['categories']}',
+         '{$data['categories_id']}',
          '{$data['cars_name']}',
          '{$data['price']}',
          '{$data['fuel_type']}',
