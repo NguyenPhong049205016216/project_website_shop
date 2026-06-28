@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root{
+    --primary-color: #ffffff;
+    --secondary-color: #111827;
+    --menu-color: #090808;
+    --accent-color: #050709;
+    --text-light: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Toàn trang */
+body{
+    background-color: #f4f6f8;
+
+}
+
+.main{
+    width: 100vw;
+    min-height: 100vh;
+}
+.middle-content{
+    width: 100vw;
+    height: 100vh;
+    padding: 50px 80px 80px;
+    background-color: #eff2f3;
+}
+
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70vw;
+    height: 90vh;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+.document-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.box-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box-mid span {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #32b61e;
+    width: 160px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+ul li{
+    margin-top: 25px;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+/* Footer */
+footer{
+    padding: 30px;
+    text-align: center;
+    background-color: #111827;
+    color: white;
+}
+
+/* Responsive điện thoại */
+@media (max-width: 768px){
+    header{
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .search input{
+        width: 280px;
+    }
+
+    .menu{
+        /* sắp xếp các mục trong menu theo cột dọc */
+        flex-direction: column;
+        /* sắp xếp các mục trong menu theo hàng ngang */
+        /* flex-direction: row; */
+        gap: 0;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .top_menu,
+    .sub_menu,
+    .bex_menu,
+    .footer_menu{
+        position: static;
+        min-width: 100%;
+        text-align: center;
+    }
+
+    section:first-of-type{
+        min-height: 700px;
+    }
+
+    .content{
+        width: 100%;
+        padding: 80px 25px;
+        text-align: center;
+    }
+
+    .content h1:first-child{
+        font-size: 42px;
+    }
+
+    .content h1{
+        font-size: 28px;
+    }
+
+    .logo_xe{
+        position: static;
+        width: 90%;
+        margin-top: 20px;
+        transform: none;
+    }
+}
+
+/* vidu{
+    chia cột chuyên nghiệp.
+    
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+} */
+
+

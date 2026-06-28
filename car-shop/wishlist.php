@@ -1,4 +1,38 @@
 <?php
+include 'config/database.php';
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
+if(!isset($_SESSION['id'])){
+    header("Location: login.php");
+    exit();
+}
+
+$user=$_SESSION['id'];
+
+$sql="
+SELECT
+c.*,
+b.brand_name,
+ct.cartegory_name
+
+FROM wishlist w
+
+JOIN cars c
+ON w.car_id=c.id
+
+JOIN brands b
+ON c.brand_id=b.id
+
+JOIN cartegories ct
+ON c.categories_id=ct.id
+
+WHERE w.user_id=$user
+
+";
+
+$result=mysqli_query($conn,$sql);
 $title = "Trang Chủ";
 include "includes/header.php";
 ?>

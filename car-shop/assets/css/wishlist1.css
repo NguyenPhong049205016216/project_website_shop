@@ -27,34 +27,12 @@ body{
     width: 100vw;
     min-height: 100vh;
 }
-
-.middle-title{
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.784), rgba(0, 0, 0, 0.384)), url("../images/cars/bgcar1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.middle-title .wish-title h1{
-    color: #cfd45f;
-    font-size: 80px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-shadow: 0 4px 10px rgba(112, 179, 114, 0.744);
-}
-
 .middle-content{
     width: 100vw;
     height: 100vh;
     padding: 50px 80px 80px;
     background-color: #eff2f3;
 }
-
 
 
 .content-box {
