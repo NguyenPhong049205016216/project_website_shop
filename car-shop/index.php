@@ -1,4 +1,19 @@
 <?php
+require_once __DIR__ . "/config/database.php";
+
+$sql = "SELECT cars.*, brands.brand_name
+        FROM cars
+        JOIN brands ON cars.brand_id = brands.id
+        -- chỉ hiện xe có status là available
+        WHERE cars.status = 'available'
+        ORDER BY cars.id DESC
+        -- chỉ hiệt tối đa là 10 chiếc
+        LIMIT 10";
+$resultCarsNew = mysqli_query($conn, $sql);
+?>
+
+
+<?php
 $title = "Trang Chủ";
 include "includes/header.php";
 ?>
@@ -25,46 +40,20 @@ include "includes/header.php";
         <!-- Cars New -->
         <h2 class="chapter" id="cars_new">Cars New</h2>
         <main class="cars_introduce">
+            <?php while ($car = mysqli_fetch_assoc($resultCarsNew)) { ?>
             <div class="item">
                 <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
-                <img class="item_img" src="assets/images/cars/toyota_1.png" alt="Car 1">
+
+                <img class="item_img" src="/car-shop/<?php echo $car['main_image']; ?>"
+                 alt="<?php echo $car['cars_name']; ?>">
+
                 <div class="item_info">
-                    <h3>Toyota Vios</h3>
-                    <p>Giá: 545.000.000 VNĐ</p>
-                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
+                    <h3><?php echo $car['cars_name'] ?></h3>
+                    <p>Giá: <?php echo number_format($car['price'], 0, ',', '.'); ?> VNĐ</p>
+                    <a href="car-detail.php?id=<?php echo $car['id']; ?>" class="btn">Xem chi tiết</a>
                 </div>
             </div>
-
-            <div class="item">
-                <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
-                <img class="item_img" src="assets/images/cars/toyota_2.png" alt="Car 1">
-                <div class="item_info">
-                    <h3>Toyota Vios G </h3>
-                    <p>Giá: 650.000.000 VNĐ</p>
-                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
-                <img class="item_img" src="assets/images/cars/toyota_3.png" alt="Car 1">
-                <div class="item_info">
-                    <h3>Vios 1.5G - CVT</h3>
-                    <p>Giá: 545.000.000 VNĐ</p>
-                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
-                <img class="item_img" src="assets/images/cars/toyota_3(vang).png" alt="Car 1">
-                <div class="item_info">
-                    <h3>Vios 1.5G - CVT</h3>
-                    <p>Giá: 550.000.000 VNĐ</p>
-                    <a href="car-detail.php" class="btn">Xem chi tiết</a>
-                </div>
-            </div>
-
+            <?php } ?>
         </main>
 
         <!-- thương hiệu -->

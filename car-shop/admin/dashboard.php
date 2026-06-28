@@ -8,7 +8,6 @@ include "index.php";
             <div>
                 <h1 class="chapter">Dashboard</h1>
                 <section class="dashboard">
-
                     <div class="dhb-head">
                         <h2>Users Management</h2>
                     </div>
@@ -39,7 +38,19 @@ include "index.php";
                         </div>
 
                         <div class="stats">
-                            <div class="stat-box green">
+                            <div class="stat-box yellow">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
+                                </span>
+                                <div>
+                                    <p>total user</p>
+                                    <h3>0</h3>
+                                    <small>đã tham gia</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats">
+                            <div class="stat-box blue">
                                 <span>
                                     <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
                                 </span>
@@ -63,19 +74,7 @@ include "index.php";
                             </div>
                         </div>
                         <div class="stats">
-                            <div class="stat-box green">
-                                <span>
-                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
-                                </span>
-                                <div>
-                                    <p>total user</p>
-                                    <h3>0</h3>
-                                    <small>đã tham gia</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stats">
-                            <div class="stat-box green">
+                            <div class="stat-box purple">
                                 <span>
                                     <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
                                 </span>

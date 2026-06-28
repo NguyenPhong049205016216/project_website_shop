@@ -12,13 +12,11 @@ $sql = "SELECT * FROM orders ORDER BY id DESC";
 $result = mysqli_query($conn, $sql);
 $totalUsers = mysqli_num_rows($result);
 
-
 ?>
-
 <?php include "index.php"; ?>
 
 <body>
-    <div div class="container">
+    <div class="container">
         <main class="main-content">
             <h1 class="chapter">orders</h1>
             <!-- dasboard -->
@@ -27,38 +25,66 @@ $totalUsers = mysqli_num_rows($result);
                     <h2>Orders Management</h2>
                     <p>Here you can manage orders, view their details, and perform actions such as edit or delete.</p>
                 </div>
-                <button type="button" class="add-btn" id="btnbr-opmodel">
+                <button type="button" class="add-btn" id="btn-order-open">
                     add new orders
                 </button>
                 <div class="search">
                     <from>
-                        <input type="text" id="search" placeholder="Search brands...">
+                        <input type="text" id="search" placeholder="Search orther...">
                     </from>
                 </div>
                 <h2>Thống kê system</h2>
             </section>
 
-            <!-- add brand -->
-            <div class="brand-modal" id="brandModal">
-                <div class="brand-modal-box">
-                    <div class="brand-modal-head">
-                        <h2>Add New Brand</h2>
-                        <button type="button" id="btnbr-clmodel">
-                            <img src="/car-shop/assets/images/icon/x-thoat.png" class="clmodel-img">
+            <!-- add order -->
+            <div class="admin-modal" id="orderModal">
+                <div class="admin-modal-box">
+                    <div class="admin-modal-head">
+                        <h2>Add New Order</h2>
+                        <button type="button" id="btn-order-close">
+                            <img src="/car-shop/assets/images/icon/x-thoat.png" class="modal-close-img">
                         </button>
                     </div>
-                    <form action="admin-brand/brand-store.php" method="POST" enctype="multipart/form-data">
-                        <div class="form-grbr">
-                            <label>Brand Name</label>
-                            <input type="text" name="brand_name" placeholder="Nhập tên hãng xe..." required>
+
+                    <form action="admin-order/order-store.php" method="POST">
+                        <div class="form-group-modal">
+                            <label>User ID</label>
+                            <input type="number" name="user_id" placeholder="Nhập ID người dùng..." required>
                         </div>
-                        <div class="form-grbr">
-                            <label>Brand Logo</label>
-                            <input type="file" name="logo" accept="image/*" required>
+
+                        <div class="form-group-modal">
+                            <label>Customer Name</label>
+                            <input type="text" name="customer_name" placeholder="Nhập tên khách hàng..." required>
                         </div>
+
+                        <div class="form-group-modal">
+                            <label>Phone</label>
+                            <input type="text" name="phone" placeholder="Nhập số điện thoại..." required>
+                        </div>
+
+                        <div class="form-group-modal">
+                            <label>Address</label>
+                            <input type="text" name="address" placeholder="Nhập địa chỉ..." required>
+                        </div>
+
+                        <div class="form-group-modal">
+                            <label>Total Price</label>
+                            <input type="number" name="total_price" placeholder="Nhập tổng tiền..." required>
+                        </div>
+
+                        <div class="form-group-modal">
+                            <label>Status</label>
+                            <select name="status">
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="cancelled">Cancelled</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+
                         <div class="modal-actions">
-                            <button type="button" class="cancel-btn" id="btnbr-cslmodel">Cancel</button>
-                            <button type="submit" class="save-btn">Save Brand</button>
+                            <button type="button" class="cancel-btn" id="btn-order-cancel">Cancel</button>
+                            <button type="submit" class="save-btn">Save Order</button>
                         </div>
                     </form>
                 </div>
@@ -71,28 +97,30 @@ $totalUsers = mysqli_num_rows($result);
                         <thead class="item_head">
                             <tr>
                                 <th><input type="checkbox"></th>
-                                <th>ID</th>
-                                <th>name user</th>
-                                <th>name customer</th>
-                                <th>phone</th>
-                                <th>address</th>
-                                <th>total price</th>
-                                <th>status</th>
+                                <th>id</th>
+                                <th>tài khoản</th>
+                                <th>tên người dùng</th>
+                                <th>điện thoại</th>
+                                <th>địa chỉ</th>
+                                <th>tổng giá</th>
+                                <th>trạng thái</th>
+                                <th>ngày tạo</th>
                                 <th>CRUD</th>
                             </tr>
                         </thead>
                         <!-- Example user data -->
                         <tbody>
-                            <?php while ($brand = mysqli_fetch_assoc($result)) { ?>
+                            <?php while ($orders = mysqli_fetch_assoc($result)) { ?>
                                 <tr class="item_head">
                                     <td><input type="checkbox"></td>
-                                    <td><?php echo $brand['id']; ?></td>
-                                    <td><?php echo $brand['user_id']; ?></td>
-                                    <td><?php echo $brand['customer_name']; ?></td>
-                                    <td><?php echo $brand['phone']; ?></td>
-                                    <td><?php echo $brand['address']; ?></td>
-                                    <td><?php echo $brand['total_price']; ?></td>
-                                    <td><?php echo $brand['status']; ?></td>
+                                    <td><?php echo $orders['id']; ?></td>
+                                    <td><?php echo $orders['user_id']; ?></td>
+                                    <td><?php echo $orders['customer_name']; ?></td>
+                                    <td><?php echo $orders['phone']; ?></td>
+                                    <td><?php echo $orders['address']; ?></td>
+                                    <td><?php echo $orders['total_price']; ?></td>
+                                    <td><?php echo $orders['status']; ?></td>
+                                    <td><?php echo $orders['created_at']; ?></td>
                                     <td>
                                         <div class="crud-icon">
                                             <a href="/car-shop/admin/edit-user.php?id=" class="edit-btn">

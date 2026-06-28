@@ -12,6 +12,7 @@
 .green{ background:#acdac4; }
 .yellow{ background:#e7dfbf; }
 .purple{ background:#b4e2b6; }
+.black{ background: rgb(50, 49, 49);}
 
 *{
     margin: 0;
@@ -186,7 +187,6 @@ header{
     .dhb-head{
         margin-bottom: 20px;
     }
-
     .toolbar{
         display: flex;
         justify-content: space-between;
@@ -196,7 +196,6 @@ header{
     .toolbar input{
         width: 330px;
     }
-
     .toolbar input,
     .toolbar select{
         padding: 13px 16px;
@@ -210,7 +209,6 @@ header{
         grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
         gap: 18px;
     }
-
     .stats{
         display: block;
     }
@@ -472,6 +470,76 @@ header{
     box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     animation: modalShow 0.3s ease;
 }
+/* order admin */
+.admin-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.admin-modal.active{
+    display: flex;
+}
+.admin-modal-box{
+    width: 520px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+}
+.admin-modal-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.admin-modal-head button{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.modal-close-img{
+    width: 22px;
+    height: 22px;
+}
+.form-group-modal{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.form-group-modal input,
+.form-group-modal select{
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+}
+.modal-actions{
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+.cancel-btn,
+.save-btn{
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+.cancel-btn{
+    background: #e5e7eb;
+}
+.save-btn{
+    background: #2563eb;
+    color: #fff;
+}
+
 @keyframes modalShow{
     from{
         opacity: 0;
@@ -586,7 +654,6 @@ header{
     header h1{
         font-size: 24px;
     }
-
     header .search{
         width: 180px;
         margin-bottom: 0;
@@ -615,7 +682,6 @@ header{
         align-items: center;
         gap: 18px;
     }
-
     .sidebar a{
         width: 50px;
         height: 50px;
@@ -629,14 +695,12 @@ header{
         font-size: 0; 
         overflow: hidden;
     }
-
     .sidebar a img{
         width: 26px;
         height: 26px;
         object-fit: contain;
         display: block;
     }
-
     .btn{
         position: absolute;
         bottom: 20px;
@@ -651,49 +715,40 @@ header{
         justify-content: center;
         align-items: center;
     }
-
     .btn img{
         width: 24px;
         height: 24px;
         object-fit: contain;
     }
-
     .main-content{
         width: calc(100% - 70px);
         margin-left: 70px;
         padding: 80px 12px 20px;
     }
-
     .chapter{
         font-size: 26px;
         margin: 10px 0;
     }
-
     .dashboard{
         padding: 18px;
         border-radius: 16px;
     }
-
     .dhb-head,
     .toolbar{
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
     }
-
     .toolbar input,
     .toolbar select{
         width: 100%;
     }
-
     .dhb-toof{
         grid-template-columns: 1fr;
     }
-
     .stat-box{
         min-height: auto;
     }
-
     .view_dashboard{
         overflow-x: auto;
     }
