@@ -10,7 +10,10 @@ $sql = "SELECT cars.*, brands.brand_name
         -- chỉ hiệt tối đa là 10 chiếc
         LIMIT 10";
 $resultCarsNew = mysqli_query($conn, $sql);
+$sqlBrands = "SELECT * FROM brands ORDER BY id DESC";
+$resultBrands = mysqli_query($conn, $sqlBrands);
 ?>
+
 
 
 <?php
@@ -59,15 +62,11 @@ include "includes/header.php";
         <!-- thương hiệu -->
         <h1 class="chapter" id="Brands">Card Brands</h1>
         <main class="cars_brands">
+            <?php while($brand = mysqli_fetch_assoc($resultBrands)){ ?>
             <div class="item_brands">
-                <img class="img_brands" src="assets/images/cars/icon_trademark_toyota.png" alt="trademark 1">
+                <img class="img_brands" src="/car-shop/<?php echo $brand['logo']; ?>" alt="<?php echo $brand['brand_name']; ?>">
             </div>
-            <div class="item_brands">
-                <img class="img_brands" src="assets/images/cars/icon_Audi.png" alt="trademark 1">
-            </div>
-            <div class="item_brands">
-                <img class="img_brands" src="assets/images/cars/icon_vinfast.png" alt="trademark 1">
-            </div>
+            <?php } ?>
         </main>
         <h1 class="chapter" id="best_sellers">Best Sellers</h1>
 

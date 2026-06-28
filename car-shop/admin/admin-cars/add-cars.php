@@ -12,7 +12,9 @@ if (isset($_POST['submit'])) {
     $uploadFolder= __DIR__."/../../assets/images/img-cars/";
     //di chuyển file ảnh từ bộ nhớ tạp về project
     move_uploaded_file($tmpName, $uploadFolder.$file_name); 
+
     $_POST['main_image'] = "assets/images/img-cars/".$file_name;
+
     $car = new Cars($conn);
     if($car -> create($_POST)){
         header("Location: ../cars.php");
@@ -20,6 +22,7 @@ if (isset($_POST['submit'])) {
     } else {
         echo mysqli_error($conn);
     }
+    
 }
 ?>
 <?php include "../index.php" ?>
