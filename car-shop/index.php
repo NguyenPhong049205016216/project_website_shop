@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . "/config/database.php";
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
 
 $sql = "SELECT cars.*, brands.brand_name
         FROM cars

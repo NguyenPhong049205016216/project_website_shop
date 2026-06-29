@@ -89,7 +89,7 @@ include "index.php";
                         <div class="stats">
                             <div class="stat-box yellow">
                                 <span>
-                                    <img src="/car-shop/assets/images/icon/edit-but.png" class="icon-stats">
+                                    <img src="/car-shop/assets/images/icon/edit.png" class="icon-stats">
                                 </span>
                                 <div>
                                     <p>User edit</p>
