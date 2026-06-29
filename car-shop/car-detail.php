@@ -1,3 +1,30 @@
+<?php
+require_once __DIR__ . "/config/database.php";
+
+if (!isset($_GET['id'])) {
+    die("Không tìm thấy xe");
+}
+
+$id = $_GET['id'];
+
+$sql = "SELECT cars.*, 
+               brands.brand_name, 
+               brands.logo,
+               cartegories.cartegory_name
+        FROM cars
+        JOIN brands ON cars.brand_id = brands.id
+        JOIN cartegories ON cars.categories_id = cartegories.id
+        WHERE cars.id = $id";
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) == 0) {
+    die("Xe không tồn tại");
+}
+
+$car = mysqli_fetch_assoc($result);
+?>
+
 <head>
     <link rel="stylesheet" href="assets/css/detail.css">
 </head>
@@ -23,7 +50,7 @@
                     <img src="/car-shop/assets/images/icon/mui_ten-left.png" class="btn-fr">
                 </button>
                 <!-- ảnh xe -->
-                <img id="mainCarImage" src="/car-shop/assets/images/cars/toyota_1.png" alt="Car">
+                <img id="mainCarImage" src="/car-shop/<?php echo $car['main_image'] ?>" alt="<?php echo $car['cars_name'] ?>">
                 <!-- mũi tên qua phải -->
                 <button class="arrow arrow-right">
                     <img src="/car-shop/assets/images/icon/mui_ten.png">
@@ -62,19 +89,18 @@
         <!-- CỘT GIỮA -->
         <section class="info-section">
             <div class="brand-row">
-                <span class="brand-logo"></span>
-                <span class="car-brand">Hảng xe</span>
+                <span class="brand-logo"> <img src="/car-shop/<?php echo $car['logo']; ?>"></span> 
+                <span class="car-brand"><?php echo $car['brand_name']; ?></span>
             </div>
 
-            <h1>Tên xe <span class="verify">●</span></h1>
+            <h1><?php echo $car['cars_name'] ?> <span class="verify">●</span></h1>
 
             <div class="rating">
                 <span>(0 đánh giá)</span>
             </div>
 
             <p class="description">
-                Toyota GR Supra là mẫu xe thể thao hiệu suất cao, thiết kế hiện đại,
-                động cơ Turbo mạnh mẽ cùng nhiều công nghệ hỗ trợ lái tiên tiến.
+                <?php echo $car['description'] ?>
             </p>
             <!-- dữ nguyên -->
             <h2>
@@ -91,7 +117,7 @@
                         <img src="/car-shop/assets/images/icon/cong-xuat.png">
                     </span>
                     <p>Công suất</p>
-                    <strong>382 HP</strong>
+                    <strong><?php echo $car['engine'] ?></strong>
                 </div>
                 <div class="spec-box">
                     <span class="icon">
@@ -99,15 +125,15 @@
                         <img src="/car-shop/assets/images/icon/nhien-lieu.png">
                     </span>
                     <p>Nhiên liệu</p>
-                    <strong>Xăng</strong>
+                    <strong><?php echo $car['fuel_type'] ?></strong>
                 </div>
                 <div class="spec-box">
                     <span class="icon">
                         <!-- icon tốc độ tối đa -->
                         <img src="/car-shop/assets/images/icon/toc-do.png">
                     </span>
-                    <p>Tốc độ tối đa</p>
-                    <strong>250 km/h</strong>
+                    <p>Trạng thái</p>
+                    <strong><?php echo $car['status'] == 'available' ? 'Còn hàng' : 'Không còn hàng'; ?></strong>
                 </div>
                 <div class="spec-box">
                     <span class="icon">
@@ -115,14 +141,14 @@
                         <img src="/car-shop/assets/images/icon/hop-so.png">
                     </span>
                     <p>Hộp số</p>
-                    <strong>AT 8 cấp</strong>
+                    <strong><?php echo $car['transmission'] ?></strong>
                 </div>
                 <div class="spec-box">
                     <span class="icon">
                         <!-- icon năm sản xuất -->
                         <img src="/car-shop/assets/images/icon/nam-sx.png">
                     </span>
-                    <p>Năm sản xuất</p><strong>2024</strong>
+                    <p>Năm sản xuất</p><strong><?php echo $car['year'] ?></strong>
                 </div>
                 <div class="spec-box">
                     <span class="icon">
@@ -130,7 +156,7 @@
                         <!-- icon loại xe -->
                     </span>
                     <p>Loại xe</p>
-                    <strong>Sport</strong>
+                    <strong><?php echo $car['cartegory_name'] ?></strong>
                 </div>
             </div>
 
@@ -159,10 +185,10 @@
                     <span class="info-icon">i</span>
                 </div>
 
-                <div class="price">3.200.000.000đ</div>
+                <div class="price"><?php echo number_format($car['price'], 0, ',', '.'); ?>đ</div>
                 <p class="vat">(Đã gồm VAT)</p>
 
-                <span class="stock"> Còn hàng</span>
+                <span class="stock"> <?php echo $car['status'] == 'available' ? 'Còn hàng' : 'Không còn hàng'; ?></span>
 
                 <a href="#" class="btn-cart">
                     <span class="icon">

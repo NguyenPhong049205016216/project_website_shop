@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
 :root {
     --primary-color: #ffffff;
     --secondary-color: #111827;
@@ -14,13 +13,14 @@
 }
 /* Toàn trang */
 body {
-    width: 100vw;
-    background-color: #f4f6f8;
+    width: 100%;
+    /* cố định trang */
+    overflow-x: hidden;
+    background: #f3f6fb;
 }
 .main {
-    width: 100vw;
-    min-height: auto;
-    flex: 1;
+    padding:0 20px;
+    margin-top: 0;
 }
 /* Header */
 header {
@@ -139,7 +139,6 @@ button {
     font-size: 16px;
     text-decoration: none;
 }
-
 .acc_title_1 p{
     margin-top: 10px;
     font-size: 18px;
@@ -154,9 +153,7 @@ button {
 .title_icon {
     width: 100px;
     object-fit: contain;
-
 }
-
 .avatar_box {
     display: flex;
     flex-direction: column;
@@ -288,7 +285,6 @@ button {
 .item_content_text a{
     color: #000000;
 }
-
 .item_content_text p{
     color: #938d8c;
 }
@@ -368,12 +364,10 @@ nav {
 .menu li:hover .footer_menu {
     display: block;
 }
-
 /* Banner */
 section {
     width: 100%;
 }
-
 .index-section {
     position: relative;
     min-height: 650px;
@@ -444,89 +438,126 @@ section {
     animation-delay: 0.5s;
 }
 .chapter {
-    font-size: 30px;
-    margin: 20px;
-    border-left: 4px solid #0d408eb4;
-    border-radius: 8px;
-    position: relative;
-    padding-left: 5px;
+    font-size: 28px;
+    margin: 38px 0 26px;
+    padding-left: 14px;
+    border-left: 6px solid #2563eb;
+    color: #0f172a;
+    font-weight: 900;
+    letter-spacing: .3px;
 }
 .cars_introduce {
     width: 100%;
-    margin: 0 auto;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    padding: 20px;
-    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    padding: 0;
+    text-transform: none;
 }
 .item {
-    flex: 0 0 calc((100% - 40px) / 3);
-    min-width: 280px;
-    background-color: white;
-    border-radius: 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-width: 0;
+    min-height: 330px;
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+    border-radius: 28px;
+    padding: 22px 24px;
     display: flex;
-    /* chữ nằm dưới ảnh */
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
-    padding: 20px;    
+    justify-content: flex-start;
+    gap: 10px;
+    border: 1px solid rgba(226,232,240,.95);
+    box-shadow: 0 18px 45px rgba(15,23,42,.10);
+    transition: .28s ease;    
+}
+/* item duy chuyển lên xuống khi ấn vào */
+.item:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(15,23,42,.18);
 }
 .cars_itdnew{
-    width: 60px;
-    position: relative;
-    height: 60px;
-    align-self: flex-end;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
 }
 .item_img {
-    width: 50%;
-    height: auto;
-    border-radius: 40px;
-    object-fit: cover;
+    width: 72%;
+    height: 165px;
+    object-fit: contain;
+    margin-top: 48px;
+    border-radius: 18px;
 }
 .cars_brands {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 30px;          /* 100px hơi xa, giảm cho đẹp */
     padding: 20px;
+    flex-wrap: wrap;   /* cho phép xuống hàng */
 }
 .item_brands {
     width: 20%;
+    min-width: 220px;   /* tránh bị méo khi thu nhỏ */
     background-color: white;
-    border-radius: 40px;
+    border-radius: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    transition: 0.3s;
+}
+.item_brands:hover{
+    transform: translateY(-5px);
 }
 .item_info{
     width: 100%;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 18px;
     text-align: center;
+    margin-top: 8px;
 }
 .item_info a{
-    color: rgba(179, 6, 23, 0.925);
-    font-size: 23px;
-    gap:10px;
+    display: inline-flex;
+    margin-top: 12px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: #111827;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
     text-decoration: none;
     white-space: nowrap;
 }
+/* lia chuột vào chuyển màu */
+.item_info a:hover{
+    color: rgb(67, 129, 158);
+    background: #b4b2b3;
+}
 .item_info p{
-    padding: 3px;
-    font-size: 23px;
-    border-radius: 7px;
-    color: #f4f6f8;
+    width: fit-content;
+    margin: 4px auto 0;
+    padding: 7px 16px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #1d4ed8, #38bdf8);
     white-space: nowrap;
-    background: linear-gradient(135deg, #2563eb, #38bdf8);
 }
 .item_info h3{
-    font-size: 28px;
-    /* chữ không bị thu nhỏ */
-    white-space: nowrap;
+    font-size: 22px;
+    line-height: 1.25;
+    color: #0f172a;
+    font-weight: 900;
+    white-space: normal;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .img_brands {
     width: 100%;
@@ -537,7 +568,7 @@ section {
 /* Footer */
 footer {
     width:100%;
-    background:#111827;
+    background:#36373aa5;
     color:white;
     padding-bottom: 20px;
 }
@@ -555,6 +586,13 @@ footer {
 }
 /* Responsive điện thoại */
 @media (max-width: 768px) {
+    .main{
+        padding: 20px 10px;
+    }
+    .chapter{
+        font-size: 23px;
+        margin: 30px 0 18px;
+    }
     /* header */
     header {
         flex-direction: column;
@@ -620,31 +658,33 @@ footer {
         transform: none;
     }
     /* main cars*/
-     .cars_introduce{
-        justify-content: center;
-        gap: 15px;
+    .cars_introduce{
+        display: flex;
+        overflow-x: auto;
+        gap: 14px;
         padding: 10px;
+        scroll-behavior: smooth;
     }
     .item{
-        width: 45%;
-        min-height: 330px;
-        border-radius: 30px;
-        padding: 15px;
+        flex: 0 0 230px;
+    }
+    .cars_introduce::-webkit-scrollbar{
+        height: 6px;
     }
     .item_img{
-        width: 80%;
+        width: 78%;
+        height: 145px;
+        margin-top: 42px;
     }
     .item_info h3{
-        font-size: 18px;
-        white-space: nowrap;
+        font-size: 19px;
+        min-height: auto;
     }
     .item_info p{
-        font-size: 15px;
-        white-space: nowrap;
+        font-size: 14px;
     }
     .item_info a{
-        font-size: 16px;
-        white-space: nowrap;
+        font-size: 14px;
     }
     .cars_itdnew{
         left: 0;
@@ -654,17 +694,16 @@ footer {
     }
     /* Thương hiệu */
     .cars_brands{
-        display: flex;
-        gap:80px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
     .item_brands{
-        width: 20%;
+        height: 110px;
         border-radius: 20px;
+        padding: 18px;
     }
     .img_brands{
-        width: 110%;
-        border-radius: 30px;
-
+        height: 90px;
     }
     /* footer */
     .chapter_footer{
