@@ -89,7 +89,7 @@ $car = mysqli_fetch_assoc($result);
         <!-- CỘT GIỮA -->
         <section class="info-section">
             <div class="brand-row">
-                <span class="brand-logo"> <img src="/car-shop/<?php echo $car['logo']; ?>"></span> 
+                <span class="brand-logo"> <img class="br=logo" src="/car-shop/<?php echo $car['logo']; ?>"></span> 
                 <span class="car-brand"><?php echo $car['brand_name']; ?></span>
             </div>
 

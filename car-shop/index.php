@@ -3,7 +3,6 @@ require_once __DIR__ . "/config/database.php";
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
-
 $sql = "SELECT cars.*, brands.brand_name
         FROM cars
         JOIN brands ON cars.brand_id = brands.id
@@ -16,8 +15,6 @@ $resultCarsNew = mysqli_query($conn, $sql);
 $sqlBrands = "SELECT * FROM brands ORDER BY id DESC";
 $resultBrands = mysqli_query($conn, $sqlBrands);
 ?>
-
-
 
 <?php
 $title = "Trang Chủ";

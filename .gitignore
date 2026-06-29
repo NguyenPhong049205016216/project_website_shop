@@ -26,3 +26,6 @@ build/
 # Zip/Rar
 *.zip
 *.rar
+
+# file config database/ mỗi người một cổng riêng
+/config/database.php
