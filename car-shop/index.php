@@ -68,9 +68,19 @@ include "includes/header.php";
             </div>
             <?php } ?>
         </main>
+
+
         <h1 class="chapter" id="best_sellers">Best Sellers</h1>
+        <div class="cars_introduce">
+            <div class="item"> 
+                <img src="/car-shop/assets/images/icon/icon-new.png">
+                
+            </div>
+        </div>
 
         <h1 class="chapter" id="promotion">Promotions</h1>
+
+
     </div>
 </body>
 
