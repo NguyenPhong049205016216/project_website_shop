@@ -1,10 +1,12 @@
 <?php
-include "config/database.php";
+include __DIR__ . "/config/database.php";
 session_start();
+$error = "";
 if (isset($_POST["login"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $sql = mysqli_query($conn, "select * from user where email = '$email'");
+
     if (mysqli_num_rows($sql) > 0) {
         $nguoi_dung = mysqli_fetch_assoc($sql);
         if ($password == $nguoi_dung['password']) {
@@ -13,14 +15,16 @@ if (isset($_POST["login"])) {
             $_SESSION['email'] = $nguoi_dung['email'];
             $_SESSION['phonenumber'] = $nguoi_dung['phone'];
             $_SESSION['role'] = $nguoi_dung['role'];
-
             header("Location: index.php");
             exit();
+        } else {
+            $error = "sai password";
         }
+    } else {
+        $error = "email không tồn tại";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,15 +53,20 @@ if (isset($_POST["login"])) {
                 </div>
 
                 <div class="form_btn">
+                    <?php if (!empty($error)) { ?>
+                        <p style="color:red; text-align:center; font-weight:bold;">
+                            <?php echo $error; ?>
+                        </p>
+                    <?php } ?>
                     <button type="submit" class="btn_login" id="submit-btn" name="login">Login</button>
                 </div>
                 <div class="form_or">
                     <span>OR</span>
                 </div>
                 <div class="item_list">
-                    <img src="../assets/imgs/google.png" alt="google">
-                    <img src="../assets/imgs/facebook.png" alt="facebook">
-                    <img src="../assets/imgs/twitter.png" alt="twitter">
+                    <img src="assets/imgs/google.png" alt="google">
+                    <img src="assets/imgs/facebook.png" alt="facebook">
+                    <img src="assets/imgs/twitter.png" alt="twitter">
                 </div>
                 <div class="form_or" style="margin-top: 40px;">
                     <span>Chưa có tài khoản? <a href="register.php">Đăng ký ngay!</a></span>

@@ -20,7 +20,7 @@ $sqlHetHang = "SELECT COUNT(*)
 //chậy câu lệnh trên
 $reusultHetHang = mysqli_query($conn, $sqlHetHang);
 //lấy dữ liệu kết quả trả về
-$rowHetHang= mysqli_fetch_assoc($reusultHetHang);
+$rowHetHang = mysqli_fetch_assoc($reusultHetHang);
 //gán vào biến để dùng
 $totalHetHang = $rowHetHang['total_out_stosk'] ?? 0;
 
@@ -164,34 +164,37 @@ include "index.php";
                         <!-- Example user data -->
                         <tbody>
                             <?php while ($car = mysqli_fetch_assoc($result)) { ?>
-                            <tr class="item_head" id="stitle-cars">
-                                <td><input type="checkbox"></td>
-                                <td><?php echo $car['id']; ?></td>
-                                <td><img src="/car-shop/<?php echo $car['main_image']; ?>" width="90"></td>
-                                <td><?php echo $car['cars_name']; ?></td>
-                                <td><?php echo number_format($car['price'],0,',',','); ?> VNĐ</td>
-                                <td><?php echo $car['brand_name']; ?></td>
-                                <td><?php echo $car['categories_id']; ?></td>
-                                <td><?php echo $car['quantity']; ?></td>
-                                <td><?php echo $car['fuel_type']; ?></td>
-                                <td><?php echo $car['transmission']; ?></td>
-                                <td><?php echo $car['engine']; ?></td>
-                                <td>
-                                    <span class="stt-cars">
-                                         <?php echo $car['status']; ?>
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="crud-icon">
-                                        <a href="edit-user.php?id=<?php echo $car['id']; ?>" class="edit-btn">
-                                            <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
-                                        </a>
-                                        <a href="delete-user.php?id=<?php echo $car['id']; ?>" class="delete-btn">
-                                            <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr class="item_head" id="stitle-cars">
+                                    <td><input type="checkbox"></td>
+                                    <td><?php echo $car['id']; ?></td>
+                                    <td><img src="/car-shop/<?php echo $car['main_image']; ?>" width="90"></td>
+                                    <td><?php echo $car['cars_name']; ?></td>
+                                    <td><?php echo number_format($car['price'], 0, ',', ','); ?> VNĐ</td>
+                                    <td><?php echo $car['brand_name']; ?></td>
+                                    <td><?php echo $car['categories_id']; ?></td>
+                                    <td><?php echo $car['quantity']; ?></td>
+                                    <td><?php echo $car['fuel_type']; ?></td>
+                                    <td><?php echo $car['transmission']; ?></td>
+                                    <td><?php echo $car['engine']; ?></td>
+                                    <td>
+                                        <span class="stt-cars">
+                                            <?php echo $car['status']; ?>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="crud-icon">
+                                            <a href="edit-user.php?id=<?php echo $car['id']; ?>" class="edit-btn">
+                                                <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                            <a href="delete-user.php?id=<?php echo $car['id']; ?>" class="delete-btn">
+                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                            <a href="/car-shop/admin/admin-cars/add-car-detail.php?id=<?php echo $car['id']; ?>" class="detail-btn">
+                                                <img src="/car-shop/assets/images/icon/detail.png" class="btn-imgcru">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>

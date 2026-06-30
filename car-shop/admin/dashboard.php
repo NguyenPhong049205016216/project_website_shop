@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . "/../config/database.php";
+require_once __DIR__."/../config/database.php";
 include "index.php";
 ?>
-
 <body>
     <div div class="container">
         <main class="main-content">
@@ -138,7 +137,6 @@ include "index.php";
                         ORDER BY doanh_thu DESC
                         LIMIT 6";
                     $resBrand = mysqli_query($conn, $sqlBrand);
-
                     $brandLabels  = [];
                     $brandRevenue = [];
                     if ($resBrand) {

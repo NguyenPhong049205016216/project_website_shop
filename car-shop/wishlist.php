@@ -1,5 +1,9 @@
 <?php
-include 'config/database.php';
+require_once __DIR__ . '/config/database.php';
+// ensure $conn is available
+if (!isset($conn) || !$conn) {
+    die('Database connection not found.');
+}
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -18,30 +22,18 @@ if (isset($_POST['remove_wishlist'])) {
     header("Location: wishlist.php");
     exit();
 }
-$sql = "
-SELECT
-c.*,
-b.brand_name,
-ct.cartegory_name,
+$sql = "SELECT c.*, b.brand_name, ct.cartegory_name,
 coalesce(ci.image_urd,c.main_image) as image
-
 FROM wishlist w
-
 JOIN cars c
 ON w.car_id=c.id
-
 JOIN brands b
 ON c.brand_id=b.id
-
 JOIN cartegories ct
 ON c.categories_id=ct.id
-
 left JOIN car_images ci
 on c.id=ci.car_id
-
-WHERE w.user_id=$user
-
-";
+WHERE w.user_id=$user";
 
 $result = mysqli_query($conn, $sql);
 $wishlist_count = mysqli_num_rows($result);
@@ -61,11 +53,9 @@ include "includes/header.php";
 
 <body>
     <div class="main">
-
         <section class="middle-content">
             <div class="content-layout">
                 <div class="content-box">
-
                     <div class="box-mid">
                         <?php
                         if (mysqli_num_rows($result) > 0) {

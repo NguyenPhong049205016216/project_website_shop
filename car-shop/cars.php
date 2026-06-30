@@ -1,5 +1,5 @@
 <?php
-include 'config/database.php';
+include __DIR__.'/config/database.php';
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
@@ -11,17 +11,15 @@ if (isset($_POST['wishlist'])) {
   $user_id = $_SESSION['id'];
   $car_id = $_POST['car_id'];
   // kiểm tra đã thích chưa
-  $check = mysqli_query($conn, "
+  $check = mysqli_query($conn,"
         SELECT *
         FROM wishlist
         WHERE user_id=$user_id
         AND car_id=$car_id
     ");
-  if (mysqli_num_rows($check) == 0) {
-    mysqli_query($conn, "
-            INSERT INTO wishlist(user_id,car_id)
-            VALUES($user_id,$car_id)
-        ");
+  if (mysqli_num_rows($check) == 0) { 
+    mysqli_query
+    ($conn, "NSERT INTO wishlist (user_id,car_id) VALUES ($user_id,$car_id)");
   }
   header("Location: cars.php");
   exit();
@@ -40,7 +38,6 @@ $sql = "SELECT
     ON c.id = ci.car_id
     WHERE c.status='available'
     GROUP BY c.id";
-
 $result = mysqli_query($conn, $sql);
 $cars = [];
 while ($row = mysqli_fetch_assoc($result)) {
@@ -175,10 +172,10 @@ include 'includes/header.php';
             <div class="car-specs">
               <div class="spec-item"><span class="spec-icon">⛽</span><?= $car['fuel_type'] ?></div>
               <div class="spec-item"><span class="spec-icon">⚙️</span><?= $car['transmission'] ?></div>
-              <div class="spec-item"><span class="spec-icon">🚗</span><?= $car['engine'] ?></div>
+              <div class="spec-item"><span class="spec-icon"><img class="specion" src="/car-shop/assets/images/icon/ô-tô-3d.png"></span><?= $car['engine'] ?></div>
               <div class="spec-item"><span class="spec-icon">🎨</span><?= $car['color'] ?></div>
             </div>
-            <div class="car-footer">
+            <div class="car-footer">  
               <div>
                 <div class="car-price"><?= number_format($car['price']) ?> VNĐ</div>
                 <div class="car-price-sub">đã bao gồm thuế</div>
