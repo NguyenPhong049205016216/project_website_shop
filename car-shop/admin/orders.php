@@ -1,5 +1,6 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
+
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
@@ -49,7 +50,7 @@ $totalUsers = mysqli_num_rows($result);
                     <form action="admin-order/order-store.php" method="POST">
                         <div class="form-group-modal">
                             <label>User ID</label>
-                            <input type="number" name="user_id" placeholder="Nhập ID người dùng..." required>
+                            <input type="number" name="user_id" min="0" placeholder="Nhập ID người dùng..." required>
                         </div>
 
                         <div class="form-group-modal">
@@ -69,7 +70,7 @@ $totalUsers = mysqli_num_rows($result);
 
                         <div class="form-group-modal">
                             <label>Total Price</label>
-                            <input type="number" name="total_price" placeholder="Nhập tổng tiền..." required>
+                            <input type="number" name="total_price" min="0" placeholder="Nhập tổng tiền..." required>
                         </div>
 
                         <div class="form-group-modal">
