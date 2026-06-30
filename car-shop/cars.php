@@ -18,8 +18,7 @@ if (isset($_POST['wishlist'])) {
         AND car_id=$car_id
     ");
   if (mysqli_num_rows($check) == 0) { 
-    mysqli_query
-    ($conn, "NSERT INTO wishlist (user_id,car_id) VALUES ($user_id,$car_id)");
+    mysqli_query($conn, "INSERT INTO wishlist (user_id,car_id) VALUES ($user_id,$car_id)");
   }
   header("Location: cars.php");
   exit();

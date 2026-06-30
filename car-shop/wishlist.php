@@ -78,7 +78,7 @@ include "includes/header.php";
                                         <h3><?= $row['cars_name'] ?></h3>
                                         <p><?= $row['cartegory_name'] ?></p>
                                         <p><?= number_format($row['price']) ?> Vnđ</p>
-                                        <button>Xem chi tiết</button>
+                                        <a href="/car-shop/car-detail.php"> xem chi tiếc</a>
                                     </div>
                                 </div>
                             <?php

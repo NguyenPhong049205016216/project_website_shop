@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
                         </div>
 
                         <div class="form-grcars">
-                            <label>Hộp số</label>
+                            <label>Hộp số</label>q
                             <input type="text" name="transmission" placeholder="Tự động">
                         </div>
 
