@@ -162,25 +162,27 @@ include 'includes/header.php';
             <?php endif; ?>
             <form method="POST">
               <input type="hidden" name="car_id" value="<?= $car['id'] ?>">
-              <button class="wishlist-btn" name="wishlist" type="submit">♡</button>
+              <button class="wishlist-btn" name="wishlist" type="submit">
+                  <img class="wlt-img" src="/car-shop/assets/images/icon/wishlist.png" alt="wishlist">
+              </button>
             </form>
           </div>
           <div class="car-info">
             <div class="car-brand"><?= $car['brand_name'] ?></div>
             <div class="car-name"><?= $car['year'] . ' ' . $car['cars_name'] ?></div>
             <div class="car-specs">
-              <div class="spec-item"><span class="spec-icon">⛽</span><?= $car['fuel_type'] ?></div>
-              <div class="spec-item"><span class="spec-icon">⚙️</span><?= $car['transmission'] ?></div>
-              <div class="spec-item"><span class="spec-icon"><img class="specion" src="/car-shop/assets/images/icon/ô-tô-3d.png"></span><?= $car['engine'] ?></div>
-              <div class="spec-item"><span class="spec-icon">🎨</span><?= $car['color'] ?></div>
+              <div class="spec-item"><img class="spec-icon" src="/car-shop/assets/images/icon/cay-sang.png" ></span><?= $car['fuel_type'] ?></div>
+              <div class="spec-item"><img class="spec-icon" src="/car-shop/assets/images/icon/ô-tô-3d.png" ></span><?= $car['transmission'] ?></div>
+              <div class="spec-item"><img class="spec-icon" src="/car-shop/assets/images/icon/nhien-lieu.png" ></span><?= $car['engine'] ?></div>
+              <div class="spec-item"><img class="spec-icon" src="/car-shop/assets/images/icon/mau-sac.png" ></span><?= $car['color'] ?></div>
             </div>
             <div class="car-footer">  
               <div>
                 <div class="car-price"><?= number_format($car['price']) ?> VNĐ</div>
-                <div class="car-price-sub">đã bao gồm thuế</div>
+                <div class="car-price-sub">bao gồm thuế</div>
               </div>
               <a class="btn-detail" href="car-detail.php?id=<?= $car['id'] ?>">
-                Xem chi tiết  
+                Xem  
               </a>
             </div>
           </div>

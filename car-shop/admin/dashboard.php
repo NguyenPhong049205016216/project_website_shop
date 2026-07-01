@@ -49,6 +49,8 @@ $tongPend = $rowPend['tong'] ?? 0;
 
 $rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
 $tongCars = $rowCars['tong'] ?? 0;
+$sql = "SELECT * FROM orders ORDER BY id DESC";
+$result = mysqli_query($conn, $sql);
 ?>
 <?php
 include "index.php";
@@ -143,24 +145,53 @@ include "index.php";
                 <div>
                     <h1 class="chapter">Orther news </h1>
                     <div class="dashboard">
-                        <table border="2" cellspacing="1">
+                <div class="view_dashboard">
+                    <table class="user_table" border="1" cellspacing="0">
+                        <thead class="item_head">
                             <tr>
-                                <th>ID</th>
-                                <th>Customer</th>
-                                <th>car brands</th>
-                                <th>price</th>
-                                <th>created_at</th>
+                                <th><input type="checkbox"></th>
+                                <th>id</th>
+                                <th>tài khoản</th>
+                                <th>tên người dùng</th>
+                                <th>điện thoại</th>
+                                <th>địa chỉ</th>
+                                <th>tổng giá</th>
+                                <th>trạng thái</th>
+                                <th>ngày tạo</th>
+                                <th>CRUD</th>
                             </tr>
-                            <tr>
-                                <td>1</th>
-                                <td>Customer</th>
-                                <td>car brands</th>
-                                <td>price</th>
-                                <td>created_at</th>
-                            </tr>
-                        </table>
-                    </div>
+                        </thead>
+                        <!-- Example user data -->
+                        <tbody>
+                            <?php while ($orders = mysqli_fetch_assoc($result)) { ?>
+                                <tr class="item_head">
+                                    <td><input type="checkbox"></td>
+                                    <td><?php echo $orders['id']; ?></td>
+                                    <td><?php echo $orders['user_id']; ?></td>
+                                    <td><?php echo $orders['customer_name']; ?></td>
+                                    <td><?php echo $orders['phone']; ?></td>
+                                    <td><?php echo $orders['address']; ?></td>
+                                    <td><?php echo $orders['total_price']; ?></td>
+                                    <td><?php echo $orders['status']; ?></td>
+                                    <td><?php echo $orders['created_at']; ?></td>
+                                    <td>
+                                        <div class="crud-icon">
+                                            <a href="/car-shop/admin/edit-user.php?id=" class="edit-btn">
+                                                <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                            <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">
+                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
+                </div>
+
                 <!-- ===== BIỂU ĐỒ THỐNG KÊ DOANH SỐ ===== -->
                 <h1 class="chapter">Thống kê doanh số</h1>
                 <div class="dashboard">
@@ -182,6 +213,9 @@ include "index.php";
                     <div class="dhb-toof" style="margin-bottom:24px;">
                         <div class="stats">
                             <div class="stat-box green">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/loai-xe.png" class="icon-stats">
+                                </span>
                                 <div>
                                     <p>Tổng doanh thu</p>
                                     <h3>₫<?php echo number_format($tongDT, 0, ',', '.'); ?></h3>
@@ -191,6 +225,9 @@ include "index.php";
                         </div>
                         <div class="stats">
                             <div class="stat-box blue">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/loai-xe.png" class="icon-stats">
+                                </span>
                                 <div>
                                     <p>Tổng đơn hàng</p>
                                     <h3><?php echo $tongDon; ?></h3>
@@ -200,6 +237,9 @@ include "index.php";
                         </div>
                         <div class="stats">
                             <div class="stat-box yellow">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/loai-xe.png" class="icon-stats">
+                                </span>
                                 <div>
                                     <p>Đơn chờ xử lý</p>
                                     <h3><?php echo $tongPend; ?></h3>
@@ -209,6 +249,9 @@ include "index.php";
                         </div>
                         <div class="stats">
                             <div class="stat-box purple">
+                                <span>
+                                    <img src="/car-shop/assets/images/icon/loai-xe.png" class="icon-stats">
+                                </span>
                                 <div>
                                     <p>Tổng xe</p>
                                     <h3><?php echo $tongCars; ?></h3>
