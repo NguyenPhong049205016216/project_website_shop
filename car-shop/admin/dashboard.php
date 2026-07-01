@@ -1,9 +1,61 @@
 <?php
-require_once __DIR__."/../config/database.php";
+require_once __DIR__ . "/../config/database.php";
+$sqlMonthly = "SELECT
+            DATE_FORMAT(created_at, '%m/%Y') AS thang,
+            COUNT(*) AS so_don,
+            SUM(total_price) AS doanh_thu
+            FROM orders
+            WHERE created_at >= DATE_SUB(NOW(), INTERVAL 6 MONTH)
+            GROUP BY DATE_FORMAT(created_at, '%Y-%m')
+            ORDER BY MIN(created_at) ASC";
+
+
+$resMonthly = mysqli_query($conn, $sqlMonthly);
+$labels = [];
+$revenue = [];
+$orders_count = [];
+while ($row = mysqli_fetch_assoc($resMonthly)) {
+    $labels[]       = $row['thang'];
+    $revenue[]      = (float)$row['doanh_thu'];
+    $orders_count[] = (int)$row['so_don'];
+}
+
+$sqlBrand = "SELECT b.brand_name,
+            COUNT(od.id) AS so_don,
+            SUM(od.price * od.quantity) AS doanh_thu
+             FROM orders o
+             JOIN car_details od ON o.id = od.order_id
+             JOIN cars c ON od.car_id = c.id
+             JOIN brands b ON c.brand_id = b.id
+             GROUP BY b.brand_name
+             ORDER BY doanh_thu DESC
+             LIMIT 6";
+$resBrand = mysqli_query($conn, $sqlBrand);
+$brandLabels  = [];
+$brandRevenue = [];
+if ($resBrand) {
+    while ($row = mysqli_fetch_assoc($resBrand)) {
+        $brandLabels[]  = $row['brand_name'];
+        $brandRevenue[] = (float)$row['doanh_thu'];
+    }
+}
+
+$rowTotal = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong_don, SUM(total_price) AS tong_dt FROM orders"));
+$tongDon  = $rowTotal['tong_don'] ?? 0;
+$tongDT   = $rowTotal['tong_dt']  ?? 0;
+
+$rowPend  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM orders WHERE status='pending'"));
+$tongPend = $rowPend['tong'] ?? 0;
+
+$rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
+$tongCars = $rowCars['tong'] ?? 0;
+?>
+<?php
 include "index.php";
 ?>
+
 <body>
-    <div div class="container">
+    <div class="container">
         <main class="main-content">
             <div>
                 <h1 class="chapter">Dashboard</h1>
@@ -109,54 +161,7 @@ include "index.php";
                         </table>
                     </div>
                 </div>
-                <?php
-                    $sqlMonthly = "SELECT
-                        DATE_FORMAT(created_at, '%m/%Y') AS thang,
-                        COUNT(*) AS so_don,
-                        SUM(total_price) AS doanh_thu
-                        FROM orders
-                        WHERE created_at >= DATE_SUB(NOW(), INTERVAL 6 MONTH)
-                        GROUP BY DATE_FORMAT(created_at, '%Y-%m')
-                        ORDER BY MIN(created_at) ASC";
-                    $resMonthly = mysqli_query($conn, $sqlMonthly);
-
-                    $labels = [];
-                    $revenue = [];
-                    $orders_count = [];
-                    while ($row = mysqli_fetch_assoc($resMonthly)) {
-                        $labels[]       = $row['thang'];
-                        $revenue[]      = (float)$row['doanh_thu'];
-                        $orders_count[] = (int)$row['so_don'];
-                    }
-
-                    $sqlBrand = "SELECT b.brand_name, COUNT(o.id) AS so_don, SUM(o.total_price) AS doanh_thu
-                        FROM orders o
-                        JOIN cars c ON o.car_id = c.id
-                        JOIN brands b ON c.brand_id = b.id
-                        GROUP BY b.brand_name
-                        ORDER BY doanh_thu DESC
-                        LIMIT 6";
-                    $resBrand = mysqli_query($conn, $sqlBrand);
-                    $brandLabels  = [];
-                    $brandRevenue = [];
-                    if ($resBrand) {
-                        while ($row = mysqli_fetch_assoc($resBrand)) {
-                            $brandLabels[]  = $row['brand_name'];
-                            $brandRevenue[] = (float)$row['doanh_thu'];
-                        }
-                    }
-
-                    $rowTotal = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong_don, SUM(total_price) AS tong_dt FROM orders"));
-                    $tongDon  = $rowTotal['tong_don'] ?? 0;
-                    $tongDT   = $rowTotal['tong_dt']  ?? 0;
-
-                    $rowPend  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM orders WHERE status='pending'"));
-                    $tongPend = $rowPend['tong'] ?? 0;
-
-                    $rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
-                    $tongCars = $rowCars['tong'] ?? 0;
-                ?>
-                 <!-- ===== BIỂU ĐỒ THỐNG KÊ DOANH SỐ ===== -->
+                <!-- ===== BIỂU ĐỒ THỐNG KÊ DOANH SỐ ===== -->
                 <h1 class="chapter">Thống kê doanh số</h1>
                 <div class="dashboard">
 
@@ -229,14 +234,13 @@ include "index.php";
                     </div>
 
                     <?php if (!empty($brandLabels)): ?>
-                    <h3 style="margin:28px 0 12px;font-size:15px;color:#111827;font-weight:600;">Doanh thu theo hãng xe</h3>
-                    <div style="position:relative;width:100%;height:<?php echo max(200, count($brandLabels) * 50); ?>px;">
-                        <canvas id="chartHangXe"></canvas>
-                    </div>
+                        <h3 style="margin:28px 0 12px;font-size:15px;color:#111827;font-weight:600;">Doanh thu theo hãng xe</h3>
+                        <div style="position:relative;width:100%;height:<?php echo max(200, count($brandLabels) * 50); ?>px;">
+                            <canvas id="chartHangXe"></canvas>
+                        </div>
                     <?php endif; ?>
 
                 </div>
-
                 <!-- Truyền data PHP -> JS -->
                 <div id="chartData"
                     data-labels='<?php echo json_encode($labels); ?>'
@@ -252,7 +256,7 @@ include "index.php";
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <script src="/car-shop/assets/js/dashboard.js"></script>
-    
+
 </body>
 
 </html>

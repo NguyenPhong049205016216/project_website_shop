@@ -91,7 +91,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-grcars">
                             <label>Giá</label>
-                            <input type="number" name="price" placeholder="650000000">
+                            <input type="number" name="price" min="0" placeholder="650000000">
                         </div>
 
                         <div class="form-grcars">
@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
                         </div>
 
                         <div class="form-grcars">
-                            <label>Hộp số</label>q
+                            <label>Hộp số</label>
                             <input type="text" name="transmission" placeholder="Tự động">
                         </div>
 
@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-grcars">
                             <label>Năm</label>
-                            <input type="number" name="year" placeholder="2025">
+                            <input type="number" name="year" min="0" placeholder="2025">
                         </div>
 
                         <div class="form-grcars">

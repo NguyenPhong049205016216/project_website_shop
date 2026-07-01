@@ -156,7 +156,6 @@ include "index.php";
                                 <th>nhiên liệu</th>
                                 <th>số sàng</th>
                                 <th>động cơ</th>
-
                                 <th>trạng thái</th>
                                 <th>CRUD</th>
                             </tr>
