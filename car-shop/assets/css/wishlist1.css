@@ -182,3 +182,14 @@ footer{
     align-items: center;
 }
 
+.detail-btn {
+    width: 150px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+

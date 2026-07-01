@@ -1,6 +1,32 @@
 <?php
 require_once __DIR__ . "/config/database.php";
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+if (isset($_POST['add_cart'])) {
+    $user_id = (int) $_SESSION['id'];
+    $car_id = (int) $_POST['car_id'];
+
+    $checkCart = mysqli_query($conn, "SELECT id, quantity FROM cart WHERE user_id = $user_id AND car_id = $car_id");
+
+    if (mysqli_num_rows($checkCart) > 0) {
+        $cartRow = mysqli_fetch_assoc($checkCart);
+        $newQuantity = (int) $cartRow['quantity'] + 1;
+        mysqli_query($conn, "UPDATE cart SET quantity = $newQuantity WHERE id = " . (int) $cartRow['id']);
+    } else {
+        mysqli_query($conn, "INSERT INTO cart (user_id, car_id, quantity) VALUES ($user_id, $car_id, 1)");
+    }
+
+    header("Location: car-detail.php?id=$car_id");
+    exit();
+}
+
 if (!isset($_GET['id'])) {
     die("Không tìm thấy xe");
 }
@@ -190,13 +216,16 @@ $car = mysqli_fetch_assoc($result);
 
                 <span class="stock"> <?php echo $car['status'] == 'available' ? 'Còn hàng' : 'Không còn hàng'; ?></span>
 
-                <a href="#" class="btn-cart">
-                    <span class="icon">
-                        <!-- icon Giỏ hàng -->
-                        <img class="heart-img" src="/car-shop/assets/images/icon/gio-hang.png">
-                    </span>
-                    Thêm giỏ hàng
-                </a>
+                <form method="POST" style="margin: 0;">
+                    <input type="hidden" name="car_id" value="<?php echo $car['id']; ?>">
+                    <button type="submit" name="add_cart" class="btn-cart" style="width: 100%; border: none;">
+                        <span class="icon">
+                            <!-- icon Giỏ hàng -->
+                            <img class="heart-img" src="/car-shop/assets/images/icon/gio-hang.png">
+                        </span>
+                        Thêm giỏ hàng
+                    </button>
+                </form>
 
                 <a href="#" class="btn-wishlist">
                     <span class="icon">

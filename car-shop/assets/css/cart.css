@@ -40,7 +40,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     width: 70vw;
-    height: 90vh;
+    height: 70vh auto;
     background-color: #ffffff;
     border-radius: 20px;
     padding: 30px;
@@ -57,8 +57,6 @@ body{
 .box-mid {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
 }
 
@@ -82,75 +80,50 @@ ul li{
     font-size: 20px;
     margin-bottom: 25px;
 }
-/* Footer */
-footer{
-    padding: 30px;
-    text-align: center;
-    background-color: #111827;
-    color: white;
+
+
+.cart_img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
 }
 
-/* Responsive điện thoại */
-@media (max-width: 768px){
-    header{
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-
-    .search input{
-        width: 280px;
-    }
-
-    .menu{
-        /* sắp xếp các mục trong menu theo cột dọc */
-        flex-direction: column;
-        /* sắp xếp các mục trong menu theo hàng ngang */
-        /* flex-direction: row; */
-        gap: 0;
-        height: auto;
-        padding: 10px 0;
-    }
-
-    .top_menu,
-    .sub_menu,
-    .bex_menu,
-    .footer_menu{
-        position: static;
-        min-width: 100%;
-        text-align: center;
-    }
-
-    section:first-of-type{
-        min-height: 700px;
-    }
-
-    .content{
-        width: 100%;
-        padding: 80px 25px;
-        text-align: center;
-    }
-
-    .content h1:first-child{
-        font-size: 42px;
-    }
-
-    .content h1{
-        font-size: 28px;
-    }
-
-    .logo_xe{
-        position: static;
-        width: 90%;
-        margin-top: 20px;
-        transform: none;
-    }
+.cart_card {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.75fr 0.75fr 0.75fr; 
+    gap: 10px;
+    align-items: center;
 }
 
-/* vidu{
-    chia cột chuyên nghiệp.
-    
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-} */
+.cart_item {
 
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
+#backToTop{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.buy_button{
+    width: 100%;
+    height: 50px;
+    background-color: #32b61e;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}

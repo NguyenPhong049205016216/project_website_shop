@@ -23,7 +23,9 @@ if (isset($_POST['wishlist'])) {
   header("Location: cars.php");
   exit();
 }
-$sql = "SELECT
+
+$sql = "
+SELECT
     c.*,
     b.brand_name,
     ct.cartegory_name,
@@ -38,15 +40,21 @@ $sql = "SELECT
     WHERE c.status='available'
     GROUP BY c.id";
 $result = mysqli_query($conn, $sql);
+
 $cars = [];
-while ($row = mysqli_fetch_assoc($result)) {
-  $cars[] = $row;
+
+while($row = mysqli_fetch_assoc($result)){
+    $cars[] = $row;
 }
+
 $title = "AutoViet — Tìm Xe Của Bạn";
+
 include 'includes/header.php';
 ?>
+
 <!-- CSS riêng cho trang xe (header.php giữ nguyên nên thêm trực tiếp ở đây) -->
 <link rel="stylesheet" href="assets/css/cars.css">
+
 <!-- HERO / SEARCH -->
 <div class="hero">
   <div class="hero-title">Tìm xe phù hợp với bạn</div>
@@ -56,18 +64,20 @@ include 'includes/header.php';
     <button onclick="filterCars()">🔍 Tìm ngay</button>
   </div>
   <div class="quick-filters">
-    <div class="pill active" onclick="setType(event,'')">Tất cả</div>
-    <div class="pill" onclick="setType(event,'SUV')">SUV</div>
-    <div class="pill" onclick="setType(event,'Sedan')">Sedan</div>
-    <div class="pill" onclick="setType(event,'Sport')">Sport</div>
-    <div class="pill" onclick="setType(event,'Electric SUV')">Electric SUV</div>
-    <div class="pill" onclick="setType(event,'Truck')">Truck</div>
-    <div class="pill" onclick="setType(event,'Luxury')">Luxury</div>
-    <div class="pill" onclick="setType(event,'Convertible')">Convertible</div>
+      <div class="pill active" onclick="setType(event,'')">Tất cả</div>
+      <div class="pill" onclick="setType(event,'SUV')">SUV</div>
+      <div class="pill" onclick="setType(event,'Sedan')">Sedan</div>
+      <div class="pill" onclick="setType(event,'Sport')">Sport</div>
+      <div class="pill" onclick="setType(event,'Electric SUV')">Electric SUV</div>
+      <div class="pill" onclick="setType(event,'Truck')">Truck</div>
+      <div class="pill" onclick="setType(event,'Luxury')">Luxury</div>
+      <div class="pill" onclick="setType(event,'Convertible')">Convertible</div>
   </div>
 </div>
+
 <!-- MAIN LAYOUT -->
 <div class="page-body">
+
   <!-- SIDEBAR -->
   <aside>
     <!-- Hãng xe -->
@@ -77,20 +87,26 @@ include 'includes/header.php';
         <span class="filter-reset" onclick="clearFilter('brand')">Xóa</span>
       </div>
       <div class="filter-body">
+
         <?php
-        $brands = array_unique(array_column($cars, 'brand_name'));
-        foreach ($brands as $b):
-          $cnt = count(array_filter($cars, fn($c) => $c['brand_name'] == $b));
+          $brands = array_unique(array_column($cars, 'brand_name'));
+
+          foreach($brands as $b):
+          $cnt = count(array_filter($cars, fn($c)=>$c['brand_name']==$b));
         ?>
-          <label class="filter-option">
-            <input type="checkbox" name="brand" value="<?= $b ?>" onchange="filterCars()">
-            <span class="checkbox-box"></span>
-            <?= $b ?>
-            <span class="filter-count"><?= $cnt ?></span>
-          </label>
+
+        <label class="filter-option">
+          <input type="checkbox" name="brand" value="<?= $b ?>" onchange="filterCars()">
+          <span class="checkbox-box"></span>
+          <?= $b ?>
+          <span class="filter-count"><?= $cnt ?></span>
+        </label>
+
         <?php endforeach; ?>
+
       </div>
     </div>
+
     <!-- Giá -->
     <div class="filter-card">
       <div class="filter-header">Khoảng giá</div>
@@ -104,36 +120,44 @@ include 'includes/header.php';
         </div>
       </div>
     </div>
+
     <!-- Nhiên liệu -->
     <div class="filter-card">
       <div class="filter-header">Nhiên liệu</div>
       <div class="filter-body">
-        <?php foreach (['Xăng', 'Dầu', 'Điện', 'Hybrid'] as $f): ?>
-          <label class="filter-option">
-            <input type="checkbox" name="fuel" value="<?= $f ?>" onchange="filterCars()">
-            <span class="checkbox-box"></span>
-            <?= $f ?>
-          </label>
+
+        <?php foreach(['Xăng','Dầu','Điện','Hybrid'] as $f): ?>
+
+        <label class="filter-option">
+          <input type="checkbox" name="fuel" value="<?= $f ?>" onchange="filterCars()">
+          <span class="checkbox-box"></span>
+          <?= $f ?>
+        </label>
+
         <?php endforeach; ?>
+
       </div>
     </div>
+
+
     <!-- Tình trạng -->
     <div class="filter-card">
       <div class="filter-header">Tình trạng</div>
       <div class="filter-body">
         <label class="filter-option">
-          <input type="checkbox" name="condition" value="available" onchange="filterCars()">
-          <span class="checkbox-box"></span>
-          Có sẵn
+            <input type="checkbox" name="condition" value="available" onchange="filterCars()">
+            <span class="checkbox-box"></span>
+            Có sẵn
         </label>
         <label class="filter-option">
-          <input type="checkbox" name="condition" value="sold" onchange="filterCars()">
-          <span class="checkbox-box"></span>
-          Đã bán
+            <input type="checkbox" name="condition" value="sold" onchange="filterCars()">
+            <span class="checkbox-box"></span>
+            Đã bán
         </label>
       </div>
     </div>
   </aside>
+
   <!-- CAR LIST -->
   <div class="main-content">
     <div class="results-bar">
@@ -145,21 +169,23 @@ include 'includes/header.php';
         <option value="year_desc">Mới nhất</option>
       </select>
     </div>
+
     <div class="car-grid" id="carGrid">
-      <?php foreach ($cars as $car): ?>
-        <div class="car-card"
+
+      <?php foreach($cars as $car): ?>
+      <div class="car-card"
           data-brand="<?= $car['brand_name'] ?>"
           data-type="<?= $car['cartegory_name'] ?>"
           data-fuel="<?= $car['fuel_type'] ?>"
-          data-price="<?= $car['price'] / 1000000 ?>"
+          data-price="<?= $car['price']/1000000 ?>"
           data-year="<?= $car['year'] ?>">
-          <div class="car-img-wrap">
-            <img src="<?= $car['image'] ?>" alt="<?= $car['brand_name'] . ' ' . $car['cars_name'] ?>">
-            <?php if ($car['status'] == "available"): ?>
-              <span class="badge-new">Có sẵn</span>
-            <?php else: ?>
-              <span class="badge-used">Đã bán</span>
-            <?php endif; ?>
+        <div class="car-img-wrap">
+          <img src="<?= $car['image'] ?>" alt="<?= $car['brand_name'].' '.$car['cars_name'] ?>">
+          <?php if($car['status']=="available"): ?>
+          <span class="badge-new">Có sẵn</span>
+          <?php else: ?>
+          <span class="badge-used">Đã bán</span>
+          <?php endif; ?>
             <form method="POST">
               <input type="hidden" name="car_id" value="<?= $car['id'] ?>">
               <button class="wishlist-btn" name="wishlist" type="submit">
@@ -186,13 +212,15 @@ include 'includes/header.php';
               </a>
             </div>
           </div>
-        </div>
+      </div>
+      
       <?php endforeach; ?>
     </div>
   </div>
 </div>
+
 <!-- COMPARE BAR -->
-<!-- <div class="compare-bar" id="compareBar">
+<div class="compare-bar" id="compareBar">
   <div class="compare-slots">
     <div class="compare-slot" id="slot1">＋ Thêm xe so sánh</div>
     <div class="compare-slot" id="slot2">＋ Thêm xe so sánh</div>
@@ -200,7 +228,9 @@ include 'includes/header.php';
   </div>
   <button class="compare-btn">So sánh ngay</button>
   <button onclick="closeCompare()" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:1.2rem;cursor:pointer">✕</button>
-</div> -->
+</div>
+
 <!-- JS riêng cho trang xe -->
 <script src="assets/js/cars.js"></script>
+
 <?php include 'includes/footer.php'; ?>
