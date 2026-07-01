@@ -182,10 +182,10 @@ include "index.php";
                                     </td>
                                     <td>
                                         <div class="crud-icon">
-                                            <a href="edit-user.php?id=<?php echo $car['id']; ?>" class="edit-btn">
+                                            <a href="/car-shop/admin/admin-cars/edit-cars.php?id=<?php echo $car['id']; ?>" class="edit-btn">
                                                 <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                             </a>
-                                            <a href="delete-user.php?id=<?php echo $car['id']; ?>" class="delete-btn">
+                                            <a href="/car-shop/admin/admin-cars/delete-car.php?id=<?php echo $car['id']; ?>" class="delete-btn">
                                                 <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
                                             </a>
                                             <a href="/car-shop/admin/admin-cars/add-car-detail.php?id=<?php echo $car['id']; ?>" class="detail-btn">

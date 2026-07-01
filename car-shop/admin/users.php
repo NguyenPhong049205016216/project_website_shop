@@ -155,11 +155,11 @@ include "index.php";
                                     <td><?php echo $user['created_at']; ?></td>
                                     <td>
                                         <div class="crud-icon">
-                                            <a href="/car-shop/admin/edit-user.php?id=<?php echo urlencode($user['id']); ?>" class="edit-btn">
+                                            <a href="/car-shop/admin/admin-user/edit-user.php?id=<?php echo urlencode($user['id']); ?>" class="edit-btn">
                                                 <img src="/car-shop/assets/images/icon/edit-but.png" class="btn-imgcru">
                                             </a>
 
-                                            <a href="/car-shop/admin/disable-user.php?id=<?php echo urlencode($user['id']); ?>" class="delete-btn"
+                                            <a href="/car-shop/admin/admin-user/delete-user.php?id=<?php echo urlencode($user['id']); ?>" class="delete-btn"
                                                 onclick="return confirm('Bạn có chắc muốn vô hiệu hóa user này không?')">
                                                 <img src="/car-shop/assets/images/icon/vohieuhoa.png" class="btn-imgcru">
                                             </a>
