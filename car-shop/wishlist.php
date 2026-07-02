@@ -61,13 +61,10 @@ include "includes/header.php";
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                                <div class="box-header">
-                                    <h2>Danh sách xe yêu thích</h2>
-                                    <p><?= $wishlist_count ?>/100</p>
-                                </div>
+                                
                                 <div class="wishlist_item">
                                     <div class="wishlist_card">
-                                    <form method=" POST">
+                                    <form method="POST">
                                         <input type="hidden" name="car_id" value="<?= $row['id'] ?>">
                                         <button type="submit" name="remove_wishlist" class="remove_wishlist_btn" style="background:none;border:none;">
                                             <img src="assets/images/icon/trash.png" style="width: 50px; height: 50px; cursor: pointer;">
@@ -78,17 +75,13 @@ include "includes/header.php";
                                         <h3><?= $row['cars_name'] ?></h3>
                                         <p><?= $row['cartegory_name'] ?></p>
                                         <p><?= number_format($row['price']) ?> Vnđ</p>
-                                        <a href="/car-shop/car-detail.php"> xem chi tiếc</a>
+                                        <a href="car-detail.php?id=<?= $row['id'] ?>" class="detail-btn"> xem chi tiết</a>
                                     </div>
                                 </div>
                             <?php
                             }
                         } else {
                             ?>
-                            <div class="box-header">
-                                <h2>Danh sách xe yêu thích</h2>
-                                <p>0/100</p>
-                            </div>
                             <div class="box-content-else">
                                 <div class="box-img-content">
                                     <img src="assets/images/cars/document.png" alt="Document" class="document-icon">

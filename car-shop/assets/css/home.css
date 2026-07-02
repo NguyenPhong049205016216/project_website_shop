@@ -520,33 +520,38 @@ section {
     text-align: center;
     margin-top: 8px;
 }
+
 .item_info a{
     display: inline-flex;
     margin-top: 12px;
     padding: 9px 18px;
-    border-radius: 999px;
-    background: #111827;
-    color: #fff;
+    border-radius: 10px;
+    background: #cad2d992;
+    color: #1c7a0c;
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 1000;
     text-decoration: none;
     white-space: nowrap;
 }
 /* lia chuột vào chuyển màu */
 .item_info a:hover{
-    color: rgb(67, 129, 158);
-    background: #b4b2b3;
+    color: rgba(1, 88, 211, 0.758);
+    font-weight: 900;
+    background: #78d1b2bd;
 }
 .item_info p{
-    width: fit-content;
-    margin: 4px auto 0;
-    padding: 7px 16px;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    background: linear-gradient(135deg, #1d4ed8, #38bdf8);
-    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 8px;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#2563eb,#38bdf8);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    white-space: normal;        
+    word-break: break-word;     
+    overflow-wrap: anywhere;    
 }
 .item_info h3{
     font-size: 22px;

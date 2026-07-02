@@ -61,13 +61,12 @@ setInterval(function(){
             <?php while ($car = mysqli_fetch_assoc($resultCarsNew)) { ?>
                 <div class="item">
                     <img src="/car-shop/assets/images/cars/icon-new.png" class="cars_itdnew">
-
                     <img class="item_img" src="/car-shop/<?php echo $car['main_image']; ?>"
                         alt="<?php echo $car['cars_name']; ?>">
-
                     <div class="item_info">
                         <h3><?php echo $car['cars_name'] ?></h3>
                         <p>Giá: <?php echo number_format($car['price'], 0, ',', '.'); ?> VNĐ</p>
+                        <a href="#" class="btn">Mua ngay</a>
                         <a href="car-detail.php?id=<?php echo $car['id']; ?>" class="btn">Xem chi tiết</a>
                     </div>
                 </div>
@@ -131,12 +130,9 @@ setInterval(function(){
                         <p class="sale-price">550.000.000 VNĐ</p>
                         <a href="car-detail.php">Xem chi tiết</a>
                     </div>
-
                 </div>
-
             </section>
         </div>
-
         <h1 class="chapter" id="promotion">Promotions</h1>
 
 

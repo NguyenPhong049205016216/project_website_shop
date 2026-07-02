@@ -51,7 +51,6 @@ if (isset($_POST['submit'])) {
         }
     });
 </script>
-
 <body>
     <div class="container">
         <div class="main-content">
@@ -71,7 +70,6 @@ if (isset($_POST['submit'])) {
                                 <?php } ?>
                             </select>
                         </div>
-
                         <div class="form-grcars">
                             <label>Loại xe</label>
                             <select name="categories_id" required>
@@ -145,8 +143,8 @@ if (isset($_POST['submit'])) {
                             </select>
                         </div>
                         <div class="form-action">
-                            <a href="../cars.php" class="btn-cancel">Cancel</a>
-                            <button type="submit" name="submit" class="btn-submit">Add Car</button>
+                            <a href="../cars.php" class="btn-cancel">Thoát</a>
+                            <button type="submit" name="submit" class="btn-submit">Thêm xe</button>
                         </div>
 
                     </form>
