@@ -4,150 +4,192 @@
     box-sizing: border-box;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-}
-
-@media (min-width: 1024px) {
-}
-
-@media (max-width: 767px) {
-}
-
-
 :root {
-    --primary-color: rgb(75, 136, 37);
-    --background-color: rgb(21, 5, 5);
-    --main-color: white;
-    --box-color: rgba(71, 27, 27, 0.805);
-    --hover-color: rgb(50, 77, 33);
-
-    --circle: 50%;
-    --topic-size: 1.5vw;
-}
-
-html {
-    scroll-behavior: smooth;
+    --primary-color: #4b8825;
+    --main-color: #ffffff;
+    --box-color: rgba(255,255,255,0.08);
+    --border-color: rgba(255,255,255,0.18);
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--main-color);
-    overflow-x: hidden;
+    background-image: url("/car-shop/assets/images/cars/background-logint.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* lớp phủ tối cho background */
+body::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: -1;
 }
 
 .login_section {
-    position: relative;
+    width: 100%;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    padding: 2vh 2vw;
+    padding: 20px;
 }
 
+/* box login */
 .box {
-    background-color: var(--box-color);
-    border-radius: 10px;
-    border: 1px solid var(--box-color);
-    border-radius: 15px;
-    padding: 2.5vh 1vw;
-    min-width: 30vw;
-    min-height: 50vh;
-    box-shadow: 0 1px 5px rgba(105, 95, 95, 0.699);
+    width: 420px;
+    padding: 40px 35px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+    box-shadow: 0 0 35px rgba(0,0,0,0.5);
 }
 
-.login_name h1 {
-    font-size: var(--topic-size);
+/* chỗ logo cars shop bạn thêm sau */
+.logo_area{
     text-align: center;
-    margin-bottom: 2vh;
+    margin-bottom: 25px;
 }
 
+.logo_area img{
+    width: 250px;
+    height: auto;
+}
 
+/* tiêu đề */
+.login_name h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* input group */
+.form_group {
+    margin-bottom: 20px;
+    position: relative
+}
+#toggle-password{
+    position: absolute;
+    right: 15px;
+    top: 68%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    z-index: 100;
+}
 .form_group label {
     display: block;
-    margin-bottom: 1vh;
-    font-size: 1.1vw;
-    margin-left: 22px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 500;
 }
 
+/* input */
 .form_group input {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    height: 30px;
-    padding: 0.5ch;
+    width: 100%;
+    height: 48px;
     border: none;
-    border-radius: 5px;
-    background-color: rgb(144, 110, 110);
-    margin-bottom: 1vh;
+    outline: none;
+    border-radius: 12px;
+    padding-left: 45px;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    font-size: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
-input::placeholder {
-    color: var(--background-color);
+/* placeholder */
+.form_group input::placeholder{
+    color: rgba(255,255,255,0.7);
 }
 
+/* icon */
 #email {
     background-image: url("../imgs/user.png");
     background-repeat: no-repeat;
-    background-position: 10px center;
-    background-size: 16px;
-    padding-left: 35px;
+    background-position: 15px center;
+    background-size: 18px;
 }
 
 #password {
     background-image: url("../imgs/lock.png");
     background-repeat: no-repeat;
-    background-position: 10px center;
-    background-size: 16px;
-    padding-left: 35px;
+    background-position: 15px center;
+    background-size: 18px;
 }
 
-.form_btn {
-    margin-top: 3vh;
-}
-
-.form_btn a {
-    color: var(--main-color);
-    text-decoration: none;
+/* button */
+.form_btn{
+    margin-top: 25px;
 }
 
 .btn_login,
-.btn_register {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    height: 30px;
-    padding: 0.5ch;
+.btn_register{
+    width: 100%;
+    height: 48px;
     border: none;
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    margin-bottom: 1vh;
-    color: var(--main-color);
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn_login:hover,
-.btn_register:hover {
-    background-color: rgb(0, 0, 0);
-    color: var(--hover-color);
+.btn_register:hover{
+    background: #5fa730;
+    transform: scale(1.02);
 }
 
-.form_or {
+/* OR */
+.form_or{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+}
+.form_or a{
+    color: #cc171d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* social */
+.item_list{
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+    gap: 25px;
+    margin-bottom: 25px;
 }
 
-.item_list {
-    display: grid;
-    grid-template-columns: repeat(3, 10vw);
-    margin-top: 3vh;
-    justify-content: center;
-    justify-items: center;
+.item_list img{
+    width: 38px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
+.item_list img:hover{
+    transform: scale(1.2);
+}
 
-.item_list img {
-    width: 30px;
+/* mobile */
+@media(max-width:768px){
+    .box{
+        width: 95%;
+        padding: 30px 20px;
+    }
+
+    .login_name h1{
+        font-size: 26px;
+    }
 }

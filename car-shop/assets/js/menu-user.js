@@ -1,7 +1,7 @@
-const icon= document.getElementById("icon-index")
-const menu= document.querySelector(".menu")
+const icon = document.getElementById("icon-index")
+const menu = document.querySelector(".menu")
 
-icon.addEventListener("click", function(){
+icon.addEventListener("click", function () {
     menu.classList.toggle("active")
 
 })
@@ -15,18 +15,16 @@ accountBtn.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (event) => {
-    if (!event.target.closest('.user')) 
-    {
+    if (!event.target.closest('.user')) {
         dropdown.classList.remove("acctive");
     }
 });
-
 
 // footer
 const backTop = document.getElementById('backToTop');
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY
-    if(scroll > 500) {
+    if (scroll > 500) {
         backTop.style.display = "flex"
     } else {
         backTop.style.display = "none"

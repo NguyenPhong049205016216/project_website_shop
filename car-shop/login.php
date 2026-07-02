@@ -36,9 +36,15 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
-
     <div class="login_section">
         <div class="box">
+            <div class="logo_area">
+                <span class="logo_name">
+                    <img src="/car-shop/assets/images/cars/logo_cars_2.png" alt="Logo">
+                </span>
+                <!-- <img src="assets/images/logo.png"> -->
+            </div>
+
             <div class="login_name">
                 <h1>Login</h1>
             </div>
@@ -50,6 +56,7 @@ if (isset($_POST["login"])) {
                 <div class="form_group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Vui lòng nhập password">
+                    <img id="toggle-password" src="/car-shop/assets/images/icon/icon-mom.png" width="35">
                 </div>
 
                 <div class="form_btn">
@@ -76,6 +83,20 @@ if (isset($_POST["login"])) {
     </div>
 
 </body>
-<script src="assets/js/menu-user.js"></script>
+
+<script>
+const password = document.getElementById("password");
+const eye = document.getElementById("toggle-password");
+
+eye.addEventListener("click", function () {
+    if (password.type === "password") {
+        password.type = "text";
+        eye.src = "/car-shop/assets/images/icon/icon-camm.png";
+    } else {
+        password.type = "password";
+        eye.src = "/car-shop/assets/images/icon/icon-mom.png";
+    }
+});
+</script>
 
 </html>
