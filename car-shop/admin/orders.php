@@ -124,7 +124,7 @@ $totalUsers = mysqli_num_rows($result);
                                     <td><?php echo $orders['created_at']; ?></td>
                                     <td>
                                         <div class="crud-icon">
-                                            <a href="/car-shop/admin/edit-user.php?id=" class="edit-btn">
+                                            <a href="/car-shop/admin/order-detail.php?id=<?php echo $orders['id']; ?>" class="edit-btn">
                                                 <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                             </a>
                                             <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">

@@ -64,9 +64,9 @@ if (isset($_POST["login"])) {
                     <span>OR</span>
                 </div>
                 <div class="item_list">
-                    <img src="assets/imgs/google.png" alt="google">
-                    <img src="assets/imgs/facebook.png" alt="facebook">
-                    <img src="assets/imgs/twitter.png" alt="twitter">
+                    <img src="assets/images/icon/google.png" alt="google">
+                    <img src="assets/images/icon/facebook.png" alt="facebook">
+                    <img src="assets/images/icon/twitter.png" alt="twitter">
                 </div>
                 <div class="form_or" style="margin-top: 40px;">
                     <span>Chưa có tài khoản? <a href="register.php">Đăng ký ngay!</a></span>
