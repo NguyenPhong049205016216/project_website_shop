@@ -23,11 +23,11 @@ $totalUsers = mysqli_num_rows($result);
             <!-- dasboard -->
             <section class="dashboard brand-dashboard">
                 <div>
-                    <h2>Orders Management</h2>
+                    <h2>Quảng lý đơn hàng</h2>
                     <p>Here you can manage orders, view their details, and perform actions such as edit or delete.</p>
                 </div>
                 <button type="button" class="add-btn" id="btn-order-open">
-                    add new orders
+                    Thêm đơn hàng
                 </button>
                 <div class="search">
                     <from>
@@ -41,7 +41,7 @@ $totalUsers = mysqli_num_rows($result);
             <div class="admin-modal" id="orderModal">
                 <div class="admin-modal-box">
                     <div class="admin-modal-head">
-                        <h2>Add New Order</h2>
+                        <h2>Thêm đơn hàng mới</h2>
                         <button type="button" id="btn-order-close">
                             <img src="/car-shop/assets/images/icon/x-thoat.png" class="modal-close-img">
                         </button>
@@ -49,37 +49,37 @@ $totalUsers = mysqli_num_rows($result);
 
                     <form action="admin-order/order-store.php" method="POST">
                         <div class="form-group-modal">
-                            <label>User ID</label>
+                            <label>ID người dùng</label>
                             <input type="number" name="user_id" min="0" placeholder="Nhập ID người dùng..." required>
                         </div>
 
                         <div class="form-group-modal">
-                            <label>Customer Name</label>
+                            <label>Tên khách hàng</label>
                             <input type="text" name="customer_name" placeholder="Nhập tên khách hàng..." required>
                         </div>
 
                         <div class="form-group-modal">
-                            <label>Phone</label>
+                            <label>Số điện thoại</label>
                             <input type="text" name="phone" placeholder="Nhập số điện thoại..." required>
                         </div>
 
                         <div class="form-group-modal">
-                            <label>Address</label>
+                            <label>Nhập địa chỉ</label>
                             <input type="text" name="address" placeholder="Nhập địa chỉ..." required>
                         </div>
 
                         <div class="form-group-modal">
-                            <label>Total Price</label>
+                            <label>Tổng giá</label>
                             <input type="number" name="total_price" min="0" placeholder="Nhập tổng tiền..." required>
                         </div>
 
                         <div class="form-group-modal">
-                            <label>Status</label>
+                            <label>Trạng thái</label>
                             <select name="status">
-                                <option value="pending">Pending</option>
-                                <option value="confirmed">Confirmed</option>
-                                <option value="cancelled">Cancelled</option>
-                                <option value="completed">Completed</option>
+                                <option value="pending">Chưa giải quyết</option>
+                                <option value="confirmed">Đã xác nhận</option>
+                                <option value="cancelled">Đã hủy</option>
+                                <option value="completed">Hoàn thành</option>
                             </select>
                         </div>
 
