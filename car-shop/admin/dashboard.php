@@ -17,7 +17,6 @@ while ($row = mysqli_fetch_assoc($resMonthly)) {
     $revenue[]      = (float)$row['doanh_thu'];
     $orders_count[] = (int)$row['so_don'];
 }
-
 $sqlBrand = "SELECT b.brand_name,
             COUNT(od.id) AS so_don,
             SUM(od.price * od.quantity) AS doanh_thu
