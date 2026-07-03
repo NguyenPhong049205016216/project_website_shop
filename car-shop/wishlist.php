@@ -39,8 +39,8 @@ $result = mysqli_query($conn, $sql);
 $wishlist_count = mysqli_num_rows($result);
 
 $title = "Trang Chủ";
-include "includes/header.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +50,7 @@ include "includes/header.php";
     <title>Wishlist</title>
     <link rel="stylesheet" href="assets/css/wishlist1.css">
 </head>
+<?php include "includes/header.php"; ?>
 
 <body>
     <div class="main">
@@ -61,14 +62,13 @@ include "includes/header.php";
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                                
                                 <div class="wishlist_item">
                                     <div class="wishlist_card">
-                                    <form method="POST">
-                                        <input type="hidden" name="car_id" value="<?= $row['id'] ?>">
-                                        <button type="submit" name="remove_wishlist" class="remove_wishlist_btn" style="background:none;border:none;">
-                                            <img src="assets/images/icon/trash.png" style="width: 50px; height: 50px; cursor: pointer;">
-                                        </button>
+                                        <form method="POST">
+                                            <input type="hidden" name="car_id" value="<?= $row['id'] ?>">
+                                            <button type="submit" name="remove_wishlist" class="remove_wishlist_btn" style="background:none;border:none;">
+                                                <img src="assets/images/icon/trash.png" style="width: 50px; height: 50px; cursor: pointer;">
+                                            </button>
                                         </form>
                                         <img src="<?= $row['image'] ?>" alt="<?= $row['cars_name'] ?>" class="wishlist_img">
                                         <h3><?= $row['brand_name'] ?></h3>
@@ -91,8 +91,7 @@ include "includes/header.php";
                                 <span onclick="navToPage('cars.php')">Khám phá ngay</span>
                             </div>
                         <?php
-                        }
-                        ?>
+                        } ?>
                     </div>
                 </div>
             </div>

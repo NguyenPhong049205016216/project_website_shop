@@ -100,7 +100,7 @@ if (!isset($title)) {
                                         <p>Danh sách xe yêu thích</p>
                                     </div>
                                 </div>
-                                <div class="acc_item2" onclick="navToPage('savedcar.php')">
+                                <div class="acc_item2" onclick="navToPage('cart.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/cars/archive.png" alt="archive" class="acc_icon">
                                     </div>
@@ -122,12 +122,12 @@ if (!isset($title)) {
                                     </div>
         
                                 </div>
-                                <div class="acc_item4" onclick="navToPage('later.php')">
+                                <div class="acc_item4" onclick="navToPage('Caidat.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/icon/setting.png" alt="cài đặt" class="acc_icon">
                                     </div>
                                     <div class="item_content_text">
-                                        <a href="later.php">Cài đặt</a>
+                                        <a href="Caidat.php">Cài đặt</a>
                                         <p>Cài đặt tài khoản</p>
                                     </div>
                                 </div>

@@ -72,7 +72,6 @@ setInterval(function(){
                 </div>
             <?php } ?>
         </main>
-
         <!-- thương hiệu -->
         <h1 class="chapter" id="Brands">Card Brands</h1>
         <main class="cars_brands">
@@ -82,7 +81,6 @@ setInterval(function(){
                 </div>
             <?php } ?>
         </main>
-
         <h1 class="chapter" id="best_sellers">Best Sellers</h1>
         <div class="cars_introduce">
             <section class="best-seller-section">

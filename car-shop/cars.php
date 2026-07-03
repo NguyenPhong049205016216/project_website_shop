@@ -90,7 +90,6 @@ include 'includes/header.php';
 
         <?php
           $brands = array_unique(array_column($cars, 'brand_name'));
-
           foreach($brands as $b):
           $cnt = count(array_filter($cars, fn($c)=>$c['brand_name']==$b));
         ?>
@@ -101,7 +100,6 @@ include 'includes/header.php';
           <?= $b ?>
           <span class="filter-count"><?= $cnt ?></span>
         </label>
-
         <?php endforeach; ?>
 
       </div>
@@ -125,20 +123,15 @@ include 'includes/header.php';
     <div class="filter-card">
       <div class="filter-header">Nhiên liệu</div>
       <div class="filter-body">
-
         <?php foreach(['Xăng','Dầu','Điện','Hybrid'] as $f): ?>
-
         <label class="filter-option">
           <input type="checkbox" name="fuel" value="<?= $f ?>" onchange="filterCars()">
           <span class="checkbox-box"></span>
           <?= $f ?>
         </label>
-
         <?php endforeach; ?>
-
       </div>
     </div>
-
 
     <!-- Tình trạng -->
     <div class="filter-card">
@@ -217,17 +210,6 @@ include 'includes/header.php';
       <?php endforeach; ?>
     </div>
   </div>
-</div>
-
-<!-- COMPARE BAR -->
-<div class="compare-bar" id="compareBar">
-  <div class="compare-slots">
-    <div class="compare-slot" id="slot1">＋ Thêm xe so sánh</div>
-    <div class="compare-slot" id="slot2">＋ Thêm xe so sánh</div>
-    <div class="compare-slot" id="slot3">＋ Thêm xe so sánh</div>
-  </div>
-  <button class="compare-btn">So sánh ngay</button>
-  <button onclick="closeCompare()" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:1.2rem;cursor:pointer">✕</button>
 </div>
 
 <!-- JS riêng cho trang xe -->

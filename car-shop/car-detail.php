@@ -227,13 +227,12 @@ $car = mysqli_fetch_assoc($result);
                     </button>
                 </form>
 
-                <a href="#" class="btn-wishlist">
-                    <span class="icon">
-                        <!-- icon wisslist -->
-                        <img class="heart-img" src="/car-shop/assets/images/cars/wishlist.png">
-                    </span>
-                    Thêm Wishlist
-                </a>
+                <form method="POST"class="btn-wishlist">
+                    <input type="hidden" name="car_id" value="<?= $car['id'] ?>">
+                    <button class="icon" name="wishlist" type="submit">
+                        <img class="heart-img" src="/car-shop/assets/images/icon/wishlist.png" alt="wishlist">
+                    </button>
+                </form>
             </div>
 
             <div class="benefit-card">
