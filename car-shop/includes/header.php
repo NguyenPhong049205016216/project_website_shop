@@ -100,6 +100,7 @@ if (!isset($title)) {
                                         <p>Danh sách xe yêu thích</p>
                                     </div>
                                 </div>
+                                
                                 <div class="acc_item2" onclick="navToPage('cart.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/cars/archive.png" alt="archive" class="acc_icon">
