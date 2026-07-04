@@ -1,6 +1,9 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
+<<<<<<< HEAD
+=======
 require_once __DIR__ . "../includes/pagination.php";
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
@@ -9,11 +12,16 @@ require_once $databasePath;
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
+<<<<<<< HEAD
+/* lấy tất cả user */
+$sql = "SELECT * FROM user ORDER BY id DESC";
+=======
 // phân trang
 $pagination = getPagination($conn, "user", 3);
 /* lấy tất cả user */
 $sql = "SELECT * FROM user ORDER BY id DESC
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 $result = mysqli_query($conn, $sql);
 $totalUsers = mysqli_num_rows($result);
 
@@ -29,8 +37,16 @@ $sqlEdit = "SELECT COUNT(*) AS total_edit
             WHERE updated_at IS NOT NULL";
 
 $resultEdit = mysqli_query($conn, $sqlEdit);
+<<<<<<< HEAD
+
+$rowEdit = mysqli_fetch_assoc($resultEdit);
+
+$totalEdit = $rowEdit['total_edit'];
+
+=======
 $rowEdit = mysqli_fetch_assoc($resultEdit);
 $totalEdit = $rowEdit['total_edit'];
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 ?>
 <?php
 include "index.php";
@@ -170,7 +186,10 @@ include "index.php";
                             <?php endwhile; ?>
                         </tbody>
                     </table>
+<<<<<<< HEAD
+=======
                     <?php renderPagination($pagination['page'], $pagination['totalPages']); ?>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
                 </div>
             </section>
         </div>
