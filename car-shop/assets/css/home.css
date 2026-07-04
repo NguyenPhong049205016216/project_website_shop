@@ -453,12 +453,12 @@ section {
     letter-spacing: .3px;
 }
 .cars_introduce {
-    max-width: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(5, minmax(220px, 1fr));
     gap: 28px;
-    padding: 0;
-    text-transform: translateY(-10px);
+    padding: 20px;
+    text-transform: uppercase;
 }
 .item {
     position: relative;
@@ -485,8 +485,8 @@ section {
     position: absolute;
     top: 18px;
     right: 18px;
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
 }
 .item_img {
@@ -522,19 +522,18 @@ section {
 .item_info{
     width: 100%;
     border-top: 1px solid #e5e7eb;
-    padding-top: 18px;
+    padding-top: 14px;
     text-align: center;
-    margin-top: 8px;
-}
-
+    margin-top: 6px;
+}   
 .item_info a{
     display: inline-flex;
     margin-top: 12px;
-    padding: 9px 18px;
+    padding: 6px 14px;
     border-radius: 10px;
     background: #cad2d992;
     color: #1c7a0c;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 1000;
     text-decoration: none;
     white-space: nowrap;
@@ -724,7 +723,6 @@ footer .chapter{
     height: 22px;
     object-fit: contain;
 }
-
 /* nút back to top */
 .back_to_top{
     width: 44px;
@@ -817,12 +815,12 @@ footer .chapter{
     .cars_introduce{
         display: flex;
         overflow-x: auto;
-        gap: 14px;
-        padding: 10px;
+        gap: 20px;
+        padding: 30px;
         scroll-behavior: smooth;
     }
     .item{
-        flex: 0 0 230px;
+        flex: 0 0 2px;
     }
     .cars_introduce::-webkit-scrollbar{
         height: 6px;
@@ -873,16 +871,13 @@ footer .chapter{
     footer{
         padding: 25px 20px;
     }
-
     .chapter_footer{
         grid-template-columns: 1fr;
         gap: 22px;
     }
-
     footer .chapter{
         font-size: 22px;
     }
-
     .left_footer,
     .right_footer,
     .center_footer{

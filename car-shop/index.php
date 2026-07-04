@@ -66,7 +66,7 @@ setInterval(function(){
                     <div class="item_info">
                         <h3><?php echo $car['cars_name'] ?></h3>
                         <p>Giá: <?php echo number_format($car['price'], 0, ',', '.'); ?> VNĐ</p>
-                        <a href="#" class="btn">Mua ngay</a>
+                        <a href="#" class="btn">Mua</a>
                         <a href="car-detail.php?id=<?php echo $car['id']; ?>" class="btn">Xem chi tiết</a>
                     </div>
                 </div>
