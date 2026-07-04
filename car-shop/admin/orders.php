@@ -1,23 +1,12 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
-<<<<<<< HEAD
-=======
 require_once __DIR__ . "../includes/pagination.php";
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
 require_once $databasePath;
-<<<<<<< HEAD
 
-if (!isset($conn)) {
-    die("Database connection not initialized.");
-}
-$sql = "SELECT * FROM orders ORDER BY id DESC";
-$result = mysqli_query($conn, $sql);
-$totalUsers = mysqli_num_rows($result);
-=======
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
@@ -26,7 +15,6 @@ $sql = "SELECT * FROM orders ORDER BY id DESC
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 $totalOrders = mysqli_num_rows($result);
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 
 ?>
 <?php include "index.php"; ?>
@@ -151,13 +139,10 @@ $totalOrders = mysqli_num_rows($result);
                             <?php } ?>
                         </tbody>
                     </table>
-<<<<<<< HEAD
-=======
                     <?php 
                     renderPagination($pagination['page'], $pagination['totalPages']);
 
                     ?>
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
                 </div>
             </div>
         </main>

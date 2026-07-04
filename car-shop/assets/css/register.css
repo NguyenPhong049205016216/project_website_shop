@@ -3,10 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 :root {
     --primary-color: #5fa730;
     --background-color: #0b0b0b;
@@ -16,17 +12,11 @@
     --circle: 50%;
     --topic-size: 32px;
 }
-<<<<<<< HEAD
 
 html {
     scroll-behavior: smooth;
 }
 
-=======
-html {
-    scroll-behavior: smooth;
-}
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 body {
     font-family: Arial, sans-serif;
     background-image: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)), url("/car-shop/assets/images/cars/backround-register.png");
@@ -36,10 +26,6 @@ body {
     color: var(--main-color);
     overflow-x: hidden;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .login_section {
     width: 100vw;
     min-height: 100vh;
@@ -48,10 +34,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .box {
     width: 430px;
     min-height: auto;
@@ -70,26 +52,17 @@ body {
     width: 250px;
     height: auto;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .login_name h1 {
     font-size: var(--topic-size);
     text-align: center;
     margin-bottom: 28px;
     letter-spacing: 2px;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .form_group {
     margin-bottom: 15px;
     position: relative
 }
-<<<<<<< HEAD
-=======
+/* sữa */
 select {
     width: 100%;
     height: 48px;
@@ -110,7 +83,6 @@ option {
     background-color: rgba(23, 91, 137, 0.14);
     color: rgb(123, 38, 38);
 }
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 #toggle-password{
     position: absolute;
     right: 15px;
@@ -121,10 +93,6 @@ option {
     height: 28px;
     z-index: 100;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .form_group label {
     display: block;
     margin-bottom: 8px;
@@ -144,25 +112,14 @@ option {
     color: white;
     outline: none;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .form_group input:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(95,167,48,.25);
 }
-<<<<<<< HEAD
-
 input::placeholder {
     color: rgba(255,255,255,.65);
 }
 
-=======
-input::placeholder {
-    color: rgba(255,255,255,.65);
-}
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 #username,
 #password,
 #phonenumber,

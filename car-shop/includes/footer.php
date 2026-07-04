@@ -12,11 +12,7 @@ if (!isset($title)) {
     <link rel="stylesheet" href="/car-shop/assets/css/home.css">
 
     <footer id="footer">
-<<<<<<< HEAD
-        <h1 class="chapter" id="footer">Contact</h1>
-=======
         <h1 class="chapter">Contact</h1>
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
         <div class="chapter_footer">
             <div class="left_footer">
                 <h2> <img src="assets/images/icon/icon-shop.png" class="footer-logo-h2">

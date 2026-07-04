@@ -1,18 +1,10 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
-<<<<<<< HEAD
-
-=======
 require_once __DIR__ . "../includes/pagination.php";
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
 require_once $databasePath;
-<<<<<<< HEAD
-
-=======
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
@@ -38,16 +30,6 @@ $sqlTongxe = "SELECT SUM(quantity)
 $reusultTongxe = mysqli_query($conn, $sqlTongxe);
 $rowTongxe = mysqli_fetch_assoc($reusultTongxe);
 $totalxekho = $rowTongxe['tong_so_xe'] ?? 0;
-
-<<<<<<< HEAD
-$sql = "SELECT cars.*, brands.brand_name AS brand_name
-        FROM cars
-        JOIN brands ON cars.brand_id = brands.id
-        ORDER BY cars.id DESC";
-
-$result = mysqli_query($conn, $sql);
-$totalCars = mysqli_num_rows($result);
-=======
 // tổng số xe
 $countSql = "SELECT COUNT(*) AS total FROM cars";
 $countResult = mysqli_query($conn, $countSql);
@@ -63,13 +45,11 @@ $sql = "SELECT cars.*, brands.brand_name AS brand_name
         -- query lấy dữ liệu  dùng limit
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 
 ?>
 <?php
 include "index.php";
 ?>
-
 <body>
     <div class="container">
         <main class="main-content">
@@ -222,10 +202,7 @@ include "index.php";
                             <?php } ?>
                         </tbody>
                     </table>
-<<<<<<< HEAD
-=======
                     <?php renderPagination($pagination['page'], $pagination['totalPages']); ?>
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
                 </div>
             </div>
         </main>

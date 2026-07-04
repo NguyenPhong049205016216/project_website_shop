@@ -1,12 +1,7 @@
 <?php
 require_once __DIR__ . "/../config/database.php";
-<<<<<<< HEAD
-include "index.php";
-
-=======
 require_once __DIR__ . "../includes/pagination.php";
 include "index.php";
->>>>>>> bbc667b59360976b08a513038fcddb0555019882
 if (!isset($_GET['id'])) {
     header("Location: orders.php");
     exit();
