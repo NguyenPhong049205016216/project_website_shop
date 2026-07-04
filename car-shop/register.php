@@ -1,13 +1,11 @@
 <?php
 require_once __DIR__ . '/config/database.php';
-
 if (isset($_POST['register'])) {
     $ho_ten = trim($_POST['username']);
     $mat_khau = $_POST['password'];
     $phonenumber = trim($_POST['phonenumber']);
     $email = trim($_POST['email']);
     $address = trim($_POST['address']);
-
     $check = mysqli_query($conn, "select * from user where email = '$email'");
     if (mysqli_num_rows($check) > 0) {
         echo "email đã tồn tại";
@@ -63,10 +61,12 @@ if (isset($_POST['register'])) {
                     <input type="email" id="email" name="email" placeholder="Vui lòng nhập email" required>
                 </div>
                 <div class="form_group">
-                    <label for="address">Địa chỉ</label>
-                    <input type="text" id="address" name="address" placeholder="Vui lòng nhập địa chỉ" required>
+                    <label for="role">Role</label>
+                    <select name="role" id="role" required>
+                        <option  class="form-control" value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
                 </div>
-
                 <div class="form_btn">
                     <button type="submit" class="btn_register" id="submit-btn" name="register">Register</button>
                 </div>
@@ -76,7 +76,6 @@ if (isset($_POST['register'])) {
             </form>
         </div>
     </div>
-    
 </body>
 <script>
     const password = document.getElementById("password");

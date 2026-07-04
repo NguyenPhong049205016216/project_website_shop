@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,9 @@
 
 <body>
     <header>
+        <img src="/car-shop/assets/images/cars/logo_cars_2.png" alt="Logo" class="logo-admin">
         <h1>Admin</h1>
+
         <div class="search">
             <from>
                 <input type="text" id="search" placeholder="tìm kiếm chức năng">
@@ -20,7 +21,7 @@
         </search>
     </header>
 
-    <div div class="container">
+    <div class="container">
         <left class="sidebar">
             <a href="/car-shop/admin/dashboard.php">Dashboard</a>
             <a href="/car-shop/admin/cars.php">Cars</a>

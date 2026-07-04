@@ -8,10 +8,8 @@ if (!isset($title)) {
     $title = "Header";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +25,6 @@ if (!isset($title)) {
             </div>
             <div class="search">
                 <form class="search-icon">
-                    <img class="icon_kl" src="/car-shop/assets/images/cars/kinh-lup.png" >
                     <input type="text" id="search" placeholder="Tìm kiếm xe bạn muốn">
                 </form>
             </div>
@@ -42,7 +39,6 @@ if (!isset($title)) {
                         </div>
                     </div>
                     
-
                     <div class="acc_dropdown">
                         <div class="acc_top">
                             <div class="avatar_box">
@@ -100,7 +96,7 @@ if (!isset($title)) {
                                         <p>Danh sách xe yêu thích</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="acc_item2" onclick="navToPage('cart.php')">
                                     <div class="acc_img">
                                         <img src="assets/images/cars/archive.png" alt="archive" class="acc_icon">

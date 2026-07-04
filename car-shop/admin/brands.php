@@ -1,14 +1,16 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
+require_once __DIR__ ."../includes/pagination.php";
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
 require_once $databasePath;
-
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
-$sql = "SELECT * FROM brands ORDER BY id DESC";
+$pagination = getPagination($conn, "brands", 2);
+$sql = "SELECT * FROM brands ORDER BY id DESC
+        LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 $totalUsers = mysqli_num_rows($result);
 
@@ -99,6 +101,7 @@ $totalUsers = mysqli_num_rows($result);
                             <?php } ?>
                         </tbody>
                     </table>
+                    <?php renderPagination($pagination['page'], $pagination['totalPages']); ?>
                 </div>
             </div>
         </main>

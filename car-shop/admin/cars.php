@@ -1,11 +1,10 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
-
+require_once __DIR__ . "../includes/pagination.php";
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
 require_once $databasePath;
-
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
@@ -32,13 +31,21 @@ $reusultTongxe = mysqli_query($conn, $sqlTongxe);
 $rowTongxe = mysqli_fetch_assoc($reusultTongxe);
 $totalxekho = $rowTongxe['tong_so_xe'] ?? 0;
 
+// tổng số xe
+$countSql = "SELECT COUNT(*) AS total FROM cars";
+$countResult = mysqli_query($conn, $countSql);
+$countRow = mysqli_fetch_assoc($countResult);
+$totalCars = $countRow['total'];
+// phân trang
+$pagination = getPagination($conn, "cars", 5);
+// lấy xe theo từng trang
 $sql = "SELECT cars.*, brands.brand_name AS brand_name
         FROM cars
         JOIN brands ON cars.brand_id = brands.id
-        ORDER BY cars.id DESC";
-
+        ORDER BY cars.id DESC
+        -- query lấy dữ liệu  dùng limit
+        LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
-$totalCars = mysqli_num_rows($result);
 
 ?>
 <?php
@@ -197,6 +204,7 @@ include "index.php";
                             <?php } ?>
                         </tbody>
                     </table>
+                    <?php renderPagination($pagination['page'], $pagination['totalPages']); ?>
                 </div>
             </div>
         </main>

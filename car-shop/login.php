@@ -15,7 +15,11 @@ if (isset($_POST["login"])) {
             $_SESSION['email'] = $nguoi_dung['email'];
             $_SESSION['phonenumber'] = $nguoi_dung['phone'];
             $_SESSION['role'] = $nguoi_dung['role'];
-            header("Location: index.php");
+            if ($nguoi_dung['role'] == 'admin') {
+                header("Location: admin/dashboard.php");
+            } else {
+                header("Location: index.php");
+            }
             exit();
         } else {
             $error = "sai password";
@@ -81,22 +85,6 @@ if (isset($_POST["login"])) {
             </form>
         </div>
     </div>
-
 </body>
-
-<script>
-const password = document.getElementById("password");
-const eye = document.getElementById("toggle-password");
-
-eye.addEventListener("click", function () {
-    if (password.type === "password") {
-        password.type = "text";
-        eye.src = "/car-shop/assets/images/icon/icon-camm.png";
-    } else {
-        password.type = "password";
-        eye.src = "/car-shop/assets/images/icon/icon-mom.png";
-    }
-});
-</script>
-
+<script src="assets/js/user-login.js"></script>
 </html>

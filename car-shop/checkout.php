@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
-
 $title = "Xác nhận đặt hàng";
 include "includes/header.php";
 ?>

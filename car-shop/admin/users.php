@@ -1,5 +1,6 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
+require_once __DIR__ . "../includes/pagination.php";
 if (!file_exists($databasePath)) {
     die("Database configuration file not found: " . htmlspecialchars($databasePath));
 }
@@ -8,8 +9,11 @@ require_once $databasePath;
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
+// phân trang
+$pagination = getPagination($conn, "user", 3);
 /* lấy tất cả user */
-$sql = "SELECT * FROM user ORDER BY id DESC";
+$sql = "SELECT * FROM user ORDER BY id DESC
+        LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 $totalUsers = mysqli_num_rows($result);
 
@@ -25,11 +29,8 @@ $sqlEdit = "SELECT COUNT(*) AS total_edit
             WHERE updated_at IS NOT NULL";
 
 $resultEdit = mysqli_query($conn, $sqlEdit);
-
 $rowEdit = mysqli_fetch_assoc($resultEdit);
-
 $totalEdit = $rowEdit['total_edit'];
-
 ?>
 <?php
 include "index.php";
@@ -169,6 +170,7 @@ include "index.php";
                             <?php endwhile; ?>
                         </tbody>
                     </table>
+                    <?php renderPagination($pagination['page'], $pagination['totalPages']); ?>
                 </div>
             </section>
         </div>

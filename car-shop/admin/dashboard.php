@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . "/../config/database.php";
+require_once __DIR__ . "../includes/pagination.php";
+// truy vấn doanh thu theo tháng trong 6 tháng gần đây
 $sqlMonthly = "SELECT
             DATE_FORMAT(created_at, '%m/%Y') AS thang,
             COUNT(*) AS so_don,
@@ -17,6 +19,7 @@ while ($row = mysqli_fetch_assoc($resMonthly)) {
     $revenue[]      = (float)$row['doanh_thu'];
     $orders_count[] = (int)$row['so_don'];
 }
+// truy vấn doanh thu theo hãng xe
 $sqlBrand = "SELECT b.brand_name,
             COUNT(od.id) AS so_don,
             SUM(od.price * od.quantity) AS doanh_thu
@@ -36,17 +39,19 @@ if ($resBrand) {
         $brandRevenue[] = (float)$row['doanh_thu'];
     }
 }
-
+// truy vấn tổng số đơn hàng, tổng doanh thu, tổng đơn chờ xử lý, tổng xe
 $rowTotal = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong_don, SUM(total_price) AS tong_dt FROM orders"));
 $tongDon  = $rowTotal['tong_don'] ?? 0;
 $tongDT   = $rowTotal['tong_dt']  ?? 0;
-
+// truy vấn tổng số đơn chờ xử lý
 $rowPend  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM orders WHERE status='pending'"));
 $tongPend = $rowPend['tong'] ?? 0;
-
+// truy vấn tổng số xe
 $rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
 $tongCars = $rowCars['tong'] ?? 0;
-$sql = "SELECT * FROM orders ORDER BY id DESC";
+$pagination = getPagination($conn, "brands", 2);
+$sql = "SELECT * FROM orders ORDER BY id DESC
+        LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 ?>
 <?php
@@ -173,7 +178,7 @@ include "index.php";
                                             <td><?php echo $orders['created_at']; ?></td>
                                             <td>
                                                 <div class="crud-icon">
-                                                    <a href="/car-shop/admin/edit-user.php?id=" class="edit-btn">
+                                                    <a href="/car-shop/admin/order-detail.php?id=<?php echo $orders['id']; ?>" class="edit-btn">
                                                         <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                                     </a>
                                                     <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">
@@ -185,6 +190,7 @@ include "index.php";
                                     <?php } ?>
                                 </tbody>
                             </table>
+                            <?php renderPagination($pagination['page'], $pagination['totalPages']); ?>
                         </div>
                     </div>
                 </div>
