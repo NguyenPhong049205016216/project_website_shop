@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #5fa730;
+    --background-color: #0b0b0b;
+    --main-color: white;
+    --box-color: rgba(255, 255, 255, 0.10);
+    --hover-color: #9be35c;
+    --circle: 50%;
+    --topic-size: 32px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)), url("/car-shop/assets/images/cars/backround-register.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--main-color);
+    overflow-x: hidden;
+}
+
+.login_section {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 430px;
+    min-height: auto;
+    padding: 35px 32px;
+    border-radius: 24px;
+    background: var(--box-color);
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 25px 70px rgba(0,0,0,.55);
+}
+.logo_area{
+    text-align: center;
+    margin-bottom: 25px;
+}
+.logo_area img{
+    width: 250px;
+    height: auto;
+}
+
+.login_name h1 {
+    font-size: var(--topic-size);
+    text-align: center;
+    margin-bottom: 28px;
+    letter-spacing: 2px;
+}
+
+.form_group {
+    margin-bottom: 15px;
+    position: relative
+}
+#toggle-password{
+    position: absolute;
+    right: 15px;
+    top: 68%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    z-index: 100;
+}
+
+.form_group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.form_group input {
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 0 15px 0 42px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 12px;
+    background-color: rgba(255,255,255,.14);
+    color: white;
+    outline: none;
+}
+
+.form_group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(95,167,48,.25);
+}
+
+input::placeholder {
+    color: rgba(255,255,255,.65);
+}
+
+#username,
+#password,
+#phonenumber,
+#email,
+#address {
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    background-size: 18px;
+}
+
+#username { background-image: url("../imgs/user.png"); }
+#password { background-image: url("../imgs/lock.png"); }
+#phonenumber { background-image: url("../imgs/phone.png"); }
+#email { background-image: url("../imgs/email.png"); }
+#address { background-image: url("../imgs/address.png"); }
+
+.form_btn {
+    margin-top: 25px;
+}
+
+.form_btn a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.btn_login,
+.btn_register {
+    display: block;
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #5fa730, #8bd64f);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_login:hover,
+.btn_register:hover {
+    background: #000;
+    color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.form_or {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+    color: rgba(255,255,255,.85);
+}
+
+.form_or a {
+    color: #74bcccc0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.item_list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 22px;
+}
+
+.item_list img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.item_list img:hover {
+    transform: scale(1.18);
+}
+
+@media (max-width: 767px) {
+    .box {
+        width: 95%;
+        padding: 28px 22px;
+    }
+
+    .login_name h1 {
+        font-size: 26px;
+    }
+}

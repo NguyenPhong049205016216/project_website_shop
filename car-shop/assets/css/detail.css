@@ -1,0 +1,385 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body.car-detail-page{
+    background:#f4f7fb;
+}
+
+.detail-wrapper{
+    width:100%;
+    padding:25px;
+    display:grid;
+    grid-template-columns:1.1fr 1.3fr 350px;
+    gap:24px;
+}
+
+/* Cột trái */
+.gallery-section,
+.info-section,
+.booking-section{
+    background:#fff;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 10px 30px rgba(15,23,42,0.08);
+}
+
+.gallery-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+    
+}
+
+.badge-img{
+    width: 70px;
+    height: 70px;
+}
+
+.heart-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:rgb(105, 169, 239);
+    font-size:28px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+.heart-img{
+    width: 25px;
+    height: 25px;
+}
+
+.main-image{
+    position:relative;
+    height:430px;
+    background:#f8fafc;
+    border-radius:24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.main-image img{
+    width:90%;
+    max-height:360px;
+    object-fit:contain;
+}
+
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255, 255, 255, 0.462);
+    font-size:35px;
+    cursor:pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+
+.arrow img{
+    width: 30px;
+    height: 30px;
+}
+
+.arrow-left{
+    left:15px;
+}
+
+.arrow-right{
+    right:15px;
+}
+
+.image-count{
+    position:absolute;
+    bottom:20px;
+    background:#111827;
+    color:white;
+    padding:8px 16px;
+    border-radius:18px;
+}
+
+.sub-images{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.sub-images img{
+    width:100%;
+    height:100px;
+    padding:10px;
+    object-fit:contain;
+    border-radius:18px;
+    background:#f8fafc;
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+.sub-images img.active{
+    border-color:#2563eb;
+}
+
+.service-row{
+    margin-top:25px;
+    padding:22px;
+    border-radius:20px;
+    border:1px solid #e5e7eb;
+    display:grid;   
+    grid-template-columns:repeat(3,2fr);
+    gap:10px;
+}
+
+.service-row div{
+    text-align:center;
+}
+
+.svc-icon{
+    display:inline-flex;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#eaf1ff;
+    vertical-align:middle;
+    margin-right:8px;
+}
+
+/* Cột giữa */
+.icon,
+.section-icon,
+.brand-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:#eaf1ff;
+    vertical-align:middle;
+    margin-right:8px;
+}
+
+.brand-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.car-brand{
+    color:#dc2626;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.info-section h1{
+    font-size:42px;
+    margin-bottom:12px;
+    color:#111827;
+}
+
+.info-section img{
+    width: 30px;
+    height: 30px;
+    background-color: #e4e5e7;
+    border-radius: 10px;
+}
+
+.verify{
+    color:#2563eb;
+    font-size:18px;
+}
+
+.rating{
+    color:#f59e0b;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.rating span{
+    color:#2563eb;
+    margin-left:10px;
+}
+
+.description{
+    color:#475569;
+    line-height:1.7;
+    margin-bottom:30px;
+    font-size:17px;
+}
+
+.info-section h2{
+    margin:25px 0 18px;
+    font-size:22px;
+}
+
+.spec-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.spec-box{
+    background:#f8fafc;
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+}
+
+.spec-box p{
+    color:#64748b;
+    margin:10px 0;
+}
+
+.spec-box strong{
+    font-size:19px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.feature-grid div{
+    background:#f8fafc;
+    padding:16px 20px;
+    border-radius:15px;
+}
+
+/* Cột phải */
+.price-card{
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:25px;
+}
+
+.price-title{
+    display:flex;
+    justify-content:space-between;
+}
+
+.info-icon{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    border:2px solid #94a3b8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#64748b;
+}
+
+.price{
+    font-size:34px;
+    color:#dc2626;
+    font-weight:bold;
+    margin:25px 0 10px;
+}
+
+.vat{
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+.stock{
+    display:inline-block;
+    padding:12px 18px;
+    background:#dcfce7;
+    color:#15803d;
+    border-radius:14px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.btn-cart,
+.btn-wishlist{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:16px;
+    border-radius:13px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.btn-cart{
+    background:#dc2626;
+    color:white;
+}
+
+.btn-wishlist{
+    color:#2563eb;
+    border:2px solid #2563eb;
+}
+
+.benefit-card{
+    margin-top:25px;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:22px;
+}
+
+.benefit-card div{
+    display:flex;
+    gap:12px;
+    padding:18px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.benefit-card div:last-child{
+    border-bottom:none;
+}
+
+.benefit-card p{
+    color:#475569;
+    line-height:1.5;
+}
+.bnf-icon{
+    width: 30px;
+    height: 30px;
+}
+/* chế độ điện thoại */
+@media(max-width:1100px){
+    .detail-wrapper{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+    .detail-wrapper{
+        padding:15px;
+    }
+
+    .spec-grid,
+    .feature-grid,
+    .service-row{
+        grid-template-columns:1fr;
+    }
+
+    .sub-images{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .info-section h1{
+        font-size:32px;
+    }
+}

@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body{
+    background: #eef2f5;
+}
+.main{
+    width: 100%;
+    min-height: 100vh;
+}
+.middle-content{
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: #eef2f5;
+}
+.content-box{
+    width: 80%;
+    max-width: 1200px;
+    min-height: 500px;
+    background: white;
+    border-radius: 24px;
+    padding: 35px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+/* danh sách wishlist */
+.box-mid{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+/* từng dòng xe */
+.wishlist_item{
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    background: #ffffff;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.wishlist_item:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+/* card */
+.wishlist_card{
+    display: grid;
+    grid-template-columns: 70px 140px 1fr 1.5fr 1fr 1fr 150px;
+    gap: 18px;
+    align-items: center;
+    padding: 22px;
+}
+/* nút xóa */
+.remove_wishlist_btn{
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.remove_wishlist_btn img{
+    width: 38px !important;
+    height: 38px !important;
+    object-fit: contain;
+}
+/* ảnh xe không bị cắt */
+.wishlist_img{
+    width: 120px;
+    height: 85px;
+    object-fit: contain;
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 8px;
+}
+/* chữ */
+.wishlist_card h3{
+    font-size: 18px;
+    color: #111827;
+    font-weight: 800;
+}
+.wishlist_card p{
+    font-size: 17px;
+    color: #334155;
+}
+/* nút xem chi tiết */
+.detail-btn{
+    width: 140px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.detail-btn:hover{
+    background: #1d4ed8;
+}
+/* khi rỗng */
+.box-content-else{
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+.document-icon{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+.box-mid span{
+    margin-top: 10px;
+    font-size: 17px;
+    color: white;
+    background: #22c55e;
+    width: 170px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    cursor: pointer;
+}
+/* tablet */
+@media(max-width: 1024px){
+    .content-box{
+        width: 95%;
+    }
+
+    .wishlist_card{
+        grid-template-columns: 60px 120px 1fr 1fr;
+    }
+
+    .detail-btn{
+        width: 100%;
+    }
+}
+
+/* điện thoại */
+@media(max-width: 768px){
+    .middle-content{
+        padding: 30px 12px;
+    }
+
+    .content-box{
+        width: 100%;
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .wishlist_card{
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+        gap: 12px;
+    }
+
+    .wishlist_img{
+        width: 180px;
+        height: 120px;
+    }
+
+    .detail-btn{
+        width: 100%;
+        max-width: 220px;
+    }
+}
