@@ -51,7 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 $title = "Xác nhận đặt hàng";
 include "includes/header.php";
 ?>

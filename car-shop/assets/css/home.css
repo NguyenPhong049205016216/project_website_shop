@@ -49,15 +49,31 @@ header .User{
     width: 220px;
     height: auto;
 }
+<<<<<<< HEAD
 .icon_kl{
     width: 40px;
     height: 40px;
 }
+=======
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .search-icon{
     display: flex;
     align-items: center;
     gap: 10px;
 }
+<<<<<<< HEAD
+=======
+#search{
+    width: 250px;
+    padding: 12px 18px 12px 48px;
+    border: 3px solid #111827;
+    border-radius: 30px;
+    background-image: url("/car-shop/assets/images/icon/kinh-lup.png");
+    background-repeat: no-repeat;
+    background-position: 18px center;
+    background-size: 22px;
+}
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 .search input {
     width: 350px;
     height: 42px;
@@ -447,12 +463,20 @@ section {
     letter-spacing: .3px;
 }
 .cars_introduce {
+<<<<<<< HEAD
     width: 100%;
+=======
+    max-width: 100%;
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 28px;
     padding: 0;
+<<<<<<< HEAD
     text-transform: none;
+=======
+    text-transform: translateY(-10px);
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 }
 .item {
     position: relative;
@@ -667,10 +691,17 @@ footer .chapter{
     color: rgb(29, 26, 26);
 }
 .chapter_footer {
+<<<<<<< HEAD
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+=======
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr;
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
     gap: 40px;
     align-items: flex-start;
 }

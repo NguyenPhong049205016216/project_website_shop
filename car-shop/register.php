@@ -1,16 +1,25 @@
 <?php
 require_once __DIR__ . '/config/database.php';
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 if (isset($_POST['register'])) {
     $ho_ten = trim($_POST['username']);
     $mat_khau = $_POST['password'];
     $phonenumber = trim($_POST['phonenumber']);
     $email = trim($_POST['email']);
     $address = trim($_POST['address']);
+<<<<<<< HEAD
 
     $check = mysqli_query($conn, "select * from user where email = '$email'");
     if (mysqli_num_rows($check) > 0) {
         $error_msg = "Email đã tồn tại trên hệ thống!";
+=======
+    $check = mysqli_query($conn, "select * from user where email = '$email'");
+    if (mysqli_num_rows($check) > 0) {
+        echo "email đã tồn tại";
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
     } else {
         $sql = "insert into user(name, email, password, phone, address, role) 
                 values('$ho_ten', '$email', '$mat_khau', '$phonenumber', '$address', 'user')";
@@ -18,13 +27,18 @@ if (isset($_POST['register'])) {
             header("Location: login.php");
             exit();
         } else {
+<<<<<<< HEAD
             $error_msg = "Lỗi: " . mysqli_error($conn);
+=======
+            echo "Lỗi: " . mysqli_error($conn);
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
         }
     }
 }
 ?>
 
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -292,11 +306,33 @@ if (isset($_POST['register'])) {
                 </div>
             <?php endif; ?>
 
+=======
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/register.css">
+</head>
+<body>
+    <div class="login_section">
+        <div class="box">
+            <div class="logo_area">
+                <span class="logo_name">
+                    <img src="/car-shop/assets/images/cars/logo_cars_2.png" alt="Logo">
+                </span>
+                <!-- <img src="assets/images/logo.png"> -->
+            </div>
+            <div class="login_name">
+                <h1>Register</h1>
+            </div>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
             <form action="" method="POST" class="form_content" id="login_form">
                 <div class="form_group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Vui lòng nhập username" required>
                 </div>
+<<<<<<< HEAD
                 
                 <div class="form_group form_group_pass">
                     <label for="password">Password</label>
@@ -309,10 +345,22 @@ if (isset($_POST['register'])) {
                     <input type="tel" id="phonenumber" name="phonenumber" placeholder="Vui lòng nhập số điện thoại" required>
                 </div>
                 
+=======
+                <div class="form_group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Vui lòng nhập password">
+                    <img id="toggle-password" src="/car-shop/assets/images/icon/icon-mom.png" width="35">
+                </div>
+                <div class="form_group">
+                    <label for="phonenumber">SĐT</label>
+                    <input type="tel" id="phonenumber" name="phonenumber" placeholder="Vui lòng nhập số điện thoại" required>
+                </div>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
                 <div class="form_group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Vui lòng nhập email" required>
                 </div>
+<<<<<<< HEAD
                 
                 <div class="form_group">
                     <label for="address">Địa chỉ</label>
@@ -324,11 +372,25 @@ if (isset($_POST['register'])) {
                 </div>
                 
                 <div class="form_or">
+=======
+                <div class="form_group">
+                    <label for="role">Role</label>
+                    <select name="role" id="role" required>
+                        <option  class="form-control" value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form_btn">
+                    <button type="submit" class="btn_register" id="submit-btn" name="register">Register</button>
+                </div>
+                <div class ="form_or" style="margin-top: 40px;">
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
                     <span>Đã có tài khoản? <a href="login.php">Đăng nhập ngay!</a></span>
                 </div>
             </form>
         </div>
     </div>
+<<<<<<< HEAD
     
     <script>
         const password = document.getElementById("password");
@@ -344,4 +406,20 @@ if (isset($_POST['register'])) {
         });
     </script>
 </body>
+=======
+</body>
+<script>
+    const password = document.getElementById("password");
+    const eye = document.getElementById("toggle-password");
+    eye.addEventListener("click", function () {
+        if (password.type === "password") {
+            password.type = "text";
+            eye.src = "/car-shop/assets/images/icon/icon-camm.png";
+        } else {
+            password.type = "password";
+            eye.src = "/car-shop/assets/images/icon/icon-mom.png";
+        }
+    });
+</script>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 </html>

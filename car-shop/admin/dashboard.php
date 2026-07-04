@@ -1,5 +1,10 @@
 <?php
 require_once __DIR__ . "/../config/database.php";
+<<<<<<< HEAD
+=======
+require_once __DIR__ . "../includes/pagination.php";
+// truy vấn doanh thu theo tháng trong 6 tháng gần đây
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 $sqlMonthly = "SELECT
             DATE_FORMAT(created_at, '%m/%Y') AS thang,
             COUNT(*) AS so_don,
@@ -17,6 +22,10 @@ while ($row = mysqli_fetch_assoc($resMonthly)) {
     $revenue[]      = (float)$row['doanh_thu'];
     $orders_count[] = (int)$row['so_don'];
 }
+<<<<<<< HEAD
+=======
+// truy vấn doanh thu theo hãng xe
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 $sqlBrand = "SELECT b.brand_name,
             COUNT(od.id) AS so_don,
             SUM(od.price * od.quantity) AS doanh_thu
@@ -36,6 +45,7 @@ if ($resBrand) {
         $brandRevenue[] = (float)$row['doanh_thu'];
     }
 }
+<<<<<<< HEAD
 
 $rowTotal = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong_don, SUM(total_price) AS tong_dt FROM orders"));
 $tongDon  = $rowTotal['tong_don'] ?? 0;
@@ -47,6 +57,21 @@ $tongPend = $rowPend['tong'] ?? 0;
 $rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
 $tongCars = $rowCars['tong'] ?? 0;
 $sql = "SELECT * FROM orders ORDER BY id DESC";
+=======
+// truy vấn tổng số đơn hàng, tổng doanh thu, tổng đơn chờ xử lý, tổng xe
+$rowTotal = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong_don, SUM(total_price) AS tong_dt FROM orders"));
+$tongDon  = $rowTotal['tong_don'] ?? 0;
+$tongDT   = $rowTotal['tong_dt']  ?? 0;
+// truy vấn tổng số đơn chờ xử lý
+$rowPend  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM orders WHERE status='pending'"));
+$tongPend = $rowPend['tong'] ?? 0;
+// truy vấn tổng số xe
+$rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
+$tongCars = $rowCars['tong'] ?? 0;
+$pagination = getPagination($conn, "brands", 2);
+$sql = "SELECT * FROM orders ORDER BY id DESC
+        LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 $result = mysqli_query($conn, $sql);
 ?>
 <?php
@@ -173,7 +198,11 @@ include "index.php";
                                             <td><?php echo $orders['created_at']; ?></td>
                                             <td>
                                                 <div class="crud-icon">
+<<<<<<< HEAD
                                                     <a href="/car-shop/admin/edit-user.php?id=" class="edit-btn">
+=======
+                                                    <a href="/car-shop/admin/order-detail.php?id=<?php echo $orders['id']; ?>" class="edit-btn">
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
                                                         <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                                     </a>
                                                     <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">
@@ -185,6 +214,10 @@ include "index.php";
                                     <?php } ?>
                                 </tbody>
                             </table>
+<<<<<<< HEAD
+=======
+                            <?php renderPagination($pagination['page'], $pagination['totalPages']); ?>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,10 @@ require_once __DIR__ . "/../../config/database.php";
 require_once __DIR__ . "/../../app/models/Brands.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< HEAD
     
+=======
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
     $brand_name = $_POST["brand_name"];
     $file_name = $_FILES["logo"]["name"];
     $tmp_name = $_FILES["logo"]["tmp_name"];

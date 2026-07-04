@@ -15,7 +15,15 @@ if (isset($_POST["login"])) {
             $_SESSION['email'] = $nguoi_dung['email'];
             $_SESSION['phonenumber'] = $nguoi_dung['phone'];
             $_SESSION['role'] = $nguoi_dung['role'];
+<<<<<<< HEAD
             header("Location: index.php");
+=======
+            if ($nguoi_dung['role'] == 'admin') {
+                header("Location: admin/dashboard.php");
+            } else {
+                header("Location: index.php");
+            }
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
             exit();
         } else {
             $error = "sai password";
@@ -26,11 +34,16 @@ if (isset($_POST["login"])) {
 }
 ?>
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="vi">
+=======
+<html lang="en">
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Đăng nhập hệ thống</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -332,11 +345,31 @@ if (isset($_POST["login"])) {
                 </div>
             <?php } ?>
 
+=======
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+    <div class="login_section">
+        <div class="box">
+            <div class="logo_area">
+                <span class="logo_name">
+                    <img src="/car-shop/assets/images/cars/logo_cars_2.png" alt="Logo">
+                </span>
+                <!-- <img src="assets/images/logo.png"> -->
+            </div>
+
+            <div class="login_name">
+                <h1>Login</h1>
+            </div>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
             <form action="" method="post" class="form_content" id="login_form">
                 <div class="form_group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Vui lòng nhập email">
                 </div>
+<<<<<<< HEAD
                 
                 <div class="form_group form_group_pass">
                     <label for="password">Password</label>
@@ -352,18 +385,42 @@ if (isset($_POST["login"])) {
                     <span>HOẶC ĐĂNG NHẬP BẰNG</span>
                 </div>
                 
+=======
+                <div class="form_group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Vui lòng nhập password">
+                    <img id="toggle-password" src="/car-shop/assets/images/icon/icon-mom.png" width="35">
+                </div>
+
+                <div class="form_btn">
+                    <?php if (!empty($error)) { ?>
+                        <p style="color:red; text-align:center; font-weight:bold;">
+                            <?php echo $error; ?>
+                        </p>
+                    <?php } ?>
+                    <button type="submit" class="btn_login" id="submit-btn" name="login">Login</button>
+                </div>
+                <div class="form_or">
+                    <span>OR</span>
+                </div>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
                 <div class="item_list">
                     <img src="assets/images/icon/google.png" alt="google">
                     <img src="assets/images/icon/facebook.png" alt="facebook">
                     <img src="assets/images/icon/twitter.png" alt="twitter">
                 </div>
+<<<<<<< HEAD
                 
                 <div class="register_link">
+=======
+                <div class="form_or" style="margin-top: 40px;">
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
                     <span>Chưa có tài khoản? <a href="register.php">Đăng ký ngay!</a></span>
                 </div>
             </form>
         </div>
     </div>
+<<<<<<< HEAD
 
 </body>
 
@@ -382,4 +439,8 @@ eye.addEventListener("click", function () {
 });
 </script>
 
+=======
+</body>
+<script src="assets/js/user-login.js"></script>
+>>>>>>> bbc667b59360976b08a513038fcddb0555019882
 </html>
