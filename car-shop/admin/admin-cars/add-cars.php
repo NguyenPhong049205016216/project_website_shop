@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 
     $car = new Cars($conn);
     if ($car->create($_POST)) {
-        header("Location: ../cars.php");
+        header("Location: /car-shop/admin/cars.php");
         exit;
     } else {
         echo mysqli_error($conn);
@@ -130,8 +130,7 @@ if (isset($_POST['submit'])) {
                         <div class="form-grcars">
                             <label>Ảnh xe</label>
                             <input type="file" name="main_image" id="main_image" accept="image/*" required>
-                            <img id="preview-car-img"
-                                src=""
+                            <img id="preview-car-img" src=""
                                 style="display:none; width:180px; height:110px; object-fit:contain; margin-top:12px; border:1px solid #ddd; border-radius:12px;">
                         </div>
                         <div class="form-grcars">
@@ -146,7 +145,6 @@ if (isset($_POST['submit'])) {
                             <a href="../cars.php" class="btn-cancel">Thoát</a>
                             <button type="submit" name="submit" class="btn-submit">Thêm xe</button>
                         </div>
-
                     </form>
                 </div>
             </div>

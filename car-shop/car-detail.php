@@ -86,7 +86,7 @@ $resultImages = mysqli_query($conn, $sqlImages)
                 <img src="/car-shop/<?php echo $car['main_image']; ?>" class="thumb-img active">
 
                 <?php while ($img = mysqli_fetch_assoc($resultImages)) { ?>
-                    <img src="/car-shop/<?php echo $img['image_url']; ?>" class="thumb-img">
+                    <img src="/car-shop/<?php echo $img['image_urd']; ?>" class="thumb-img">
                 <?php } ?>
             </div>
 

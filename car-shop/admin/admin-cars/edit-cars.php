@@ -11,7 +11,6 @@ $brandResult = mysqli_query($conn, "SELECT * FROM brands ORDER BY brand_name ASC
 $categoryResult = mysqli_query($conn, "SELECT * FROM cartegories ORDER BY cartegory_name ASC");
 
 if (isset($_POST['update_car'])) {
-
     $_POST['main_image'] = $car['main_image'];
 
     if (!empty($_FILES['main_image']['name'])) {
@@ -23,7 +22,7 @@ if (isset($_POST['update_car'])) {
     }
 
     if ($carModel->update($id, $_POST)) {
-        header("Location: cars.php");
+        header("Location: /car-shop/admin/cars.php");
         exit;
     } else {
         echo mysqli_error($conn);

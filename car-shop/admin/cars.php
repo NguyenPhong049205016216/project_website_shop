@@ -60,7 +60,7 @@ include "index.php";
                     <div class="dhb-dead">
                         <h2>Cars Management</h2>
                         <p>Here you can manage cars, view their details, and perform actions such as edit or delete.</p>
-                        <a href="admin-cars/add-cars.php" class="add-btn">Thêm xe mới</a>
+                        <a href="/car-shop/admin/admin-cars/add-cars.php" class="add-btn">Thêm xe mới</a>
                     </div>
 
 
@@ -194,7 +194,7 @@ include "index.php";
                                             <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>" class="delete-btn">
                                                 <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
                                             </a>
-                                            <a href="/car-shop/admin/admin-cars/add-detail.php?id<?php echo $car['id']; ?>" class="detail-btn">
+                                            <a href="/car-shop/admin/admin-cars/add-detail.php?id=<?php echo $car['id']; ?>" class="detail-btn">
                                                 <img src="/car-shop/assets/images/icon/detail.png" class="btn-imgcru">
                                             </a>
                                         </div>
