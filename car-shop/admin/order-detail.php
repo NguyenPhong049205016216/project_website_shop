@@ -37,77 +37,81 @@ while ($img = mysqli_fetch_assoc($resImgs)) {
 <link rel="stylesheet" href="/car-shop/assets/css/order-detail.css">
 
 <body>
-<div class="container">
-    <main class="main-content">
-        <h1 class="chapter">Chi tiết đơn hàng #<?php echo $order['id']; ?></h1>
-
-        <div class="dashboard">
-            <div class="order-detail-grid">
-
-                <!-- Thông tin xe -->
-                <div class="od-card">
-                    <h3 class="od-card-title">Thông tin xe</h3>
-                    <div class="od-car-info">
-                        <img src="/car-shop/<?php echo $order['main_image']; ?>"
-                             alt="<?php echo $order['cars_name']; ?>"
-                             class="od-car-img">
-                        <div>
-                            <p class="od-car-name"><?php echo $order['cars_name']; ?></p>
-                            <p class="od-car-brand"><?php echo $order['brand_name']; ?></p>
-                            <p class="od-car-price">
-                                <?php echo number_format($order['car_price'], 0, ',', '.'); ?>đ
-                            </p>
-                        </div>
-                    </div>
-                    <?php if (!empty($images)): ?>
-                    <div class="od-car-imgs">
-                        <?php foreach ($images as $img): ?>
-                        <img src="/car-shop/<?php echo $img; ?>" alt="car image">
-                        <?php endforeach; ?>
-                    </div>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Thông tin khách hàng -->
-                <div class="od-card">
-                    <h3 class="od-card-title">Thông tin khách hàng</h3>
-                    <div class="od-info-list">
-                        <div class="od-info-row">
-                            <span class="od-label">Tài khoản</span>
-                            <span><?php echo $order['user_name']; ?> (<?php echo $order['user_email']; ?>)</span>
-                        </div>
-                        <div class="od-info-row">
-                            <span class="od-label">Người nhận</span>
-                            <span><?php echo $order['customer_name']; ?></span>
-                        </div>
-                        <div class="od-info-row">
-                            <span class="od-label">Điện thoại</span>
-                            <span><?php echo $order['phone']; ?></span>
-                        </div>
-                        <div class="od-info-row">
-                            <span class="od-label">Địa chỉ</span>
-                            <span><?php echo $order['address']; ?></span>
-                        </div>
-                        <div class="od-info-row">
-                            <span class="od-label">Ngày đặt</span>
-                            <span><?php echo $order['created_at']; ?></span>
-                        </div>
-                        <div class="od-info-row">
-                            <span class="od-label">Tổng tiền</span>
-                            <span class="od-total">
-                                <?php echo number_format($order['total_price'], 0, ',', '.'); ?>đ
-                            </span>
-                        </div>
+    <div class="container">
+        <main class="main-content">
+            <h1 class="chapter">Chi tiết đơn hàng số</h1>
+            <div class="dashboard">
+                <div class="item-order">
+                    <div class="order-left">
+                        <img src="/car-shop/assets/images/icon/icon-order.png" class="oder-anh">
+                        <h1 class="order">Đơn hàng số: <?php echo $order['id']; ?></h1>
                     </div>
                 </div>
+                <div class="order-detail-grid">
+                    <!-- Thông tin xe -->
+                    <div class="od-card">
+                        <h3 class="od-card-title">Thông tin xe</h3>
+                        <div class="od-car-info">
+                            <img src="/car-shop/<?php echo $order['main_image']; ?>"
+                                alt="<?php echo $order['cars_name']; ?>"
+                                class="od-car-imgs">
+                            <div>
+                                <p class="od-car-name"><?php echo $order['cars_name']; ?></p>
+                                <p class="od-car-brand"><?php echo $order['brand_name']; ?></p>
+                                <p class="od-car-price">
+                                    <?php echo number_format($order['car_price'], 0, ',', '.'); ?>đ
+                                </p>
+                            </div>
+                        </div>
+                        <?php if (!empty($images)): ?>
+                            <div class="od-car-imgs">
+                                <?php foreach ($images as $img): ?>
+                                    <img src="/car-shop/<?php echo $img; ?>" alt="car image">
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
-                <!-- Cập nhật trạng thái -->
-                <div class="od-card od-status-card">
-                    <h3 class="od-card-title">Trạng thái đơn hàng</h3>
+                    <!-- Thông tin khách hàng -->
+                    <div class="od-card">
+                        <h3 class="od-card-title">Thông tin khách hàng</h3>
+                        <div class="od-info-list">
+                            <div class="od-info-row">
+                                <span class="od-label">Tài khoản:</span>
+                                <span><?php echo $order['user_name']; ?> (<?php echo $order['user_email']; ?>)</span>
+                            </div>
+                            <div class="od-info-row">
+                                <span class="od-label">Người nhận:</span>
+                                <span><?php echo $order['customer_name']; ?></span>
+                            </div>
+                            <div class="od-info-row">
+                                <span class="od-label">Điện thoại:</span>
+                                <span><?php echo $order['phone']; ?></span>
+                            </div>
+                            <div class="od-info-row">
+                                <span class="od-label">Địa chỉ:</span>
+                                <span><?php echo $order['address']; ?></span>
+                            </div>
+                            <div class="od-info-row">
+                                <span class="od-label">Ngày đặt:</span>
+                                <span><?php echo $order['created_at']; ?></span>
+                            </div>
+                            <div class="od-info-row">
+                                <span class="od-label">Tổng tiền:</span>
+                                <span class="od-total">
+                                    <?php echo number_format($order['total_price'], 0, ',', '.'); ?>đ
+                                </span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="od-status-current">
-                        <span class="status-badge status-<?php echo $order['status']; ?>">
-                            <?php
+                    <!-- Cập nhật trạng thái -->
+                    <div class="od-card od-status-card">
+                        <h3 class="od-card-title">Trạng thái đơn hàng</h3>
+
+                        <div class="od-status-current">
+                            <span class="status-badge status-<?php echo $order['status']; ?>">
+                                <?php
                                 $statusLabel = [
                                     'pending'   => 'Chờ xác nhận',
                                     'confirmed' => 'Đã xác nhận',
@@ -115,31 +119,32 @@ while ($img = mysqli_fetch_assoc($resImgs)) {
                                     'completed' => 'Hoàn thành'
                                 ];
                                 echo $statusLabel[$order['status']] ?? $order['status'];
-                            ?>
-                        </span>
+                                ?>
+                            </span>
+                        </div>
+
+                        <form action="admin-order/order-update.php" method="POST" class="od-status-form">
+                            <input type="hidden" name="order_id" value="<?php echo $order['id']; ?>">
+                            <div class="form-group-modal">
+                                <label>Cập nhật trạng thái:</label>
+                                <select name="status">
+                                    <option value="pending" <?php echo $order['status'] === 'pending'   ? 'selected' : ''; ?>>Chờ xác nhận</option>
+                                    <option value="confirmed" <?php echo $order['status'] === 'confirmed' ? 'selected' : ''; ?>>Đã xác nhận</option>
+                                    <option value="cancelled" <?php echo $order['status'] === 'cancelled' ? 'selected' : ''; ?>>Đã hủy</option>
+                                    <option value="completed" <?php echo $order['status'] === 'completed' ? 'selected' : ''; ?>>Hoàn thành</option>
+                                </select>
+                            </div>
+                            <div class="od-form-actions">
+                                <button type="submit" class="save-btn">Cập nhật</button>
+                                <a href="orders.php" class="cancel-btn">Quay lại</a>
+                            </div>
+                        </form>
                     </div>
 
-                    <form action="admin-order/order-update.php" method="POST" class="od-status-form">
-                        <input type="hidden" name="order_id" value="<?php echo $order['id']; ?>">
-                        <div class="form-group-modal">
-                            <label>Cập nhật trạng thái</label>
-                            <select name="status">
-                                <option value="pending"   <?php echo $order['status'] === 'pending'   ? 'selected' : ''; ?>>Chờ xác nhận</option>
-                                <option value="confirmed" <?php echo $order['status'] === 'confirmed' ? 'selected' : ''; ?>>Đã xác nhận</option>
-                                <option value="cancelled" <?php echo $order['status'] === 'cancelled' ? 'selected' : ''; ?>>Đã hủy</option>
-                                <option value="completed" <?php echo $order['status'] === 'completed' ? 'selected' : ''; ?>>Hoàn thành</option>
-                            </select>
-                        </div>
-                        <div class="od-form-actions">
-                            <button type="submit" class="save-btn">Cập nhật</button>
-                            <a href="orders.php" class="cancel-btn">Quay lại</a>
-                        </div>
-                    </form>
                 </div>
-
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </body>
+
 </html>

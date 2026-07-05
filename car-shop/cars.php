@@ -46,15 +46,11 @@ $cars = [];
 while($row = mysqli_fetch_assoc($result)){
     $cars[] = $row;
 }
-
 $title = "AutoViet — Tìm Xe Của Bạn";
-
 include 'includes/header.php';
 ?>
-
 <!-- CSS riêng cho trang xe (header.php giữ nguyên nên thêm trực tiếp ở đây) -->
 <link rel="stylesheet" href="assets/css/cars.css">
-
 <!-- HERO / SEARCH -->
 <div class="hero">
   <div class="hero-title">Tìm xe phù hợp với bạn</div>
@@ -77,7 +73,6 @@ include 'includes/header.php';
 
 <!-- MAIN LAYOUT -->
 <div class="page-body">
-
   <!-- SIDEBAR -->
   <aside>
     <!-- Hãng xe -->
@@ -87,13 +82,11 @@ include 'includes/header.php';
         <span class="filter-reset" onclick="clearFilter('brand')">Xóa</span>
       </div>
       <div class="filter-body">
-
         <?php
           $brands = array_unique(array_column($cars, 'brand_name'));
           foreach($brands as $b):
           $cnt = count(array_filter($cars, fn($c)=>$c['brand_name']==$b));
         ?>
-
         <label class="filter-option">
           <input type="checkbox" name="brand" value="<?= $b ?>" onchange="filterCars()">
           <span class="checkbox-box"></span>
@@ -101,7 +94,6 @@ include 'includes/header.php';
           <span class="filter-count"><?= $cnt ?></span>
         </label>
         <?php endforeach; ?>
-
       </div>
     </div>
 
@@ -205,8 +197,7 @@ include 'includes/header.php';
               </a>
             </div>
           </div>
-      </div>
-      
+      </div> 
       <?php endforeach; ?>
     </div>
   </div>

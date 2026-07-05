@@ -342,20 +342,21 @@ aside {
   margin-bottom: 4px;
 }
 .car-name {
-  font-size: 22px;
-  line-height: 1.25;
-  font-weight: 900;
-  color: var(--dark);
-  min-height: 10px;
+  font-size: clamp(17px, 1.5vw, 22px);
+  line-height: 1.2;
+  font-weight: 700;
+  min-height: 50px;
+  height: 50px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
-.car-specs {
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 14px;
-  padding: 14px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+.car-price {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .spec-item {
 font-size: 14px;
@@ -373,8 +374,9 @@ gap: 7px;
 .car-footer {
 margin-top: 16px;
 display: flex;
+padding-bottom: 10px;
 border-radius: 8px;
-background: linear-gradient(135deg, #6391a9, #fef9c3);
+background: linear-gradient(135deg, #dfe4e6, #fef9c3);
 justify-content: space-between;
 align-items: center;
 gap: 14px;
