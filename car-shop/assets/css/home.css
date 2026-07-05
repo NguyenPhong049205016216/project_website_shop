@@ -767,6 +767,165 @@ section {
     color: white;
     text-decoration: none;
 }
+/* bestseller & promotion */
+.best-seller-section{
+    width: 100%;
+    margin: 30px auto 60px;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 28px;
+    background: linear-gradient(135deg, #111827, #1f2937);
+    border-radius: 26px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.18);
+}
+
+.deal-timer{
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 28px;
+}
+
+.deal-timer span{
+    color: #dc2626;
+    font-weight: 900;
+}
+
+.deal-timer h2{
+    margin: 12px 0;
+    color: #111827;
+}
+
+.deal-timer p{
+    color: #6b7280;
+}
+
+.countdown{
+    margin-top: 22px;
+    display: flex;
+    gap: 10px;
+}
+
+.countdown div{
+    width: 70px;
+    padding: 12px 8px;
+    background: #111827;
+    color: white;
+    text-align: center;
+    border-radius: 14px;
+}
+
+.countdown h3{
+    margin: 0;
+    font-size: 22px;
+}
+
+.best-cars-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.best-car-card{
+    background: white;
+    border-radius: 22px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.best-car-card img{
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+.best-car-card h3{
+    margin: 14px 0 8px;
+    font-size: 20px;
+}
+
+.sale-price{
+    color: #dc2626;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.stock-text{
+    color: #16a34a;
+    font-weight: 700;
+    margin: 8px 0 16px;
+}
+
+.best-car-card a{
+    display: inline-block;
+    padding: 11px 20px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.about-carshop{
+    margin: 35px auto 70px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+    background: #f4f7fb;
+    border-radius: 28px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+.about-img img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.about-content span{
+    color: #dc2626;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.about-content h2{
+    font-size: 38px;
+    margin: 14px 0 18px;
+    color: #071c5c;
+}
+
+.about-content p{
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.about-btn{
+    display: inline-block;
+    margin-top: 16px;
+    padding: 14px 28px;
+    background: #dc2626;
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+@media(max-width: 900px){
+    .best-seller-section,
+    .about-carshop{
+        grid-template-columns: 1fr;
+    }
+
+    .best-cars-list{
+        grid-template-columns: 1fr;
+    }
+}
 
 /* Footer */
 footer {

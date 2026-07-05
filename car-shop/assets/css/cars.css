@@ -421,6 +421,7 @@ font-weight: 700;
   background: linear-gradient(135deg, #678294, #ac2020a6);
 }
 
+
 /* RESPONSIVE */
 @media(max-width: 1500px) {
   .car-grid {
