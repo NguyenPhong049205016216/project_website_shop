@@ -10,7 +10,7 @@ $sql = "SELECT cars.*, brands.brand_name
         WHERE cars.status = 'available'
         ORDER BY cars.id DESC
         -- chỉ hiệt tối đa là 10 chiếc
-        LIMIT 10";
+        LIMIT 20";
 $resultCarsNew = mysqli_query($conn, $sql);
 $sqlBrands = "SELECT * FROM brands ORDER BY id DESC";
 $resultBrands = mysqli_query($conn, $sqlBrands);

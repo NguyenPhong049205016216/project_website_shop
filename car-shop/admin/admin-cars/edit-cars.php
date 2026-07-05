@@ -88,6 +88,10 @@ if (isset($_POST['update_car'])) {
                     <label>Đổi màu sắc</label>
                     <input type="text" name="color" value="<?= $car['color'] ?>">
                 </div>
+                <div class="form-grcars">
+                    <label>Đổi Số lượng</label>
+                    <input type="number" name="quantity" min="0" placeholder="5" required>
+                </div>
                 <div class="form-group">
                     <label>Đổi năm sản xuất</label>
                     <input type="number" name="year" value="<?= $car['year'] ?>">
