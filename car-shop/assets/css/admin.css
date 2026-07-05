@@ -111,7 +111,12 @@ header {
     background-color: #1abca9;
     gap: 40px;
 }
-
+.sidebar-icon{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: none;
+}
 /* bên trái dasboard */
 .sidebar a:hover {
     background-color: #f4f1f1;
@@ -940,6 +945,13 @@ table tr th {
     /* add-user */
     .user-form {
         grid-template-columns: 2fr;
+    }
+    .sidebar a span{
+    display: none;
+    }
+
+    .sidebar-icon{
+    display: block;
     }
 
 }
