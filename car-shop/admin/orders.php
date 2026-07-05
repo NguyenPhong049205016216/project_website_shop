@@ -10,11 +10,25 @@ require_once $databasePath;
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
-$pagination = getPagination($conn, "orders", 2);
+$pagination = getPagination($conn, "orders", 5);
 $sql = "SELECT * FROM orders ORDER BY id DESC
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 $totalOrders = mysqli_num_rows($result);
+$sqlTotalAll = "SELECT COUNT(*) AS total FROM orders";
+$resultTotalAll = mysqli_query($conn, $sqlTotalAll);
+$rowTotalAll = mysqli_fetch_assoc($resultTotalAll);
+$totalAllOrders = $rowTotalAll['total'] ?? 0;
+
+$sqlCompleted = "SELECT COUNT(*) AS total_completed FROM orders WHERE status = 'completed'";
+$resultCompleted = mysqli_query($conn, $sqlCompleted);
+$rowCompleted = mysqli_fetch_assoc($resultCompleted);
+$totalCompleted = $rowCompleted['total_completed'] ?? 0;
+
+$sqlCancelled = "SELECT COUNT(*) AS total_cancelled FROM orders WHERE status = 'cancelled'";
+$resultCancelled = mysqli_query($conn, $sqlCancelled);
+$rowCancelled = mysqli_fetch_assoc($resultCancelled);
+$totalCancelled = $rowCancelled['total_cancelled'] ?? 0;
 
 ?>
 <?php include "index.php"; ?>
@@ -39,41 +53,44 @@ $totalOrders = mysqli_num_rows($result);
                         <input type="text" id="search" placeholder="Search orther...">
                     </from>
                 </div>
-                <h2>Thống kê system</h2>
+                <h2>Thống kê đơn hàng</h2>
+
                 <div class="dhb-toof">
                     <div class="stats">
-                        <div class="stat-box yellow">
+                        <div class="stat-box blue">
                             <span>
-                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                                <img src="/car-shop/assets/images/icon/icon-order.png" class="icon-stats">
                             </span>
                             <div>
-                                <p>xe có sẳn</p>
-                                <h3>0</h3>
-                                <small>có sẳn để bán</small>
+                                <p>Tổng đơn hàng</p>
+                                <h3><?php echo $totalAllOrders; ?></h3>
+                                <small>tất cả đơn trong hệ thống</small>
                             </div>
                         </div>
                     </div>
+
                     <div class="stats">
-                        <div class="stat-box yellow">
+                        <div class="stat-box green">
                             <span>
                                 <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
                             </span>
                             <div>
-                                <p>xe có sẳn</p>
-                                <h3>0</h3>
-                                <small>có sẳn để bán</small>
+                                <p>Đơn đã thanh toán</p>
+                                <h3><?php echo $totalCompleted; ?></h3>
+                                <small>trạng thái completed</small>
                             </div>
                         </div>
                     </div>
+
                     <div class="stats">
                         <div class="stat-box yellow">
                             <span>
-                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                                <img src="/car-shop/assets/images/icon/icon-huydon.png" class="icon-stats">
                             </span>
                             <div>
-                                <p>xe có sẳn</p>
-                                <h3>0</h3>
-                                <small>có sẳn để bán</small>
+                                <p>Đơn đã hủy</p>
+                                <h3><?php echo $totalCancelled; ?></h3>
+                                <small>trạng thái cancelled</small>
                             </div>
                         </div>
                     </div>
@@ -170,8 +187,10 @@ $totalOrders = mysqli_num_rows($result);
                                             <a href="/car-shop/admin/order-detail.php?id=<?php echo $orders['id']; ?>" class="edit-btn">
                                                 <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                             </a>
-                                            <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">
-                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                            <a href="/car-shop/admin/admin-order/delete-order.php?id=<?php echo $orders['id']; ?>"
+                                                class="delete-btn"
+                                                onclick="return confirm('Bạn có chắc muốn xóa đơn hàng này không?')">
+                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="delete" class="btn-imgcru">
                                             </a>
                                         </div>
                                     </td>

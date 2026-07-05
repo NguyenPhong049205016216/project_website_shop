@@ -46,10 +46,17 @@ $sql = "SELECT cars.*, brands.brand_name AS brand_name
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 
+// xe đã xóa 
+$sqlHiddenCars = "SELECT COUNT(*) AS total_hidden FROM cars WHERE status = 'hidden'";
+$resultHiddenCars = mysqli_query($conn, $sqlHiddenCars);
+$rowHiddenCars = mysqli_fetch_assoc($resultHiddenCars);
+$totalHiddenCars = $rowHiddenCars['total_hidden'] ?? 0;
+
 ?>
 <?php
 include "index.php";
 ?>
+
 <body>
     <div class="container">
         <main class="main-content">
@@ -62,8 +69,6 @@ include "index.php";
                         <p>Here you can manage cars, view their details, and perform actions such as edit or delete.</p>
                         <a href="/car-shop/admin/admin-cars/add-cars.php" class="add-btn">Thêm xe mới</a>
                     </div>
-
-
                     <div class="toolbar">
                         <input type="text" placeholder="search cars...">
 
@@ -131,15 +136,13 @@ include "index.php";
                                     <img src="/car-shop/assets/images/icon/icon-danhmuc.png" class="icon-stats">
                                 </span>
                                 <div>
-                                    <p>danh mục</p>
-                                    <h3>0</h3>
-                                    <small>loại danh mục</small>
+                                    <p>xe đã xóa</p>
+                                    <h3><?php echo $totalHiddenCars; ?></h3>
+                                    <small>status hidden</small>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </section>
             </div>
 
@@ -194,9 +197,9 @@ include "index.php";
                                             <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>" class="delete-btn">
                                                 <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
                                             </a>
-                                            <a href="/car-shop/admin/admin-cars/add-detail.php?id=<?php echo $car['id']; ?>" class="detail-btn">
-                                                <img src="/car-shop/assets/images/icon/detail.png" class="btn-imgcru">
-                                            </a>
+                                            <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>"
+                                                class="delete-btn"
+                                                onclick="return confirm('Bạn có chắc muốn xóa/ẩn xe này không?')">
                                         </div>
                                     </td>
                                 </tr>

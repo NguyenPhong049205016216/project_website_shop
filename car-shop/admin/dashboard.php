@@ -20,7 +20,6 @@ while ($row = mysqli_fetch_assoc($resMonthly)) {
     $orders_count[] = (int)$row['so_don'];
 }
 // truy vấn doanh thu theo hãng xe
-
 $sqlBrand = "SELECT b.brand_name,
             COUNT(od.id) AS so_don,
             SUM(od.price * od.quantity) AS doanh_thu
@@ -50,7 +49,7 @@ $tongPend = $rowPend['tong'] ?? 0;
 // truy vấn tổng số xe
 $rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
 $tongCars = $rowCars['tong'] ?? 0;
-$pagination = getPagination($conn, "brands", 2);
+$pagination = getPagination($conn, "brands", 3);
 $sql = "SELECT * FROM orders ORDER BY id DESC
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
@@ -108,18 +107,6 @@ include "index.php";
                         </div>
                         <div class="stats">
                             <div class="stat-box blue">
-                                <span>
-                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
-                                </span>
-                                <div>
-                                    <p>total user</p>
-                                    <h3>0</h3>
-                                    <small>đã tham gia</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stats">
-                            <div class="stat-box green">
                                 <span>
                                     <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
                                 </span>
@@ -202,11 +189,8 @@ include "index.php";
                 <div class="dashboard">
 
                     <div class="dhb-head">
-                        <div>
-                            <img src="/car-shop/assets/images/icon/doanhthutong.png" class="icon-doanhthu">
-                            <h2>Doanh thu &amp; đơn hàng</h2>
-                        </div>
-
+                        <img class="icon-title" src="/car-shop/assets/images/icon/icon-doanhthutong.png" class="icon-doanhthu">
+                        <h2>Doanh thu &amp; đơn hàng</h2>
                         <div style="display:flex;gap:8px;">
                             <button onclick="switchChart('bar')" id="btn-bar"
                                 style="padding:8px 18px;border-radius:10px;border:1px solid #d1d5db;background:#2563eb;color:#fff;cursor:pointer;font-size:13px;font-weight:bold;">
@@ -227,7 +211,7 @@ include "index.php";
                                 </span>
                                 <div>
                                     <p>Tổng doanh thu</p>
-                                    <h3><?php echo number_format($tongDT, 0, ',', '.'); ?>VND</h3>
+                                    <h3><?php echo number_format($tongDT, 0, ',', '.'); ?></h3>
                                     <small>tất cả đơn hàng</small>
                                 </div>
                             </div>

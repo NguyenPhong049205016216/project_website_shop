@@ -179,8 +179,19 @@ header {
     object-fit: contain;
     display: block;
     margin: 20px auto 0;
-
 }
+.dashboard .icon-title,
+.dashboard .icon-stats{
+    max-width: none;
+    max-height: none;
+    margin: 0;
+}
+.dashboard .icon-stats{
+    max-width: none;
+    max-height: none;
+    margin: 0;
+}
+
 
 /* dùng chung */
 .search {
@@ -239,8 +250,26 @@ table {
     align-items: center;
 }
 
-.dhb-head {
+.dhb-head{
+    display: flex;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 20px;
+}
+
+.icon-title{
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.dhb-head img{
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin: 0 10px 0 0;
 }
 
 .toolbar {
@@ -273,8 +302,9 @@ table {
 }
 
 .icon-stats {
-    width: 80px;
-    height: 80px;
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
 }
 
 .stat-box {
@@ -288,8 +318,8 @@ table {
 }
 
 .stat-box span {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     display: flex;
     justify-content: center;

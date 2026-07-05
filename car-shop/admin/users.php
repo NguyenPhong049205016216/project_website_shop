@@ -11,7 +11,7 @@ if (!isset($conn)) {
 }
 
 // phân trang
-$pagination = getPagination($conn, "user", 3);
+$pagination = getPagination($conn, "user", 5);
 /* lấy tất cả user */
 $sql = "SELECT * FROM user ORDER BY id DESC
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
@@ -160,8 +160,8 @@ include "index.php";
                                             <a href="/car-shop/admin/admin-user/edit-user.php?id=<?php echo urlencode($user['id']); ?>" class="edit-btn">
                                                 <img src="/car-shop/assets/images/icon/edit-but.png" class="btn-imgcru">
                                             </a>
-
-                                            <a href="/car-shop/admin/admin-user/delete-user.php?id=<?php echo urlencode($user['id']); ?>" class="delete-btn"
+                                            <a href="/car-shop/admin/admin-user/block-user.php?id=<?php echo urlencode($user['id']); ?>"
+                                                class="delete-btn"
                                                 onclick="return confirm('Bạn có chắc muốn vô hiệu hóa user này không?')">
                                                 <img src="/car-shop/assets/images/icon/vohieuhoa.png" class="btn-imgcru">
                                             </a>

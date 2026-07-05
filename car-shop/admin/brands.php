@@ -1,19 +1,32 @@
 <?php
 $databasePath = __DIR__ . "/../config/database.php";
-require_once __DIR__ ."../includes/pagination.php";
+require_once __DIR__ . "../includes/pagination.php";
 
 if (!file_exists($databasePath)) {
-    die("Database configuration file not found: " . htmlspecialchars($databasePath));
+    die("Database configuration file not found: ". htmlspecialchars($databasePath));
 }
 require_once $databasePath;
 if (!isset($conn)) {
     die("Database connection not initialized.");
 }
-$pagination = getPagination($conn, "brands", 2);
-$sql = "SELECT * FROM brands ORDER BY id DESC
+$pagination = getPagination($conn, "brands", 5);
+$sql = "SELECT *
+        FROM brands
+        WHERE status='active'
+        ORDER BY id DESC
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 $totalUsers = mysqli_num_rows($result);
+$sqlTotalBrands = "SELECT COUNT(*) AS total_brands FROM brands
+                WHERE status='active'";
+$resultTotalBrands = mysqli_query($conn, $sqlTotalBrands);
+$rowTotalBrands = mysqli_fetch_assoc($resultTotalBrands);
+$totalBrands = $rowTotalBrands['total_brands'] ?? 0;
+
+$sqlDeletedBrands = "SELECT COUNT(*) AS total_deleted FROM brands WHERE status = 'deleted'";
+$resultDeletedBrands = mysqli_query($conn, $sqlDeletedBrands);
+$rowDeletedBrands = mysqli_fetch_assoc($resultDeletedBrands);
+$totalDeletedBrands = $rowDeletedBrands['total_deleted'] ?? 0;
 
 
 ?>
@@ -41,38 +54,27 @@ $totalUsers = mysqli_num_rows($result);
                 <h2>Thống kê system</h2>
                 <div class="dhb-toof">
                     <div class="stats">
-                        <div class="stat-box yellow">
+                        <div class="stat-box blue">
                             <span>
-                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                                <img src="/car-shop/assets/images/icon/icon-danhmuc.png" class="icon-stats">
                             </span>
                             <div>
-                                <p>xe có sẳn</p>
-                                <h3>0</h3>
-                                <small>có sẳn để bán</small>
+                                <p>Tổng thương hiệu</p>
+                                <h3><?php echo $totalBrands; ?></h3>
+                                <small>tất cả hãng xe</small>
                             </div>
                         </div>
                     </div>
+
                     <div class="stats">
                         <div class="stat-box yellow">
                             <span>
-                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                                <img src="/car-shop/assets/images/icon/thung-rac.png" class="icon-stats">
                             </span>
                             <div>
-                                <p>xe có sẳn</p>
-                                <h3>0</h3>
-                                <small>có sẳn để bán</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="stats">
-                        <div class="stat-box yellow">
-                            <span>
-                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
-                            </span>
-                            <div>
-                                <p>xe có sẳn</p>
-                                <h3>0</h3>
-                                <small>có sẳn để bán</small>
+                                <p>Thương hiệu đã xóa</p>
+                                <h3><?php echo $totalDeletedBrands; ?></h3>
+                                <small>status deleted</small>
                             </div>
                         </div>
                     </div>
@@ -128,11 +130,10 @@ $totalUsers = mysqli_num_rows($result);
                                     <td><img src="/car-shop/<?php echo $brand['logo']; ?>" width="90"></td>
                                     <td>
                                         <div class="crud-icon">
-                                            <a href="/car-shop/admin/edit-user.php?id=" class="edit-btn">
-                                                <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
-                                            </a>
-                                            <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">
-                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                            <a href="/car-shop/admin/admin-brand/delete-brand.php?id=<?php echo $brand['id']; ?>"
+                                                class="delete-btn"
+                                                onclick="return confirm('Bạn có chắc muốn xóa thương hiệu này không?')">
+                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="delete" class="btn-imgcru">
                                             </a>
                                         </div>
                                     </td>
