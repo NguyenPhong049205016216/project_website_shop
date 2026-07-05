@@ -25,17 +25,16 @@ $sql = "SELECT
             c.id AS car_id,
             c.cars_name,
             c.price,
-            c.main_image,
+            c.main_image AS image,
+            c.status,
+            c.quantity AS stock_quantity,
             b.brand_name,
-            cg.cartegory_name,
-            COALESCE(ci.image_urd, c.main_image) AS image
+            cg.cartegory_name
         FROM cart ct
         JOIN cars c ON ct.car_id = c.id
         JOIN brands b ON c.brand_id = b.id
         JOIN cartegories cg ON c.categories_id = cg.id
-        LEFT JOIN car_images ci ON c.id = ci.car_id
         WHERE ct.user_id = $user_id
-        GROUP BY ct.id, ct.quantity, ct.created_at, c.id, c.cars_name, c.price, c.main_image, b.brand_name, cg.cartegory_name, ci.image_urd
         ORDER BY ct.created_at DESC";
 $result = mysqli_query($conn, $sql);
 $cart_count = mysqli_num_rows($result);
@@ -73,7 +72,7 @@ include "includes/header.php";
                                             <img src="assets/images/icon/trash.png" style="width: 50px; height: 50px; cursor: pointer;">
                                         </button>
                                     </form>
-                                    <img src="<?= $row['image'] ?>" alt="<?= $row['cars_name'] ?>" class="cart_img">
+                                    <img src="/car-shop/<?php echo $row['image']; ?>" class="cart_img">
                                     <h3><?= $row['brand_name'] ?> <?= $row['cars_name'] ?></h3>
                                     <p>Giá: <?= number_format($row['price']); ?> Vnđ</p>
                                     <p>Số lượng: <?= $row['quantity'] ?> </p>

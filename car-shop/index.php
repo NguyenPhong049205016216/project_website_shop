@@ -92,7 +92,6 @@ include "includes/header.php";
             <?php } ?>
         </main>
         <h1 class="chapter" id="best_sellers">Best Sellers</h1>
-
         <section class="best-seller-section">
             <div class="deal-timer">
                 <span>BEST SELLER</span>

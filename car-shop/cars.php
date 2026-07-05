@@ -51,7 +51,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $cars[] = $row;
 }
 
-$title = "AutoViet — Tìm Xe Của Bạn";
+$title = "Cars-shop";
 include 'includes/header.php';
 ?>
 
@@ -229,7 +229,6 @@ include 'includes/header.php';
                                 <div class="car-price"><?= number_format($car['price']) ?> VNĐ</div>
                                 <div class="car-price-sub">bao gồm thuế</div>
                             </div>
-
                             <a class="btn-detail" href="car-detail.php?id=<?= $car['id'] ?>">
                                 Xem
                             </a>
