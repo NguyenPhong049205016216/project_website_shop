@@ -784,10 +784,10 @@ footer .chapter {
 }
 
 .chapter_footer {
-    max-width: 1500px;
+    max-width: 1380px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr;
     gap: 40px;
     align-items: flex-start;
 }

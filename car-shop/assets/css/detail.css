@@ -327,8 +327,22 @@ body.car-detail-page{
 }
 
 .btn-wishlist{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    padding:16px;
+    border-radius:13px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-top:15px;
     color:#2563eb;
     border:2px solid #2563eb;
+}
+
+.btn-wishlist img{
+    width:24px;
+    height:24px;
 }
 
 .benefit-card{

@@ -12,7 +12,6 @@ if (!isset($_SESSION['id'])) {
 if (isset($_POST['add_cart'])) {
     $user_id = (int) $_SESSION['id'];
     $car_id = (int) $_POST['car_id'];
-
     $checkCart = mysqli_query($conn, "SELECT id, quantity FROM cart WHERE user_id = $user_id AND car_id = $car_id");
 
     if (mysqli_num_rows($checkCart) > 0) {
@@ -26,29 +25,28 @@ if (isset($_POST['add_cart'])) {
     header("Location: car-detail.php?id=$car_id");
     exit();
 }
-
 if (!isset($_GET['id'])) {
     die("Không tìm thấy xe");
 }
 
 $id = $_GET['id'];
 
-$sql = "SELECT cars.*, 
-               brands.brand_name, 
-               brands.logo,
-               cartegories.cartegory_name
+$sql = "SELECT cars.*, brands.brand_name, brands.logo,
+        cartegories.cartegory_name
         FROM cars
         JOIN brands ON cars.brand_id = brands.id
         JOIN cartegories ON cars.categories_id = cartegories.id
-        WHERE cars.id = $id";
+        WHERE cars.id = $id
+        AND cars.status='available'";
 
 $result = mysqli_query($conn, $sql);
-
 if (mysqli_num_rows($result) == 0) {
     die("Xe không tồn tại");
 }
-
 $car = mysqli_fetch_assoc($result);
+// lấy nhiều ảnh xe
+$sqlImages = "SELECT * FROM car_images WHERE car_id = $id";
+$resultImages = mysqli_query($conn, $sqlImages)
 ?>
 
 <head>
@@ -72,23 +70,24 @@ $car = mysqli_fetch_assoc($result);
 
             <div class="main-image">
                 <!-- mũi tên qua trái -->
-                <button class="arrow arrow-left">
+                <button class="arrow arrow-left" id="prevImg">
                     <img src="/car-shop/assets/images/icon/mui_ten-left.png" class="btn-fr">
                 </button>
                 <!-- ảnh xe -->
                 <img id="mainCarImage" src="/car-shop/<?php echo $car['main_image'] ?>" alt="<?php echo $car['cars_name'] ?>">
                 <!-- mũi tên qua phải -->
-                <button class="arrow arrow-right">
+                <button class="arrow arrow-right" id="nextImg">
                     <img src="/car-shop/assets/images/icon/mui_ten.png">
                 </button>
-                <span class="image-count">1/4</span>
+                <span class="image-count" id="imageCount">1/4</span>
             </div>
 
             <div class="sub-images">
-                <img class="thumb active" src="/car-shop/assets/images/cars/toyota_1.png">
-                <img class="thumb" src="/car-shop/assets/images/cars/toyota_2.png">
-                <img class="thumb" src="/car-shop/assets/images/cars/toyota_3.png">
-                <img class="thumb" src="/car-shop/assets/images/cars/toyota_3(vang).png">
+                <img src="/car-shop/<?php echo $car['main_image']; ?>" class="thumb-img active">
+
+                <?php while ($img = mysqli_fetch_assoc($resultImages)) { ?>
+                    <img src="/car-shop/<?php echo $img['image_url']; ?>" class="thumb-img">
+                <?php } ?>
             </div>
 
             <div class="service-row">
@@ -115,7 +114,7 @@ $car = mysqli_fetch_assoc($result);
         <!-- CỘT GIỮA -->
         <section class="info-section">
             <div class="brand-row">
-                <span class="brand-logo"> <img class="br=logo" src="/car-shop/<?php echo $car['logo']; ?>"></span> 
+                <span class="brand-logo"> <img class="br=logo" src="/car-shop/<?php echo $car['logo']; ?>"></span>
                 <span class="car-brand"><?php echo $car['brand_name']; ?></span>
             </div>
 
@@ -227,12 +226,13 @@ $car = mysqli_fetch_assoc($result);
                     </button>
                 </form>
 
-                <form method="POST"class="btn-wishlist">
-                    <input type="hidden" name="car_id" value="<?= $car['id'] ?>">
-                    <button class="icon" name="wishlist" type="submit">
-                        <img class="heart-img" src="/car-shop/assets/images/icon/wishlist.png" alt="wishlist">
-                    </button>
-                </form>
+
+                <input type="hidden" name="car_id" value="<?= $car['id'] ?>">
+                <a href="wishlist.php?id=<?php echo $car['id']; ?>" class="btn-wishlist">
+                    <img src="/car-shop/assets/images/icon/wishlist.png" alt="">
+                    Thêm wishlist
+                </a>
+
             </div>
 
             <div class="benefit-card">
@@ -241,35 +241,37 @@ $car = mysqli_fetch_assoc($result);
                         <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
                     </span>
                     <p><strong>Cam kết chính hãng</strong>
-                    <br>100% chính hãng Toyota</p>
+                        <br>100% chính hãng Toyota
+                    </p>
                 </div>
                 <div>
                     <span class="icon">
                         <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
                     </span>
                     <p><strong>Ưu đãi hấp dẫn</strong>
-                    <br>Hỗ trợ trả góp đến 80%</p>
+                        <br>Hỗ trợ trả góp đến 80%
+                    </p>
                 </div>
                 <div>
                     <span class="icon">
                         <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
                     </span>
                     <p><strong>Đổi trả dễ dàng</strong>
-                    <br>Đổi xe trong 7 ngày</p>
+                        <br>Đổi xe trong 7 ngày
+                    </p>
                 </div>
                 <div>
                     <span class="icon">
                         <img src="/car-shop/assets/images/icon/nut-xanh.png" class="bnf-icon">
                     </span>
                     <p><strong>Giao xe tận nơi</strong>
-                    <br>Miễn phí trong bán kính 50km</p>
+                        <br>Miễn phí trong bán kính 50km
+                    </p>
                 </div>
             </div>
         </aside>
 
     </main>
-
     <?php include "includes/footer.php"; ?>
-
     <script src="assets/js/detail.js"></script>
 </body>

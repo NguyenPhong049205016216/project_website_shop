@@ -39,6 +39,44 @@ $totalUsers = mysqli_num_rows($result);
                     </from>
                 </div>
                 <h2>Thống kê system</h2>
+                <div class="dhb-toof">
+                    <div class="stats">
+                        <div class="stat-box yellow">
+                            <span>
+                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                            </span>
+                            <div>
+                                <p>xe có sẳn</p>
+                                <h3>0</h3>
+                                <small>có sẳn để bán</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-box yellow">
+                            <span>
+                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                            </span>
+                            <div>
+                                <p>xe có sẳn</p>
+                                <h3>0</h3>
+                                <small>có sẳn để bán</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-box yellow">
+                            <span>
+                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                            </span>
+                            <div>
+                                <p>xe có sẳn</p>
+                                <h3>0</h3>
+                                <small>có sẳn để bán</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- add brand -->

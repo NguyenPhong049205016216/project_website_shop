@@ -138,7 +138,6 @@ header {
     padding-left: 30px;
     padding-right: 30px;
     width: calc(100% - 250px);
-
 }
 
 /* dùng chung */
@@ -596,31 +595,28 @@ table tr th {
 /* order admin */
 .admin-modal {
     position: fixed;
-    inset: 80px 0 0 10px;
+    inset: 70px 0 0 5px;
     background: rgba(0, 0, 0, .45);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 999;
 }
-
 .admin-modal.active {
     display: flex;
 }
-
 .admin-modal-box {
-    width: 520px;
+    width: 700px;
     background: #fff;
-    border-radius: 18px;
-    padding: 25px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
 }
-
 .admin-modal-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .admin-modal-head button {
@@ -630,20 +626,22 @@ table tr th {
 }
 
 .modal-close-img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: #77a5b0ce;
 }
 
 .form-group-modal {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: 6px;
+    margin-bottom: 14px;
 }
 
 .form-group-modal input,
 .form-group-modal select {
-    padding: 12px 14px;
+    padding: 10px 12px;
     border: 1px solid #d1d5db;
     border-radius: 10px;
     outline: none;
@@ -652,8 +650,8 @@ table tr th {
 .modal-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 10px;
+    margin-top: 18px;
 }
 
 .cancel-btn,

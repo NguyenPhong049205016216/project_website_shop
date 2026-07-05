@@ -29,15 +29,55 @@ $totalOrders = mysqli_num_rows($result);
                     <h2>Quảng lý đơn hàng</h2>
                     <p>Here you can manage orders, view their details, and perform actions such as edit or delete.</p>
                 </div>
+
                 <button type="button" class="add-btn" id="btn-order-open">
                     Thêm đơn hàng
                 </button>
+
                 <div class="search">
                     <from>
                         <input type="text" id="search" placeholder="Search orther...">
                     </from>
                 </div>
                 <h2>Thống kê system</h2>
+                <div class="dhb-toof">
+                    <div class="stats">
+                        <div class="stat-box yellow">
+                            <span>
+                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                            </span>
+                            <div>
+                                <p>xe có sẳn</p>
+                                <h3>0</h3>
+                                <small>có sẳn để bán</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-box yellow">
+                            <span>
+                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                            </span>
+                            <div>
+                                <p>xe có sẳn</p>
+                                <h3>0</h3>
+                                <small>có sẳn để bán</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-box yellow">
+                            <span>
+                                <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
+                            </span>
+                            <div>
+                                <p>xe có sẳn</p>
+                                <h3>0</h3>
+                                <small>có sẳn để bán</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- add order -->
@@ -139,9 +179,8 @@ $totalOrders = mysqli_num_rows($result);
                             <?php } ?>
                         </tbody>
                     </table>
-                    <?php 
+                    <?php
                     renderPagination($pagination['page'], $pagination['totalPages']);
-
                     ?>
                 </div>
             </div>

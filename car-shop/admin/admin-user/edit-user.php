@@ -21,7 +21,7 @@ if (isset($_POST['update_user'])) {
                status='$status'
                WHERE id=$id";
     mysqli_query($conn, $update);
-    header("Location: users.php");
+    header("Location: ../users.php");
     exit();
 }
 ?>

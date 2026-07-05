@@ -1,5 +1,4 @@
-
-
+// user
 document.addEventListener("DOMContentLoaded",()=>{
     document.querySelectorAll(".wishlist-btn").forEach(btn=>{
         btn.addEventListener("click",(e)=>{
