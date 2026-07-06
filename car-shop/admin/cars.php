@@ -154,7 +154,6 @@ include "index.php";
                     <table class="user_table" border="2" cellspacing="8">
                         <thead class="item_head">
                             <tr>
-                                <th><input type="checkbox"></th>
                                 <th>ID</th>
                                 <th>ảnh xe</th>
                                 <th>name</th>
@@ -167,13 +166,13 @@ include "index.php";
                                 <th>động cơ</th>
                                 <th>trạng thái</th>
                                 <th>CRUD</th>
+                                <th>Xóa</th>
                             </tr>
                         </thead>
                         <!-- Example user data -->
                         <tbody>
                             <?php while ($car = mysqli_fetch_assoc($result)) { ?>
                                 <tr class="item_head" id="stitle-cars">
-                                    <td><input type="checkbox"></td>
                                     <td><?php echo $car['id']; ?></td>
                                     <td><img src="/car-shop/<?php echo $car['main_image']; ?>" width="90"></td>
                                     <td><?php echo $car['cars_name']; ?></td>
@@ -194,12 +193,16 @@ include "index.php";
                                             <a href="/car-shop/admin/admin-cars/edit-cars.php?id=<?php echo $car['id']; ?>" class="edit-btn">
                                                 <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                             </a>
-                                            <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>" class="delete-btn">
+                                            <a href="/car-shop/admin/admin-cars/add-detail.php?id=<?php echo $car['id']; ?>" class="detail-btn">
+                                                <img src="/car-shop/assets/images/icon/detail.png" class="btn-imgcru">
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="crud-icon">
+                                             <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>" class="delete-btn">
                                                 <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
                                             </a>
-                                            <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>"
-                                                class="delete-btn"
-                                                onclick="return confirm('Bạn có chắc muốn xóa/ẩn xe này không?')">
                                         </div>
                                     </td>
                                 </tr>

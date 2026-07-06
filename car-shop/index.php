@@ -95,7 +95,7 @@ include "includes/header.php";
         <section class="best-seller-section">
             <div class="deal-timer">
                 <span>BEST SELLER</span>
-                <h2>Xe nổi bật trong kho</h2>
+                <h2>Xe có số lượng lớn trong kho</h2>
                 <p>Những mẫu xe còn số lượng nhiều và đang có sẵn</p>
                 <div class="countdown">
                     <div>

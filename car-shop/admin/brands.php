@@ -113,7 +113,6 @@ $totalDeletedBrands = $rowDeletedBrands['total_deleted'] ?? 0;
                     <table class="user_table" border="1" cellspacing="0">
                         <thead class="item_head">
                             <tr>
-                                <th><input type="checkbox"></th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Logo</th>
@@ -124,7 +123,6 @@ $totalDeletedBrands = $rowDeletedBrands['total_deleted'] ?? 0;
                         <tbody>
                             <?php while ($brand = mysqli_fetch_assoc($result)) { ?>
                                 <tr class="item_head">
-                                    <td><input type="checkbox"></td>
                                     <td><?php echo $brand['id']; ?></td>
                                     <td><?php echo $brand['brand_name']; ?></td>
                                     <td><img src="/car-shop/<?php echo $brand['logo']; ?>" width="90"></td>
