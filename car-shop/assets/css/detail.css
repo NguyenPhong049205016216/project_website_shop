@@ -152,15 +152,21 @@ body.car-detail-page{
 }
 
 .svc-icon{
-    display:inline-flex;
-    width:32px;
-    height:32px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:60px;
+    height:60px;
+    margin:0 auto 12px;
     border-radius:50%;
     background:#eaf1ff;
-    vertical-align:middle;
-    margin-right:8px;
 }
-
+.svc-icon img{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    object-fit:  contain;
+}
 /* Cột giữa */
 .icon,
 .section-icon,

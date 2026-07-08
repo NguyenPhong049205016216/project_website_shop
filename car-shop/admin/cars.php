@@ -65,7 +65,7 @@ include "index.php";
                 <h1 class="chapter">Cars</h1>
                 <section class="dashboard">
                     <div class="dhb-dead">
-                        <h2>Cars Management</h2>
+                        <h2>Quãng lý xe</h2>
                         <p>Here you can manage cars, view their details, and perform actions such as edit or delete.</p>
                         <a href="/car-shop/admin/admin-cars/add-cars.php" class="add-btn">Thêm xe mới</a>
                     </div>

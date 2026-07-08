@@ -64,10 +64,6 @@ include "index.php";
             <div>
                 <h1 class="chapter">Dashboard</h1>
                 <section class="dashboard">
-                    <div class="dhb-head">
-                        <h2>Users Management</h2>
-                    </div>
-
                     <div class="toolbar">
                         <input type="text" placeholder="Search dasboard...">
                         <select>

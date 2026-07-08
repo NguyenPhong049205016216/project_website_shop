@@ -414,19 +414,32 @@
     .top_menu,
     .sub_menu,
     .bex_menu,
-    .footer_menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 190px;
-        padding: 10px 0;
-        list-style: none;
-        background-color: var(--menu-color);
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-        /* phần tử nào nằm trên và phần tử nào nằm dưới */
-        z-index: 100;
+    .footer_menu{
+    position:absolute;
+    top:100%;
+    left:0;
+    min-width:190px;
+    padding:10px 0;
+    list-style:none;
+    background:#090808;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    z-index:100;
+    /* hiệu ứng chữ hiện dần */
+    transition: opacity .35s ease, transform .35s ease, visibility .35s ease;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-20px);
+    transition:all .35s ease;
+    }
+    /* hiệu ứng chữ hiện dần */
+    .top_menu li,
+    .sub_menu li,
+    .bex_menu li,
+    .footer_menu li {
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity .35s ease, transform .35s ease;
     }
 
     .top_menu li a,
@@ -440,8 +453,58 @@
     .menu li:hover .top_menu,
     .menu li:hover .sub_menu,
     .menu li:hover .bex_menu,
-    .menu li:hover .footer_menu {
-        display: block;
+    .menu li:hover .footer_menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+    }
+    .menu li:hover .top_menu li,
+    .menu li:hover .sub_menu li,
+    .menu li:hover .bex_menu li,
+    .menu li:hover .footer_menu li {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    .top_menu li:nth-child(1),
+    .sub_menu li:nth-child(1),
+    .bex_menu li:nth-child(1),
+    .footer_menu li:nth-child(1) {
+    transition-delay: .05s;
+    }
+
+    .top_menu li:nth-child(2),
+    .sub_menu li:nth-child(2),
+    .bex_menu li:nth-child(2),
+    .footer_menu li:nth-child(2) {
+    transition-delay: .1s;
+    }
+
+    .top_menu li:nth-child(3),
+    .sub_menu li:nth-child(3),
+    .bex_menu li:nth-child(3),
+    .footer_menu li:nth-child(3) {
+    transition-delay: .15s;
+    }
+
+    .top_menu li:nth-child(4),
+    .sub_menu li:nth-child(4),
+    .bex_menu li:nth-child(4),
+    .footer_menu li:nth-child(4) {
+    transition-delay: .2s;
+    }
+
+    .top_menu li:nth-child(5),
+    .sub_menu li:nth-child(5),
+    .bex_menu li:nth-child(5),
+    .footer_menu li:nth-child(5) {
+    transition-delay: .25s;
+    }
+
+    .top_menu li:nth-child(6),
+    .sub_menu li:nth-child(6),
+    .bex_menu li:nth-child(6),
+    .footer_menu li:nth-child(6) {
+    transition-delay: .3s;
     }
 
     /* Banner */
@@ -449,14 +512,25 @@
         width: 100%;
     }
 
-    .index-section {
-        position: relative;
-        min-height: 650px;
-        z-index: 1;
-        background-image: url("../images/cars/backrout_banner.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    .index-section{
+    position: relative;
+    min-height:650px;
+
+    background-image:url("../images/cars/backrout_banner.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    transition:background-image .6s ease,
+               background-size .6s ease,
+               filter .6s ease;
+    
+    }
+    .index-section.change-banner{
+    background-image:url("../images/cars/banner-2.png");
+    background-size:cover;
+    background-position:center;
+
     }
 
     .title_name {

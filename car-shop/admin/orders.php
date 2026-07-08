@@ -43,15 +43,11 @@ $totalCancelled = $rowCancelled['total_cancelled'] ?? 0;
                     <h2>Quảng lý đơn hàng</h2>
                     <p>Here you can manage orders, view their details, and perform actions such as edit or delete.</p>
                 </div>
+                <div class="toolbar">
 
                 <button type="button" class="add-btn" id="btn-order-open">
                     Thêm đơn hàng
                 </button>
-
-                <div class="search">
-                    <from>
-                        <input type="text" id="search" placeholder="Search orther...">
-                    </from>
                 </div>
                 <h2>Thống kê đơn hàng</h2>
 

@@ -39,23 +39,9 @@ include "includes/header.php";
     <title>Car-shop</title>
     <link rel="stylesheet" href="/car-shop/assets/css/home.css">
 </head>
-<script>
-    let totalSeconds = 12 * 60 * 60 + 30 * 60 + 45;
-    setInterval(function() {
-        let h = Math.floor(totalSeconds / 3600);
-        let m = Math.floor((totalSeconds % 3600) / 60);
-        let s = totalSeconds % 60;
-        document.getElementById("hours").innerText = h;
-        document.getElementById("minutes").innerText = m;
-        document.getElementById("seconds").innerText = s;
-        if (totalSeconds > 0) {
-            totalSeconds--;
-        }
-    }, 1000);
-</script>
 
 <body>
-    <section class="index-section">
+    <section class="index-section" id="banner">
         <div class="content">
             <h1 class="title_name">GR Supra</h1>
             <h1 class="title_name">DRIVE YOUR DREAM CARS</h1><br>
@@ -84,7 +70,7 @@ include "includes/header.php";
         </main>
         <!-- thương hiệu -->
         <h1 class="chapter" id="Brands">Card Brands</h1>
-        <main class="cars_brands">
+        <main class="cars_brands" id="brandsSlider">
             <?php while ($brand = mysqli_fetch_assoc($resultBrands)) { ?>
                 <div class="item_brands">
                     <img class="img_brands" src="/car-shop/<?php echo $brand['logo']; ?>" alt="<?php echo $brand['brand_name']; ?>">
@@ -153,6 +139,44 @@ include "includes/header.php";
 
     </div>
 </body>
+<script>
+    const banner = document.getElementById("banner");
+    const carsNew = document.getElementById("cars_new");
+    const slider = document.getElementById("brandsSlider");
+    let totalSeconds = 12 * 60 * 60 + 30 * 60 + 45;
+    setInterval(function() {
+        let h = Math.floor(totalSeconds / 3600);
+        let m = Math.floor((totalSeconds % 3600) / 60);
+        let s = totalSeconds % 60;
+        document.getElementById("hours").innerText = h;
+        document.getElementById("minutes").innerText = m;
+        document.getElementById("seconds").innerText = s;
+        if (totalSeconds > 0) {
+            totalSeconds--;
+        }
+    }, 1000);
+
+    window.addEventListener("scroll",function(){
+    const top = carsNew.getBoundingClientRect().top;
+    // Khi Cars New còn cách đỉnh khoảng 30%
+    if(top <= window.innerHeight*0.5){
+        banner.classList.add("change-banner");
+    }else{
+        banner.classList.remove("change-banner");
+
+    }});
+    let direction = 1;   // 1 = sang phải, -1 = sang trái
+    setInterval(() => {
+    slider.scrollLeft += direction;
+
+    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 2) {
+        direction = -1;
+    }
+    if (slider.scrollLeft <= 0) {
+        direction = 1;
+    }
+    }, 20);
+</script>
 
 <!-- Footer -->
 <?php

@@ -93,18 +93,21 @@ $resultImages = mysqli_query($conn, $sqlImages)
             <div class="service-row">
                 <div>
                     <span class="svc-icon">
+                        <img src="/car-shop/assets/images/icon/icon-baohanh.png">
                     </span>
                     <p>Bảo hành</p>
                     <strong>3 năm</strong>
                 </div>
                 <div>
                     <span class="svc-icon">
+                        <img src="/car-shop/assets/images/icon/icon-baoduong.png">
                     </span>
                     <p>Bảo dưỡng</p><strong>Miễn phí</strong>
                 </div>
                 <div>
                     <span class="svc-icon">
-
+                        <img src="/car-shop/assets/images/icon/icon-hotro.png">
+                       
                     </span>
                     <p>Hỗ trợ</p><strong>24/7</strong>
                 </div>

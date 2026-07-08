@@ -39,17 +39,16 @@ $totalDeletedBrands = $rowDeletedBrands['total_deleted'] ?? 0;
             <h1 class="chapter">brands</h1>
             <!-- dasboard -->
             <section class="dashboard brand-dashboard">
-                <div>
-                    <h2>Brands Management</h2>
+                <div class="dhb-dead">
+                    <img src="">
+                    <h2>Quảng lý thương hiệu </h2>
                     <p>Here you can manage brand, view their details, and perform actions such as edit or delete.</p>
                 </div>
+                <div class="toolbar">
                 <button type="button" class="add-btn" id="btnbr-opmodel">
                     add new brands
                 </button>
-                <div class="search">
-                    <from>
-                        <input type="text" id="search" placeholder="Search brands...">
-                    </from>
+                
                 </div>
                 <h2>Thống kê system</h2>
                 <div class="dhb-toof">
