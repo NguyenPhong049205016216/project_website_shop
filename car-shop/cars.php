@@ -59,7 +59,6 @@ include 'includes/header.php';
 
 <div class="hero">
   <div class="hero-title">Tìm xe phù hợp với bạn</div>
-  <div class="hero-sub">Hơn 10.000 mẫu xe đang chờ nhập từ khóa hoặc chọn bộ lọc bên dưới</div>
 
   <div class="search-bar">
     <input type="text" placeholder="Nhập hãng xe, dòng xe (vd: Toyota, CX-5, SUV…)" id="searchInput">

@@ -21,7 +21,7 @@ if (!isset($title)) {
             </div>
             <div class="center_footer">
                 <h2><img src="assets/images/icon/icon-dasboar.png" class="footer-logo-h2">
-                    Connect faster</h2>
+                    Truy cập nhanh</h2>
                 <a href="index.php">
                     <img src="assets/images/icon/icon-trangchu.png" class="footer-logo">
                     Trang chủ
@@ -41,7 +41,7 @@ if (!isset($title)) {
             </div>
             <div class="right_footer">
                 <h2><img src="assets/images/icon/icon-thoaiban.png" class="footer-logo-h2">
-                    Contact Us</h2>
+                    Liên hệ chúng tôi</h2>
                 <p>https://www.cars.me.com</p>
                 <p>Email: phong@example.com</p>
                 <p>Phone: 123-456-7890</p>

@@ -1003,11 +1003,39 @@
     }
 
     .left_footer h2,
-    .center_footer h2,
-    .right_footer h2 {
-        font-size: 22px;
+    .center_footer h2{
+        font-size: 24px;
         margin-bottom: 10px;
+        background:linear-gradient(
+        135deg,
+        #059822 0%,
+        #c6bc0d 10%,
+        rgb(8, 138, 147) 25%,
+        rgb(136, 100, 204) 40%,
+        #3d4963 60%,
+        red 80%,
+        #0ab48c 100%
+        );
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
         color: white;
+    }
+    .right_footer h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+
+    background:linear-gradient(
+        135deg,
+        #059822 0%,
+        #c6bc0d 10%,
+        rgb(8, 138, 147) 25%,
+        rgb(136, 100, 204) 40%,
+        #3d4963 60%,
+        red 80%,
+        #0ab48c 100%
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
     }
 
     .center_footer a {
