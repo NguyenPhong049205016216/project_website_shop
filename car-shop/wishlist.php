@@ -14,28 +14,19 @@ if (!isset($_SESSION['id'])) {
 $user = $_SESSION['id'];
 if (isset($_POST['remove_wishlist'])) {
     $car_id = $_POST['car_id'];
-    mysqli_query($conn, "
-        DELETE FROM wishlist
-        WHERE user_id = $user
-        AND car_id = $car_id
-    ");
+    mysqli_query($conn, "DELETE FROM wishlist WHERE user_id = $user AND car_id = $car_id");
     header("Location: wishlist.php");
     exit();
 }
-$sql = "SELECT c.*, b.brand_name, ct.cartegory_name,
-coalesce(ci.image_urd,c.main_image) as image
+$sql = "SELECT c.*, b.brand_name, ct.cartegory_name, c.main_image AS image
 FROM wishlist w
-JOIN cars c
-ON w.car_id=c.id
-JOIN brands b
-ON c.brand_id=b.id
-JOIN cartegories ct
-ON c.categories_id=ct.id
-left JOIN car_images ci
-on c.id=ci.car_id
+JOIN cars c ON w.car_id=c.id
+JOIN brands b ON c.brand_id=b.id
+JOIN cartegories ct ON c.categories_id=ct.id
 WHERE w.user_id=$user";
 
 $result = mysqli_query($conn, $sql);
+
 $wishlist_count = mysqli_num_rows($result);
 
 $title = "Trang Chủ";
@@ -70,7 +61,7 @@ $title = "Trang Chủ";
                                                 <img src="assets/images/icon/trash.png" style="width: 50px; height: 50px; cursor: pointer;">
                                             </button>
                                         </form>
-                                        <img src="<?= $row['image'] ?>" alt="<?= $row['cars_name'] ?>" class="wishlist_img">
+                                        <img src="/car-shop/<?= $row['image'] ?>" alt="<?= $row['cars_name'] ?>" class="wishlist_img">
                                         <h3><?= $row['brand_name'] ?></h3>
                                         <h3><?= $row['cars_name'] ?></h3>
                                         <p><?= $row['cartegory_name'] ?></p>

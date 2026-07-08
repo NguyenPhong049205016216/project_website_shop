@@ -8,9 +8,9 @@ $sqlBestSeller = "SELECT cars.*, brands.brand_name
         FROM cars
         JOIN brands ON cars.brand_id = brands.id
         WHERE cars.status = 'available'
-        AND cars.quantity > 3
+        AND cars.quantity >=4
         ORDER BY cars.quantity DESC
-        LIMIT 3";
+        ";
 
 $resultBestSeller = mysqli_query($conn, $sqlBestSeller);
 $sql = "SELECT cars.*, brands.brand_name
@@ -136,7 +136,7 @@ include "includes/header.php";
             </div>
 
             <div class="about-content">
-                <span>ABOUT AUTOVIET</span>
+                <span>ABOUT CAR SHOP</span>
                 <h2>Website bán xe hơi hiện đại</h2>
                 <p>
                     Cars-shop là website giúp khách hàng tìm kiếm, xem thông tin và đặt mua xe hơi trực tuyến.

@@ -139,7 +139,6 @@ include "index.php";
                             <table class="user_table" border="1" cellspacing="0">
                                 <thead class="item_head">
                                     <tr>
-                                        <th><input type="checkbox"></th>
                                         <th>id</th>
                                         <th>tài khoản</th>
                                         <th>tên người dùng</th>
@@ -155,7 +154,6 @@ include "index.php";
                                 <tbody>
                                     <?php while ($orders = mysqli_fetch_assoc($result)) { ?>
                                         <tr class="item_head">
-                                            <td><input type="checkbox"></td>
                                             <td><?php echo $orders['id']; ?></td>
                                             <td><?php echo $orders['user_id']; ?></td>
                                             <td><?php echo $orders['customer_name']; ?></td>

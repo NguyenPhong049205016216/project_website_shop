@@ -113,7 +113,6 @@ include "index.php";
                     <table class="user_table" border="2" cellspacing="8">
                         <thead>
                             <tr class="item_head">
-                                <th><input type="checkbox"></th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -129,8 +128,7 @@ include "index.php";
 
                         <tbody>
                             <?php while ($user = mysqli_fetch_assoc($result)): ?>
-                                <tr class="item_head">
-                                    <td><input type="checkbox"></td>
+                                <tr class="item_head">  
                                     <td><?php echo $user['id']; ?></td>
                                     <td>
                                         <div class="user-name">

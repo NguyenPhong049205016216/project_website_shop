@@ -10,8 +10,8 @@ if (isset($_POST['register'])) {
     if (mysqli_num_rows($check) > 0) {
         echo "email đã tồn tại";
     } else {
-        $sql = "insert into user(name, email, password, phone, address, role) 
-                values('$ho_ten', '$email', '$mat_khau', '$phonenumber', '$address', 'user')";
+        $sql = "insert into user(name, email, password, phone, address, rol, status) 
+                values('$ho_ten', '$email', '$mat_khau', '$phonenumber', '$address', 'user', 'active')";
         if (mysqli_query($conn, $sql)) {
             header("Location: login.php");
             exit();
