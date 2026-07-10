@@ -63,7 +63,7 @@ if (isset($_POST['update_user'])) {
                         <label>Status</label>
                         <select name="status">
                             <option value="active" <?php if ($user['status'] == "active") echo "selected"; ?>>Active</option>
-                            <option value="inactive" <?php if ($user['status'] == "inactive") echo "selected"; ?>>Inactive</option>
+                            <option value="inactive" <?php if ($user['status'] == "inactive") echo "selected"; ?>>blocket</option>
                         </select>
                     </div>
                 </div>

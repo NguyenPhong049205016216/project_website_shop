@@ -14,6 +14,52 @@ $categoryResult = mysqli_query(
                  ORDER BY cartegory_name ASC"
 );
 if (isset($_POST['submit'])) {
+    $errors = [];
+    $cars_name = trim($_POST['cars_name']);
+    $price = (int) $_POST['price'];
+    $fuel_type = trim($_POST['fuel_type']);
+    $transmission = trim($_POST['transmission']);
+    $engine = trim($_POST['engine']);
+    $color = trim($_POST['color']);
+    $quantity = (int) $_POST['quantity'];
+    $year = (int) $_POST['year'];
+
+    // Tên xe: tối thiểu 3 ký tự, chữ đầu viết hoa
+    if (strlen($cars_name) < 3) {
+        $errors[] = "Tên xe phải có ít nhất 3 ký tự.";
+    } else {
+        $_POST['cars_name'] = ucfirst($cars_name);
+    }
+    // Giá: từ 10 triệu đến 50 tỷ
+    if ($price < 10000000 || $price > 50000000000) {
+        $errors[] = "Giá xe phải từ 10.000.000 đến 50.000.000.000 VNĐ.";
+    }
+    $fuelAllow = ['Xăng', 'Dầu', 'Điện', 'Hybrid'];
+    if (!in_array($fuel_type, $fuelAllow)) {
+        $errors[] = "Nhiên liệu chỉ được nhập: Xăng, Dầu, Điện hoặc Hybrid.";
+    }
+    if (strlen($transmission) < 3) {
+        $errors[] = "Hộp số không hợp lệ.";
+    }
+    // Động cơ: tối thiểu 3 ký tự
+    if (strlen($engine) < 3) {
+        $errors[] = "Động cơ phải có ít nhất 3 ký tự. Ví dụ: 2.0L, 100KW.";
+    }
+    if (strlen($color) < 2) {
+        $errors[] = "Màu xe không hợp lệ.";
+    }
+    if ($quantity < 0 || $quantity > 1000) {
+        $errors[] = "Số lượng phải từ 0 đến 1000.";
+    }
+    if ($year < 1990 || $year > 2030) {
+        $errors[] = "Năm xe phải từ 1990 đến 2030.";
+    }
+    if (!empty($errors)) {
+        foreach ($errors as $err) {
+            echo "<p style='color:red; font-weight:bold;'>$err</p>";
+        }
+        exit;
+    }
     //upload ảnh
     $file_name = $_FILES['main_image']['name'];
     //biến chứa ảnh tạm thời
@@ -51,6 +97,7 @@ if (isset($_POST['submit'])) {
         }
     });
 </script>
+
 <body>
     <div class="container">
         <div class="main-content">
@@ -84,12 +131,14 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-grcars">
                             <label>Tên xe</label>
-                            <input type="text" name="cars_name" placeholder="Nhập tên xe">
+                            <input type="text" name="cars_name" minlength="3" required oninvalid="this.setCustomValidity('Tên xe phải có ít nhất 3 ký tự')"
+                                oninput="this.setCustomValidity('')">
                         </div>
 
                         <div class="form-grcars">
                             <label>Giá</label>
-                            <input type="number" name="price" min="0" placeholder="650000000">
+                            <input type="number" name="price" min="10000000" max="50000000000" required oninvalid="this.setCustomValidity('Giá xe phải từ 10 triệu đến 50 tỷ đồng')"
+                                oninput="this.setCustomValidity('')">
                         </div>
 
                         <div class="form-grcars">
@@ -104,7 +153,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-grcars">
                             <label>Động cơ</label>
-                            <input type="text" name="engine" placeholder="2.0L">
+                            <input type="text" name="engine" minlength="3" required placeholder="2.0L hoặc 100KW">
                         </div>
 
                         <div class="form-grcars">
@@ -114,12 +163,19 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-grcars">
                             <label>Số lượng</label>
-                            <input type="number" name="quantity" min="0" placeholder="5" required>
+                            <input
+                                type="number"
+                                name="quantity"
+                                min="1"
+                                max="1000"
+                                required
+                                oninvalid="this.setCustomValidity('Số lượng phải từ 1 đến 1000')"
+                                oninput="this.setCustomValidity('')">
                         </div>
 
                         <div class="form-grcars">
                             <label>Năm</label>
-                            <input type="number" name="year" min="0" placeholder="2025">
+                            <input type="number" name="year" min="1990" max="2030" required placeholder="2025">
                         </div>
 
                         <div class="form-grcars">

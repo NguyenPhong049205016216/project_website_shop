@@ -45,7 +45,11 @@
                 <img src="/car-shop/assets/images/icon/icon-order.png" class="sidebar-icon">
                 <span>Orders</span>
             </a>
-            <button class="btn" href="/car-shop/index.php">Logout</button>
+            <form action="/car-shop/logout.php" method="post">
+                <button type="submit" class="btn">
+                    Logout
+                </button>
+            </form>
         </left>
     </div>
 </body>

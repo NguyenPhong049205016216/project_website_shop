@@ -39,6 +39,30 @@ if ($resBrand) {
         $brandRevenue[] = (float)$row['doanh_thu'];
     }
 }
+// Tổng người dùng
+$sqlTotalUsers = "SELECT COUNT(*) AS total FROM `user`";
+$resultTotalUsers = mysqli_query($conn, $sqlTotalUsers);
+$rowTotalUsers = mysqli_fetch_assoc($resultTotalUsers);
+$totalUsers = (int) ($rowTotalUsers['total'] ?? 0);
+
+// Tổng xe
+$sqlTotalCars = "SELECT COUNT(*) AS total FROM cars";
+$resultTotalCars = mysqli_query($conn, $sqlTotalCars);
+$rowTotalCars = mysqli_fetch_assoc($resultTotalCars);
+$totalCars = (int) ($rowTotalCars['total'] ?? 0);
+
+// Tổng danh mục xe
+$sqlTotalCategories = "SELECT COUNT(*) AS total FROM cartegories";
+$resultTotalCategories = mysqli_query($conn, $sqlTotalCategories);
+$rowTotalCategories = mysqli_fetch_assoc($resultTotalCategories);
+$totalCategories = (int) ($rowTotalCategories['total'] ?? 0);
+
+// Tổng đơn hàng
+$sqlTotalOrders = "SELECT COUNT(*) AS total FROM orders";
+$resultTotalOrders = mysqli_query($conn, $sqlTotalOrders);
+$rowTotalOrders = mysqli_fetch_assoc($resultTotalOrders);
+$totalOrders = (int) ($rowTotalOrders['total'] ?? 0);
+
 // truy vấn tổng số đơn hàng, tổng doanh thu, tổng đơn chờ xử lý, tổng xe
 $rowTotal = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong_don, SUM(total_price) AS tong_dt FROM orders"));
 $tongDon  = $rowTotal['tong_don'] ?? 0;
@@ -49,10 +73,13 @@ $tongPend = $rowPend['tong'] ?? 0;
 // truy vấn tổng số xe
 $rowCars  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tong FROM cars"));
 $tongCars = $rowCars['tong'] ?? 0;
-$pagination = getPagination($conn, "brands", 3);
-$sql = "SELECT * FROM orders ORDER BY id DESC
-        LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
+$pagination = getPagination($conn, "orders", 5);
+$sql = "SELECT * FROM orders ORDER BY id DESC LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Lỗi lấy danh sách đơn hàng: " . mysqli_error($conn));
+}
 ?>
 <?php
 include "index.php";
@@ -71,57 +98,75 @@ include "index.php";
                             <option> total user</option>
                             <option> total cars</option>
                             <option> catagories</option>
-                            <option> orther</option>
+                            <option> total order</option>
                         </select>
                     </div>
 
                     <div class="dhb-toof">
+                        <!-- Tổng người dùng -->
                         <div class="stats">
                             <div class="stat-box green">
                                 <span>
-                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
+                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png"
+                                        class="icon-stats"
+                                        alt="Người dùng">
                                 </span>
+
                                 <div>
-                                    <p>total user</p>
-                                    <h3>0</h3>
-                                    <small>đã tham gia</small>
+                                    <p>Tổng người dùng</p>
+                                    <h3><?php echo $totalUsers; ?></h3>
+                                    <small>tài khoản</small>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Tổng xe -->
                         <div class="stats">
                             <div class="stat-box yellow">
                                 <span>
-                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
+                                    <img src="/car-shop/assets/images/icon/ô-tô-3d.png"
+                                        class="icon-stats"
+                                        alt="Xe">
                                 </span>
+
                                 <div>
-                                    <p>total user</p>
-                                    <h3>0</h3>
-                                    <small>đã tham gia</small>
+                                    <p>Tổng xe</p>
+                                    <h3><?php echo $totalCars; ?></h3>
+                                    <small>xe trong hệ thống</small>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Tổng danh mục -->
                         <div class="stats">
                             <div class="stat-box blue">
                                 <span>
-                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
+                                    <img src="/car-shop/assets/images/icon/icon-danhmuc.png"
+                                        class="icon-stats"
+                                        alt="Danh mục">
                                 </span>
+
                                 <div>
-                                    <p>total user</p>
-                                    <h3>0</h3>
-                                    <small>đã tham gia</small>
+                                    <p>Tổng danh mục</p>
+                                    <h3><?php echo $totalCategories; ?></h3>
+                                    <small>loại xe hiện có</small>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Tổng đơn hàng -->
                         <div class="stats">
                             <div class="stat-box purple">
                                 <span>
-                                    <img src="/car-shop/assets/images/icon/nguoi-dung.png" class="icon-stats">
+                                    <img src="/car-shop/assets/images/icon/icon-order.png"
+                                        class="icon-stats"
+                                        alt="Đơn hàng">
                                 </span>
+
                                 <div>
-                                    <p>total user</p>
-                                    <h3>0</h3>
-                                    <small>đã tham gia</small>
+                                    <p>Tổng đơn hàng</p>
+                                    <h3><?php echo $totalOrders; ?></h3>
+                                    <small>đơn trong hệ thống</small>
                                 </div>
                             </div>
                         </div>
@@ -163,8 +208,10 @@ include "index.php";
                                                     <a href="/car-shop/admin/order-detail.php?id=<?php echo $orders['id']; ?>" class="edit-btn">
                                                         <img src="/car-shop/assets/images/icon/edit-but.png" alt="but" class="btn-imgcru">
                                                     </a>
-                                                    <a href="/car-shop/admin/delete-user.php?id=" class="delete-btn">
-                                                        <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                                    <a href="/car-shop/admin/admin-order/delete-order.php?id=<?php echo $orders['id']; ?>"
+                                                        class="delete-btn"
+                                                        onclick="return confirm('Bạn có chắc muốn xóa đơn hàng này không?')">
+                                                        <img src="/car-shop/assets/images/icon/thung-rac.png" alt="delete" class="btn-imgcru">
                                                     </a>
                                                 </div>
                                             </td>

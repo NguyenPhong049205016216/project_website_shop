@@ -41,8 +41,8 @@ $pagination = getPagination($conn, "cars", 5);
 $sql = "SELECT cars.*, brands.brand_name AS brand_name
         FROM cars
         JOIN brands ON cars.brand_id = brands.id
+        WHERE cars.status != 'hidden'
         ORDER BY cars.id DESC
-        -- query lấy dữ liệu  dùng limit
         LIMIT {$pagination['limit']} OFFSET {$pagination['offset']}";
 $result = mysqli_query($conn, $sql);
 
@@ -82,7 +82,8 @@ include "index.php";
                         <select>
                             <option> status: all</option>
                             <option> Active </option>
-                            <option> Out of stock</option>
+                            <option> Sold</option>
+                            <option> Hidden</option>
                         </select>
                     </div>
 
@@ -93,7 +94,7 @@ include "index.php";
                                     <img src="/car-shop/assets/images/icon/loai-xe.png" class="icon-stats">
                                 </span>
                                 <div>
-                                    <p>tổng loại xe</p>
+                                    <p>Tổng xe trong kho</p>
                                     <h3>
                                         <?php
                                         echo $totalCars;
@@ -110,7 +111,7 @@ include "index.php";
                                     <img src="/car-shop/assets/images/icon/icon-tickxanh.png" class="icon-stats">
                                 </span>
                                 <div>
-                                    <p>xe có sẳn</p>
+                                    <p>Xe có sẳn</p>
                                     <h3><?php echo $totalxekho; ?></h3>
                                     <small>có sẳn để bán</small>
                                 </div>
@@ -123,7 +124,7 @@ include "index.php";
                                     <img src="/car-shop/assets/images/icon/icon-hethang.png" class="icon-stats">
                                 </span>
                                 <div>
-                                    <p>hết hàng</p>
+                                    <p>Hết hàng</p>
                                     <h3><?php echo $totalHetHang; ?> </h3>
                                     <small>không còn sẳn</small>
                                 </div>
@@ -136,7 +137,7 @@ include "index.php";
                                     <img src="/car-shop/assets/images/icon/icon-danhmuc.png" class="icon-stats">
                                 </span>
                                 <div>
-                                    <p>xe đã xóa</p>
+                                    <p>Xe đã xóa</p>
                                     <h3><?php echo $totalHiddenCars; ?></h3>
                                     <small>status hidden</small>
                                 </div>
@@ -155,16 +156,16 @@ include "index.php";
                         <thead class="item_head">
                             <tr>
                                 <th>ID</th>
-                                <th>ảnh xe</th>
-                                <th>name</th>
-                                <th>giá</th>
-                                <th>hản xe</th>
-                                <th>loại xe</th>
-                                <th>số lượng</th>
-                                <th>nhiên liệu</th>
-                                <th>số sàng</th>
-                                <th>động cơ</th>
-                                <th>trạng thái</th>
+                                <th>Ảnh xe</th>
+                                <th>Tên xe</th>
+                                <th>Giá</th>
+                                <th>Hản xe</th>
+                                <th>Loại xe</th>
+                                <th>Số lượng</th>
+                                <th>Nhiên liệu</th>
+                                <th>Số sàng</th>
+                                <th>Động cơ</th>
+                                <th>Trạng thái</th>
                                 <th>CRUD</th>
                                 <th>Xóa</th>
                             </tr>
@@ -200,8 +201,12 @@ include "index.php";
                                     </td>
                                     <td>
                                         <div class="crud-icon">
-                                             <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>" class="delete-btn">
-                                                <img src="/car-shop/assets/images/icon/thung-rac.png" alt="but" class="btn-imgcru">
+                                            <a href="/car-shop/admin/admin-cars/delete-cars.php?id=<?php echo $car['id']; ?>"
+                                                class="delete-btn"
+                                                onclick="return confirm('Bạn có chắc muốn xóa xe này không?')">
+                                                <img src="/car-shop/assets/images/icon/thung-rac.png"
+                                                    alt="Xóa xe"
+                                                    class="btn-imgcru">
                                             </a>
                                         </div>
                                     </td>

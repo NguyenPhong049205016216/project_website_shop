@@ -9,12 +9,15 @@ if (isset($_POST["login"])) {
 
     if (mysqli_num_rows($sql) > 0) {
         $nguoi_dung = mysqli_fetch_assoc($sql);
-        if ($password == $nguoi_dung['password']) {
+        if ($nguoi_dung['status'] === 'blocket') {
+            $error = "Tài khoản của bạn đã bị vô hiệu hóa.";
+        } elseif ($password == $nguoi_dung['password']) {
             $_SESSION['id'] = $nguoi_dung['id'];
             $_SESSION['name'] = $nguoi_dung['name'];
             $_SESSION['email'] = $nguoi_dung['email'];
             $_SESSION['phonenumber'] = $nguoi_dung['phone'];
             $_SESSION['role'] = $nguoi_dung['role'];
+
             if ($nguoi_dung['role'] == 'admin') {
                 header("Location: admin/dashboard.php");
             } else {
@@ -22,7 +25,7 @@ if (isset($_POST["login"])) {
             }
             exit();
         } else {
-            $error = "sai password";
+            $error = "Sai mật khẩu.";
         }
     } else {
         $error = "email không tồn tại";
@@ -88,4 +91,5 @@ if (isset($_POST["login"])) {
     </div>
 </body>
 <script src="assets/js/user-login.js"></script>
+
 </html>
